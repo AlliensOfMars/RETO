@@ -137,7 +137,7 @@ public Vehiculo( BigDecimal idVehiculo,String matricula, String marca, String mo
     }
 
 
-    public static Vehiculo filtrarvehiculo(String matricula) {
+    public static Vehiculo filtrarVehiculo(String matricula) {
         Vehiculo v;
 
         Conexion.conectar();
@@ -161,6 +161,47 @@ public Vehiculo( BigDecimal idVehiculo,String matricula, String marca, String mo
             return null;
         }
 
+    }
+    
+    public static boolean bajaVehiculo(BigDecimal idV){
+     
+      try {
+            Conexion.conectar();
+            PreparedStatement ps = Conexion.getConexion().prepareStatement("delete from vehiculos where ID=?");
+            ps.setBigDecimal(1, idV);
+            ps.execute();
+            ps.close();
+            Conexion.desconectar();
+            return true;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "No se puede efectuar la conexión, hable con el administrador del sistema \n" + ex.getMessage());
+            return false;
+        }
+   
+     }
+    
+      public boolean modificarVehiculo(BigDecimal idV) {
+
+        Conexion.conectar();
+
+        try {
+            PreparedStatement ps = Conexion.getConexion().prepareStatement("UPDATE VEHICULOS SET matricula=?,marca=?,"
+                    +"modelo=? WHERE ID=?");
+            ps.setString(1, matricula);
+            ps.setString(2, marca);
+            ps.setString(3, modelo);
+            ps.setBigDecimal(4, idV);
+       
+
+            ps.executeUpdate();
+            ps.close();
+            Conexion.desconectar();
+            return true;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "No se puede efectuar la conexión, hable con el administrador del sistema \n" + ex.getMessage());
+            return false;
+        }
+        
     }
     
 }

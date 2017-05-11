@@ -149,7 +149,7 @@ public class AltaCentros extends javax.swing.JFrame {
 //ESTO FUNCIONA
     private void altaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altaActionPerformed
 
-        //esto funciona en 12c
+       
        
         String name = nombre.getText();
         String street = calle.getText();
