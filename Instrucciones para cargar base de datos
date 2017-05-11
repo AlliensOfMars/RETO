@@ -1,0 +1,9 @@
+CÓMO PREPARAR LA BASE DE DATOS:
+
+Se necesitan dos archivos que están en la propia carpeta del proyecto.
+
+Se abre la carpeta del proyecto/baseDatos/Scripts/12cFinalScript para cargar las tablas en oracle.
+
+Después se compilan los procedimientos desde la carpeta: proyecto/baseDatos/Scripts/procedimientosFinales.
+
+
