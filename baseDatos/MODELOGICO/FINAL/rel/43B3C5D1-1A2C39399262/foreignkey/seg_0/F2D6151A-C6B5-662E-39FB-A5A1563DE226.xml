@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="F2D6151A-C6B5-662E-39FB-A5A1563DE226" containerWithKeyObject="3C2BCE23-03DF-F566-7D5C-8DBBDE0C3114" localFKIndex="54F7B2CA-E488-26E0-12F0-932440A877E7" name="VIAJES_PARTES_FK">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>7770565D-7622-5E5A-9DBB-CAC56569B111</importedID>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>431D4A3E-6A4D-043F-4FD5-A0F56224C62F</referredTableID>
+<keyObject>BA5DC407-7D27-AF87-F221-9F3E4D5641E3</keyObject>
+<referredKeyID>BA5DC407-7D27-AF87-F221-9F3E4D5641E3</referredKeyID>
+<mandatory>false</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

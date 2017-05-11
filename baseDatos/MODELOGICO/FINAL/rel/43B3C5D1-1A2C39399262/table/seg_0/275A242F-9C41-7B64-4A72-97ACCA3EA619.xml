@@ -1,0 +1,110 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="275A242F-9C41-7B64-4A72-97ACCA3EA619" name="VEHICULOS">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>A03FDF6F-BD8E-07E3-F19E-43A88CBF678F</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="6613916C-65BF-C081-3E3A-5B6EF4F063B5">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>5DA1604C-2530-EEF2-D07F-3D4278BF0D66</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7A8802CB-73FC-106D-8609-82F55997C09D</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="marca" id="787D89ED-6E6E-3B1F-69D9-9A20EF00DA87">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>DBB4302A-E71B-40E1-B15F-9DECBEF9A8EA</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>071A8657-4F84-BE67-345C-0D292DFB417B</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="modelo" id="652A9155-81ED-8245-5EA0-B527E4A3070F">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>758E6C98-C383-973E-F669-19A44C8D58B2</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>071A8657-4F84-BE67-345C-0D292DFB417B</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="matricula" id="EE849A0B-A925-C94D-F3D7-7AAC37A5315A">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>E4225418-6291-F26C-9261-1AB64184C8C3</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>54B373A6-F4A2-249A-03B7-0E5B877EBDFE</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha" id="C619B99E-F98D-DCDD-00C8-5486C5DC1F10">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>CD8045F4-DD72-AB0F-5C12-B87500169BFD</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7A8802CB-73FC-106D-8609-82F55997C09D</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D24ACEE0-F419-885E-4E0A-39BA98B0EC8B" referredColumn="39593D06-8FFC-2ABB-A363-CE003D094545"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="DDB99B9B-6B80-814A-50EA-CE4AC6F728F2" name="VEHICULOS_PK">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>57B33DAF-4EA8-2667-8AF9-0207BCADA47B</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6613916C-65BF-C081-3E3A-5B6EF4F063B5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9C02724B-C728-88B0-5132-31883D054A4B" name="VHC_TRF_FK">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C619B99E-F98D-DCDD-00C8-5486C5DC1F10"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="CND_TID_FK" directorySegmentName="seg_0" id="B05611BD-ECBE-7A27-F3D5-11AD5BB9E165">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:34:31 UTC</createdTime>
+<generatorID>778E9D6D-9CBA-6B21-7C6E-D6996B1241D0</generatorID>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<engineerTo>
+<item key="61FB2CD1-DA6E-7C1E-B69C-3DEA72A011A9" value="true"/>
+<item key="9406D1C9-843B-98A7-743C-0368AEBF7C9A" value="true"/>
+</engineerTo>
+<sourcePk>2E6CA9EE-7F9B-795A-13D7-929E2190CC60</sourcePk>
+<identifying>true</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>49737FE9-42C3-4ECC-BB2A-1FEA1E066E13</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>09D973D9-0C53-2ECA-9EEE-DE998D6F6C50</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

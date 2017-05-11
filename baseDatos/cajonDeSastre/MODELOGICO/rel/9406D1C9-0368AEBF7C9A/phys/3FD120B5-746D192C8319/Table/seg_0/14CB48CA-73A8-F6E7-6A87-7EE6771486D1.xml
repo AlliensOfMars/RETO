@@ -1,0 +1,67 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="VIAJES" directorySegmentName="seg_0" id="14CB48CA-73A8-F6E7-6A87-7EE6771486D1">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="ID" id="625311D9-0950-FE11-7F8B-0BBFE3DD2EFF">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<autoIncrementDDL>IDENTITY_CLAUSE</autoIncrementDDL>
+</ColumnProxy>
+<ColumnProxy name="PARTES_TRABAJADORES_ID" id="86BA8EDA-65F5-3BFC-998C-5FFF54727C86">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="horaInicial" id="8A3D68A7-959A-2AA8-2471-7F77CA4E98A4">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<defaultValue>0</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="horaFinal" id="ACED728E-833D-18F7-097B-8585548C6E14">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<defaultValue>0</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="PARTES_fecha" id="E1A2F3BE-BAF2-15B1-5943-D99427FA228D">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="VIAJES_PARTES_FK" id="D70EB9B6-6087-527E-8E21-3CA3DF5A3F9B">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="VIAJES_PK" id="837252CD-3E79-715F-BAA3-AAA30E60DB40">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+<tableCheckConstraints itemClass="oracle.dbtools.crest.model.design.storage.oracle.TableCheckConstraintOracle">
+<TableCheckConstraint name="VJS_HF_CHK" id="78FEE43D-F7AB-8EE6-8809-C989BDD941F9">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+</TableCheckConstraint>
+<TableCheckConstraint name="VJS_HI_CHK" id="ECDC94F1-AAEF-6193-FB03-EF45376D1A92">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+</TableCheckConstraint>
+</tableCheckConstraints>
+</TableProxyOraclev12c>

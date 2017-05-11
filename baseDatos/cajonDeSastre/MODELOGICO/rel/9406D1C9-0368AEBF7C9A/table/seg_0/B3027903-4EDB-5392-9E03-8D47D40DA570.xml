@@ -1,0 +1,77 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B3027903-4EDB-5392-9E03-8D47D40DA570" name="USUARIOS">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>D8A1F9CD-029F-0829-4FAC-3330FBBF27F8</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="usuario" id="42A4320E-11C9-DA97-605B-FE55E14C8697">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>0BB64D4D-39DA-752C-AA62-10ADA1492EDB</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>0D7D440C-7606-0EAB-F3A6-EC18999168DB</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="password" id="FA713579-0A40-75C9-03CC-C6BCB634FAAA">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>FD611D87-E67F-6114-E16D-FA5580BFEDCA</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>7478D6CD-7432-2689-20AF-D1C291DA7A16</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TRABAJADORES_ID" id="2FABAE8C-DAA8-7694-2966-63D12887E589">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>2AB288DC-9559-AF72-CB04-543F4072F2D1</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>D1D6408E-9F18-17E2-0006-25E6531CD77C</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6759B6E4-6E4D-9009-5A25-447475FE031D" referredColumn="457AFA36-23E8-442B-0BA8-C6937CE00B1B"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="78267AB5-6F5F-F4B5-9396-759D05CA53DB" name="USUARIOS_PK">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>36B5A0A1-98C8-D0C5-3C32-4C703BF9F7E1</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="42A4320E-11C9-DA97-605B-FE55E14C8697"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E2FC4B35-8414-51F5-F163-0A8CC4BB7BF1" name="USUARIOS_TRABAJADORES_FK">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2FABAE8C-DAA8-7694-2966-63D12887E589"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

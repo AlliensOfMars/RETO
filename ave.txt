@@ -1,0 +1,36 @@
+BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        System.out.print("nombre: ");
+        char nombre = br.readLine().charAt(0);
+        System.out.print("ap1: ");
+        String ap1 = br.readLine();
+        System.out.print("ap2: ");
+        char ap2 = br.readLine().charAt(0);
+        String usuario = new String(String.valueOf(nombre).concat(ap1).concat(String.valueOf(ap2)));
+
+        String pass [] = new  String [8];
+
+        String letras = "TRWAGMYFPDXBNJZSQVHLCKEtrwagmyfpdxbnjzsqvhlcke";
+        String numeros= "0123456789";
+
+        Random dLetras = new Random();
+        Random dNumero = new Random();
+
+        int pL = dLetras.nextInt(44);
+        int pN = dNumero.nextInt(9);
+        char letra = letras.charAt(pL);
+        char numero = numeros.charAt(pN);
+        System.out.println(pL+" "+letra+" "+pN+" "+numero);
+
+        int i = 0;
+
+        while (i<8){
+
+            if(pass[i-1].contains(numeros)){
+
+            }
+
+        }
+
+    }
+}

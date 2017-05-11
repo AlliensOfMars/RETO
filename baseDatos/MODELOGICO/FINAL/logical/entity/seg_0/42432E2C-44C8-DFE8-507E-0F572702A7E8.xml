@@ -1,0 +1,80 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="42432E2C-44C8-DFE8-507E-0F572702A7E8" name="USUARIOS">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:09:15 UTC</createdTime>
+<generatorID>92A74339-A91C-4025-DF3F-34965E035569</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<engineerTo>
+<item key="67A8670C-CF95-9CF5-A156-D43EBF7DC2CB" value="true"/>
+<item key="43B3C5D1-FDEB-E580-2898-1A2C39399262" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="usuario" id="515ADC0B-1CBE-CC90-8B44-4CD9A7CDAA75">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:09:15 UTC</createdTime>
+<generatorID>9D97E446-E896-F37A-D9D9-A39813066F99</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<engineerTo>
+<item key="67A8670C-CF95-9CF5-A156-D43EBF7DC2CB" value="true"/>
+<item key="43B3C5D1-FDEB-E580-2898-1A2C39399262" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>372698F8-591C-9938-AE73-E1E10BDCDECD</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="password" id="823C0628-329C-B6AA-4FFA-2694BDF8F160">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:09:15 UTC</createdTime>
+<generatorID>B271AEA2-225B-540D-62C7-A1A1E779AFB5</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<engineerTo>
+<item key="67A8670C-CF95-9CF5-A156-D43EBF7DC2CB" value="true"/>
+<item key="43B3C5D1-FDEB-E580-2898-1A2C39399262" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>A26FB206-766B-BB8E-0504-C91F1754C6D7</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="TRABAJADORES ID" id="28483EF4-2E8E-CB47-BDCC-2CB4EFD8AC5B">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:09:15 UTC</createdTime>
+<generatorID>2A7EDB2B-914D-7728-130C-84F280CC58C5</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<engineerTo>
+<item key="67A8670C-CF95-9CF5-A156-D43EBF7DC2CB" value="true"/>
+<item key="43B3C5D1-FDEB-E580-2898-1A2C39399262" value="true"/>
+</engineerTo>
+<referedAttribute>7F8611BF-9550-34D6-BB21-F79FC4D2A31C</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7A8802CB-73FC-106D-8609-82F55997C09D</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="4FD24396-6A35-5587-E554-7A9283C97348" name="USUARIOS PK">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:09:15 UTC</createdTime>
+<generatorID>777AD1EB-77C8-58AF-40F4-AF0129079D39</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<engineerTo>
+<item key="67A8670C-CF95-9CF5-A156-D43EBF7DC2CB" value="true"/>
+<item key="43B3C5D1-FDEB-E580-2898-1A2C39399262" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>515ADC0B-1CBE-CC90-8B44-4CD9A7CDAA75</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

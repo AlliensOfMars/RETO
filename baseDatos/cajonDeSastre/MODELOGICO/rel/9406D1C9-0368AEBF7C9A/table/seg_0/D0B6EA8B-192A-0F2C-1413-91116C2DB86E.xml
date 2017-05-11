@@ -1,0 +1,80 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D0B6EA8B-192A-0F2C-1413-91116C2DB86E" name="VEHICULOS">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>F534190E-ABA8-5D6B-5F54-8EAEF62A59F1</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="B01AA73E-0F63-640E-90B8-68214C341B65">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>1E788D54-4382-482D-1D30-5E9947E656AE</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>D1D6408E-9F18-17E2-0006-25E6531CD77C</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementGenerateAlways>true</autoIncrementGenerateAlways>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementOrder>false</autoIncrementOrder>
+</Column>
+<Column name="marca" id="F2AE8CA4-4EC2-A829-6299-9519F4FABD57">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>809A9627-FFED-6DD3-B84C-78D0F5A1A728</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>5F7DB759-2F2E-9396-C3BC-9F12E8AF10E8</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="modelo" id="48900C10-C54D-C589-112B-848952C047BE">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>ABA2B57D-BCFA-42D9-431C-0BD2E345719A</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>5F7DB759-2F2E-9396-C3BC-9F12E8AF10E8</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="matricula" id="CFFCBC87-D26C-DCDB-C1FB-E5F7B4E49C36">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>6A3B7306-62FA-D893-85DF-176EA853EE9F</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>0983D480-8FE8-B71B-8E38-5EFCC20ED240</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D49E0C73-A641-2459-B35B-DAC3D4AC6FAF" name="VEHICULOS_PK">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>EC598F82-4A28-3ABC-51D1-0F8005F8BFC5</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B01AA73E-0F63-640E-90B8-68214C341B65"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

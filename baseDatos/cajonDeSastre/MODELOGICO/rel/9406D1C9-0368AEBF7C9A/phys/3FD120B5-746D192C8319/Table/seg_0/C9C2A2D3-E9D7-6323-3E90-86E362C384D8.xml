@@ -1,0 +1,48 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="AVISOS" directorySegmentName="seg_0" id="C9C2A2D3-E9D7-6323-3E90-86E362C384D8">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="PARTES_fecha" id="11D6705B-0762-066E-73AF-728B268AC55F">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="aviso" id="8CCB27AA-58CD-DFFB-24AD-8A6CF2E860FD">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ID" id="B5B18425-5BEC-A676-FCEB-C55D93E462E9">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<autoIncrementDDL>IDENTITY_CLAUSE</autoIncrementDDL>
+</ColumnProxy>
+<ColumnProxy name="PARTES_TRABAJADORES_ID" id="CE0C4A1F-BFA2-0110-F3AB-1D48813A01AE">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="AVISOS_PARTES_FK" id="3115A5BE-253D-1499-4B73-9CD58C4A70FF">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="AVISOS_PK" id="A0B4259D-0D13-C3E4-B0D3-7908BB4E3694">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

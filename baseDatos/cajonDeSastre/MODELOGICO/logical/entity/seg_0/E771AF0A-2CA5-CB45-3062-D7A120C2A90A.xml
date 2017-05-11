@@ -1,0 +1,222 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="E771AF0A-2CA5-CB45-3062-D7A120C2A90A" name="PARTES">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:34:31 UTC</createdTime>
+<generatorID>D82E2E82-CB6A-A1CB-117A-C88BDFC1EEAB</generatorID>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<engineerTo>
+<item key="61FB2CD1-DA6E-7C1E-B69C-3DEA72A011A9" value="true"/>
+<item key="9406D1C9-843B-98A7-743C-0368AEBF7C9A" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="fecha" id="6E0FF26E-7908-5A6D-0115-FAB5F5D69DA9">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:34:31 UTC</createdTime>
+<generatorID>5629E8CF-04FA-12B6-7C6D-4AE33DA477E6</generatorID>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<engineerTo>
+<item key="61FB2CD1-DA6E-7C1E-B69C-3DEA72A011A9" value="true"/>
+<item key="9406D1C9-843B-98A7-743C-0368AEBF7C9A" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>37AB9123-D339-75FA-BB7D-6C82144ADCFA</domain>
+<defaultValue>SYSDATE</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="kmInicial" id="9E7BE58C-0EDC-AB7B-2534-5C0A2DD68A34">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:34:31 UTC</createdTime>
+<generatorID>B6E70134-9311-0750-475A-F1A3A76DD031</generatorID>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<engineerTo>
+<item key="61FB2CD1-DA6E-7C1E-B69C-3DEA72A011A9" value="true"/>
+<item key="9406D1C9-843B-98A7-743C-0368AEBF7C9A" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>A133E88B-6A71-E855-E9EF-2EEFE1C4BA5A</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="kmFinal" id="5E539E28-E862-D5CB-10C8-FBEA8C584152">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:34:31 UTC</createdTime>
+<generatorID>756BF187-5039-7352-EAD0-F8121063A5A9</generatorID>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<engineerTo>
+<item key="61FB2CD1-DA6E-7C1E-B69C-3DEA72A011A9" value="true"/>
+<item key="9406D1C9-843B-98A7-743C-0368AEBF7C9A" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>A133E88B-6A71-E855-E9EF-2EEFE1C4BA5A</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="gastosPeaje" id="8D56F2A7-9107-EF8A-6218-8971513DF4EA">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:34:31 UTC</createdTime>
+<generatorID>2B269D3B-637D-B210-F30B-E54273D2657B</generatorID>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<engineerTo>
+<item key="61FB2CD1-DA6E-7C1E-B69C-3DEA72A011A9" value="true"/>
+<item key="9406D1C9-843B-98A7-743C-0368AEBF7C9A" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>F0DEAC9B-54B3-496F-5D04-DE21609AA1F7</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="gastosDietas" id="7C40AC38-DF54-8BFF-8948-C5FD73AFFAEB">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:34:31 UTC</createdTime>
+<generatorID>0680FB52-F8EE-1E51-E52B-9A2C53F6F1F2</generatorID>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<engineerTo>
+<item key="61FB2CD1-DA6E-7C1E-B69C-3DEA72A011A9" value="true"/>
+<item key="9406D1C9-843B-98A7-743C-0368AEBF7C9A" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>F0DEAC9B-54B3-496F-5D04-DE21609AA1F7</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="gastosCombustible" id="33EE80BA-8F69-385D-DF6D-FF12D8112BCE">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:34:31 UTC</createdTime>
+<generatorID>ED7AA840-E96E-8617-512E-41833CD78D70</generatorID>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<engineerTo>
+<item key="61FB2CD1-DA6E-7C1E-B69C-3DEA72A011A9" value="true"/>
+<item key="9406D1C9-843B-98A7-743C-0368AEBF7C9A" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>F0DEAC9B-54B3-496F-5D04-DE21609AA1F7</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="otrosGastos" id="C4016B4F-F7B0-E9B0-959B-51A908ACF7FA">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:34:31 UTC</createdTime>
+<generatorID>CA31D65F-C0E3-EEB8-3F96-8E858741E7B9</generatorID>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<engineerTo>
+<item key="61FB2CD1-DA6E-7C1E-B69C-3DEA72A011A9" value="true"/>
+<item key="9406D1C9-843B-98A7-743C-0368AEBF7C9A" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>F0DEAC9B-54B3-496F-5D04-DE21609AA1F7</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="incidencias" id="90D34865-9CAD-52FB-CCBA-C4EE88AF25C6">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:34:31 UTC</createdTime>
+<generatorID>5B50B369-252E-895C-8580-ACFC341EA42D</generatorID>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<engineerTo>
+<item key="61FB2CD1-DA6E-7C1E-B69C-3DEA72A011A9" value="true"/>
+<item key="9406D1C9-843B-98A7-743C-0368AEBF7C9A" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>F5E1D5B3-4C25-3483-C59A-161BB4B310AD</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="estado" id="3F094083-45F6-641D-4A2D-C28AD99C7E93">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:34:31 UTC</createdTime>
+<generatorID>E35887FD-B33E-EA68-6339-B78D22541FF1</generatorID>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<engineerTo>
+<item key="61FB2CD1-DA6E-7C1E-B69C-3DEA72A011A9" value="true"/>
+<item key="9406D1C9-843B-98A7-743C-0368AEBF7C9A" value="true"/>
+</engineerTo>
+<constraintName>PRT_STD_CHK</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>F753FB23-30F7-1AE2-EB70-A09C039EB744</domain>
+<listOfValues>
+<valueDef value="ABIERTO" description=""/>
+<valueDef value="CERRADO" description=""/>
+</listOfValues>
+<defaultValue>&apos;ABIERTO&apos;</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="validado" id="78D0879F-790A-4835-2532-0C12602C2FCA">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:34:31 UTC</createdTime>
+<generatorID>94F98EF7-E89C-A53F-BC56-2609BB511B71</generatorID>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<engineerTo>
+<item key="61FB2CD1-DA6E-7C1E-B69C-3DEA72A011A9" value="true"/>
+<item key="9406D1C9-843B-98A7-743C-0368AEBF7C9A" value="true"/>
+</engineerTo>
+<constraintName>PRT_VLD_CHK</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>15187AAF-88BA-5E47-113E-B7A657DF76D7</domain>
+<listOfValues>
+<valueDef value="NO" description=""/>
+<valueDef value="SI" description=""/>
+</listOfValues>
+<defaultValue>&apos;NO&apos;</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="TRABAJADORES ID" id="066D8BC4-D7A1-FED0-8941-2B73F85DD40D">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:34:31 UTC</createdTime>
+<generatorID>170A29EF-6E42-E093-B481-E06B179CC45E</generatorID>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<engineerTo>
+<item key="61FB2CD1-DA6E-7C1E-B69C-3DEA72A011A9" value="true"/>
+<item key="9406D1C9-843B-98A7-743C-0368AEBF7C9A" value="true"/>
+</engineerTo>
+<referedAttribute>3D6A7B51-B40C-B13E-F8C3-D4A311AC95B7</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>D1D6408E-9F18-17E2-0006-25E6531CD77C</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="FF240F3A-6F49-2570-1D7C-314DB6D1E92E" name="PARTES PK">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:34:31 UTC</createdTime>
+<generatorID>25647472-09EE-2D84-499A-8878721F0779</generatorID>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="61FB2CD1-DA6E-7C1E-B69C-3DEA72A011A9" value="true"/>
+<item key="9406D1C9-843B-98A7-743C-0368AEBF7C9A" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>066D8BC4-D7A1-FED0-8941-2B73F85DD40D</attributeRef>
+<attributeRef>6E0FF26E-7908-5A6D-0115-FAB5F5D69DA9</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

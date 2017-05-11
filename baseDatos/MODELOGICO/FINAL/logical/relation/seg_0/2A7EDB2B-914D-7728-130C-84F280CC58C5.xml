@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="USUARIOS_TRABAJADORES_FK" directorySegmentName="seg_0" id="2A7EDB2B-914D-7728-130C-84F280CC58C5">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:09:15 UTC</createdTime>
+<generatorID>E4D0AC00-2874-CDFD-83DC-41279927CE79</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<engineerTo>
+<item key="67A8670C-CF95-9CF5-A156-D43EBF7DC2CB" value="true"/>
+<item key="43B3C5D1-FDEB-E580-2898-1A2C39399262" value="true"/>
+</engineerTo>
+<sourcePk>70B8DB43-9482-6075-9E5D-2766CA6E648F</sourcePk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>30523932-347F-1E8D-DCCE-CC2FC0D34F6C</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>42432E2C-44C8-DFE8-507E-0F572702A7E8</targetEntity>
+<transferable>true</transferable>
+<deleteRule>CASCADE</deleteRule>
+</Relation>

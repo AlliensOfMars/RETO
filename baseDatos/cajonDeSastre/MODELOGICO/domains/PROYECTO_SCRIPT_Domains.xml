@@ -1,0 +1,219 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<DomainFile class="oracle.dbtools.crest.model.design.DomainFileWrapper" fileName="PROYECTO_SCRIPT_Domains">
+   <domains>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_9" id="093E585E-997F-32EA-49FE-8329FB2C464C">
+         <createdBy>7fprog03</createdBy>
+         <createdTime>2017-04-06 18:31:14 UTC</createdTime>
+         <ownerDesignName>MODELOGICO</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>9</dataTypeSize>
+         <fileName>PROYECTO_SCRIPT_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_15" id="0983D480-8FE8-B71B-8E38-5EFCC20ED240">
+         <createdBy>7fprog03</createdBy>
+         <createdTime>2017-04-06 18:31:14 UTC</createdTime>
+         <ownerDesignName>MODELOGICO</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>15</dataTypeSize>
+         <fileName>PROYECTO_SCRIPT_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_25" id="0D7D440C-7606-0EAB-F3A6-EC18999168DB">
+         <createdBy>7fprog03</createdBy>
+         <createdTime>2017-04-06 18:31:14 UTC</createdTime>
+         <ownerDesignName>MODELOGICO</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>25</dataTypeSize>
+         <fileName>PROYECTO_SCRIPT_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_2" id="15187AAF-88BA-5E47-113E-B7A657DF76D7">
+         <createdBy>7fprog03</createdBy>
+         <createdTime>2017-04-06 18:31:14 UTC</createdTime>
+         <ownerDesignName>MODELOGICO</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>2</dataTypeSize>
+         <fileName>PROYECTO_SCRIPT_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_200" id="19A1DFBE-050D-D6D3-2E70-3CA27B04F38D">
+         <createdBy>7fprog03</createdBy>
+         <createdTime>2017-04-06 18:31:14 UTC</createdTime>
+         <ownerDesignName>MODELOGICO</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>200</dataTypeSize>
+         <fileName>PROYECTO_SCRIPT_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="Date_0_0_0" id="37AB9123-D339-75FA-BB7D-6C82144ADCFA">
+         <createdBy>7fprog03</createdBy>
+         <createdTime>2017-04-06 18:31:14 UTC</createdTime>
+         <ownerDesignName>MODELOGICO</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <fileName>PROYECTO_SCRIPT_Domains</fileName>
+         <logicalDatatype>LOGDT007</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_4_2_0" id="3C6FECDB-6B8E-D259-975B-5BAB08DB57C7">
+         <createdBy>7fprog03</createdBy>
+         <createdTime>2017-04-06 18:31:14 UTC</createdTime>
+         <ownerDesignName>MODELOGICO</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>4</dataTypePrecision>
+         <dataTypeScale>2</dataTypeScale>
+         <dataTypeSize>0</dataTypeSize>
+         <fileName>PROYECTO_SCRIPT_Domains</fileName>
+         <logicalDatatype>LOGDT019</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_50" id="5F7DB759-2F2E-9396-C3BC-9F12E8AF10E8">
+         <createdBy>7fprog03</createdBy>
+         <createdTime>2017-04-06 18:31:14 UTC</createdTime>
+         <ownerDesignName>MODELOGICO</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>50</dataTypeSize>
+         <fileName>PROYECTO_SCRIPT_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_9_2_0" id="60598B40-A5B6-F01A-915B-572C45D013F0">
+         <createdBy>7fprog03</createdBy>
+         <createdTime>2017-04-06 18:31:14 UTC</createdTime>
+         <ownerDesignName>MODELOGICO</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>9</dataTypePrecision>
+         <dataTypeScale>2</dataTypeScale>
+         <dataTypeSize>0</dataTypeSize>
+         <fileName>PROYECTO_SCRIPT_Domains</fileName>
+         <logicalDatatype>LOGDT019</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_4_0_0" id="683E55BE-2BD6-765E-0D1B-1C9769665DE4">
+         <createdBy>7fprog03</createdBy>
+         <createdTime>2017-04-06 18:31:14 UTC</createdTime>
+         <ownerDesignName>MODELOGICO</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>4</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>0</dataTypeSize>
+         <fileName>PROYECTO_SCRIPT_Domains</fileName>
+         <logicalDatatype>LOGDT019</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_30" id="7478D6CD-7432-2689-20AF-D1C291DA7A16">
+         <createdBy>7fprog03</createdBy>
+         <createdTime>2017-04-06 18:31:14 UTC</createdTime>
+         <ownerDesignName>MODELOGICO</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>30</dataTypeSize>
+         <fileName>PROYECTO_SCRIPT_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_20" id="889FC415-10D8-51EF-F319-0E04CEAC6C1D">
+         <createdBy>7fprog03</createdBy>
+         <createdTime>2017-04-06 18:31:14 UTC</createdTime>
+         <ownerDesignName>MODELOGICO</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>20</dataTypeSize>
+         <fileName>PROYECTO_SCRIPT_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_5_0_0" id="98293A86-C6B0-F2B4-0F83-DD97ECE87D0C">
+         <createdBy>7fprog03</createdBy>
+         <createdTime>2017-04-06 18:31:14 UTC</createdTime>
+         <ownerDesignName>MODELOGICO</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>5</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>0</dataTypeSize>
+         <fileName>PROYECTO_SCRIPT_Domains</fileName>
+         <logicalDatatype>LOGDT019</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_7_0_0" id="A133E88B-6A71-E855-E9EF-2EEFE1C4BA5A">
+         <createdBy>7fprog03</createdBy>
+         <createdTime>2017-04-06 18:31:14 UTC</createdTime>
+         <ownerDesignName>MODELOGICO</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>7</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>0</dataTypeSize>
+         <fileName>PROYECTO_SCRIPT_Domains</fileName>
+         <logicalDatatype>LOGDT019</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_0_0_0" id="D1D6408E-9F18-17E2-0006-25E6531CD77C">
+         <createdBy>7fprog03</createdBy>
+         <createdTime>2017-04-06 18:31:14 UTC</createdTime>
+         <ownerDesignName>MODELOGICO</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <fileName>PROYECTO_SCRIPT_Domains</fileName>
+         <logicalDatatype>LOGDT019</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_2_0_0" id="D9802EC9-AEE1-255A-E57C-2F664966FDBD">
+         <createdBy>7fprog03</createdBy>
+         <createdTime>2017-04-06 18:31:14 UTC</createdTime>
+         <ownerDesignName>MODELOGICO</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>2</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>0</dataTypeSize>
+         <fileName>PROYECTO_SCRIPT_Domains</fileName>
+         <logicalDatatype>LOGDT019</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_15_0_0" id="EF8FF8F0-8131-54F0-2F29-EE943F36279E">
+         <createdBy>7fprog03</createdBy>
+         <createdTime>2017-04-06 18:31:14 UTC</createdTime>
+         <ownerDesignName>MODELOGICO</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>15</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>0</dataTypeSize>
+         <fileName>PROYECTO_SCRIPT_Domains</fileName>
+         <logicalDatatype>LOGDT019</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_7_2_0" id="F0DEAC9B-54B3-496F-5D04-DE21609AA1F7">
+         <createdBy>7fprog03</createdBy>
+         <createdTime>2017-04-06 18:31:14 UTC</createdTime>
+         <ownerDesignName>MODELOGICO</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>7</dataTypePrecision>
+         <dataTypeScale>2</dataTypeScale>
+         <dataTypeSize>0</dataTypeSize>
+         <fileName>PROYECTO_SCRIPT_Domains</fileName>
+         <logicalDatatype>LOGDT019</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_1000" id="F5E1D5B3-4C25-3483-C59A-161BB4B310AD">
+         <createdBy>7fprog03</createdBy>
+         <createdTime>2017-04-06 18:31:14 UTC</createdTime>
+         <ownerDesignName>MODELOGICO</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>1000</dataTypeSize>
+         <fileName>PROYECTO_SCRIPT_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_7" id="F753FB23-30F7-1AE2-EB70-A09C039EB744">
+         <createdBy>7fprog03</createdBy>
+         <createdTime>2017-04-06 18:31:14 UTC</createdTime>
+         <ownerDesignName>MODELOGICO</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>7</dataTypeSize>
+         <fileName>PROYECTO_SCRIPT_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+   </domains>
+</DomainFile>

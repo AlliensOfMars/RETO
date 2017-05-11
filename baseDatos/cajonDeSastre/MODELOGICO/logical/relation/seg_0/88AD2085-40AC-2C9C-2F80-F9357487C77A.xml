@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="VIAJES_PARTES_FK" directorySegmentName="seg_0" id="88AD2085-40AC-2C9C-2F80-F9357487C77A">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:34:31 UTC</createdTime>
+<generatorID>48104A92-5514-2F16-C9B1-9D3D11B0F351</generatorID>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<engineerTo>
+<item key="61FB2CD1-DA6E-7C1E-B69C-3DEA72A011A9" value="true"/>
+<item key="9406D1C9-843B-98A7-743C-0368AEBF7C9A" value="true"/>
+</engineerTo>
+<sourcePk>FF240F3A-6F49-2570-1D7C-314DB6D1E92E</sourcePk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>E771AF0A-2CA5-CB45-3062-D7A120C2A90A</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>64083F0A-9C0E-5578-A27C-C3DE2AC72939</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

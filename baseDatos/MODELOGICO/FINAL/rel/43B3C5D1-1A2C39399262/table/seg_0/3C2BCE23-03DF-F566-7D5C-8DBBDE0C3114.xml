@@ -1,0 +1,123 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3C2BCE23-03DF-F566-7D5C-8DBBDE0C3114" name="VIAJES">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>341DDB19-161C-F594-9498-0013BD2EBAE8</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="horaInicial" id="C91920CB-005C-9380-A03C-0A4CF9941CD1">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>B0FFBB59-BEBD-8B66-0B13-1B33E064C131</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>C9CD462B-5952-D576-1A5A-B667B0A76811</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="horaFinal" id="7260DE5F-8CB5-7F23-77A6-CA0796ED35B7">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>BE8AEBF7-2D19-B590-37F4-7188845E3F23</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>C9CD462B-5952-D576-1A5A-B667B0A76811</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TRABAJADORES_ID" id="B77B87DD-BF75-6361-2D3A-59F4C5114254">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>2C88173C-FA1B-8C08-2FA5-45DC0EF22C1C</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7A8802CB-73FC-106D-8609-82F55997C09D</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F2D6151A-C6B5-662E-39FB-A5A1563DE226" referredColumn="39593D06-8FFC-2ABB-A363-CE003D094545"/>
+</associations>
+</Column>
+<Column name="FECHA_ID" id="7BC82B2C-AC5A-0DAC-064B-D3930B3CE01C">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>85CE7B1E-778F-A009-5E45-FD080DB02E6D</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>3F9E9E2B-7FC5-7DA7-227D-D7D39DD01290</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F2D6151A-C6B5-662E-39FB-A5A1563DE226" referredColumn="E5193FB5-0469-082D-C5DA-C803ED8FBA9D"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3616354F-B8E4-7464-1AD9-A9A8CA55F7A6" name="VIAJES_PK">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>9931AB08-604D-6E7D-3965-4F46818650AE</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C91920CB-005C-9380-A03C-0A4CF9941CD1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="54F7B2CA-E488-26E0-12F0-932440A877E7" name="VIAJES_PARTES_FK">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B77B87DD-BF75-6361-2D3A-59F4C5114254"/>
+<colUsage columnID="7BC82B2C-AC5A-0DAC-064B-D3930B3CE01C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+<tableCheckConstraints itemClass="oracle.dbtools.crest.model.design.constraint.TableLevelConstraint">
+<tableCheckConstraint name="VJS_HF_CHK" directorySegmentName="seg_0" id="8EF2B4B7-118B-E16E-3A24-D1552EDD1735">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>E3BF9ADF-CDFA-6AF9-D06F-37D937A5D05D</importedID>
+<rule>HORAFINAL &gt; HORAINICIAL</rule>
+</tableCheckConstraint>
+<tableCheckConstraint name="VJS_HI_CHK" directorySegmentName="seg_0" id="843B645D-559C-18EA-A0B9-E455153CF571">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>B6C449C5-B1B7-4DAB-D667-0CA55134C897</importedID>
+<rule>HORAINICIAL &gt;= 0</rule>
+</tableCheckConstraint>
+</tableCheckConstraints>
+</Table>

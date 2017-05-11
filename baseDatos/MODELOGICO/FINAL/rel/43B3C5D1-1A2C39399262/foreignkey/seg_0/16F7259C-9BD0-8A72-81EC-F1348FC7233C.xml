@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="16F7259C-9BD0-8A72-81EC-F1348FC7233C" containerWithKeyObject="B7A0A339-43B9-4E94-FF2B-5E2CC14239BF" localFKIndex="FF8E50BE-D37F-2B43-4237-4C418DE54413" name="AVISOS_PARTES_FK">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>04E0F440-696E-3D95-805E-78B4617D473A</importedID>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>431D4A3E-6A4D-043F-4FD5-A0F56224C62F</referredTableID>
+<keyObject>BA5DC407-7D27-AF87-F221-9F3E4D5641E3</keyObject>
+<referredKeyID>BA5DC407-7D27-AF87-F221-9F3E4D5641E3</referredKeyID>
+<mandatory>false</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

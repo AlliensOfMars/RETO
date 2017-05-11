@@ -1,0 +1,244 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D82E2E82-CB6A-A1CB-117A-C88BDFC1EEAB" name="PARTES">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>4AF3FF7E-DD7D-41CB-F21B-8746878BB8E9</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="fecha" id="5629E8CF-04FA-12B6-7C6D-4AE33DA477E6">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>1655A79C-FF8D-C005-E12D-C7821946EAC7</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>37AB9123-D339-75FA-BB7D-6C82144ADCFA</domain>
+<defaultValue>SYSDATE</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="kmInicial" id="B6E70134-9311-0750-475A-F1A3A76DD031">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>669616BA-D97F-4128-C822-E1F4DC228E72</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>A133E88B-6A71-E855-E9EF-2EEFE1C4BA5A</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="kmFinal" id="756BF187-5039-7352-EAD0-F8121063A5A9">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>16513F9E-B5B6-AFE0-2C96-CEE3B5A877EF</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>A133E88B-6A71-E855-E9EF-2EEFE1C4BA5A</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="gastosPeaje" id="2B269D3B-637D-B210-F30B-E54273D2657B">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>E09D9665-4EBE-62E5-8699-DB657095A87B</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>F0DEAC9B-54B3-496F-5D04-DE21609AA1F7</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="gastosDietas" id="0680FB52-F8EE-1E51-E52B-9A2C53F6F1F2">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>D4736408-A823-1FC6-B61E-18BE32EEB01D</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>F0DEAC9B-54B3-496F-5D04-DE21609AA1F7</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="gastosCombustible" id="ED7AA840-E96E-8617-512E-41833CD78D70">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>72733A93-CA60-C730-A591-947D06D3CA21</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>F0DEAC9B-54B3-496F-5D04-DE21609AA1F7</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="otrosGastos" id="CA31D65F-C0E3-EEB8-3F96-8E858741E7B9">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>C22AD882-6A56-CFB4-E083-5711EE48D431</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>F0DEAC9B-54B3-496F-5D04-DE21609AA1F7</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="incidencias" id="5B50B369-252E-895C-8580-ACFC341EA42D">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>35FE6700-0493-D7D0-22B9-8D9DA7B47AFB</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>F5E1D5B3-4C25-3483-C59A-161BB4B310AD</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="estado" id="E35887FD-B33E-EA68-6339-B78D22541FF1">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>68F767EE-A4CB-F3E6-A9C0-462AA29F0659</importedID>
+<constraintName>PRT_STD_CHK</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>F753FB23-30F7-1AE2-EB70-A09C039EB744</domain>
+<listOfValues>
+<valueDef value="ABIERTO" description=""/>
+<valueDef value="CERRADO" description=""/>
+</listOfValues>
+<defaultValue>&apos;ABIERTO&apos;</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="validado" id="94F98EF7-E89C-A53F-BC56-2609BB511B71">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>40070A3C-3E47-8762-9DE6-13277FA7A697</importedID>
+<constraintName>PRT_VLD_CHK</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>15187AAF-88BA-5E47-113E-B7A657DF76D7</domain>
+<listOfValues>
+<valueDef value="NO" description=""/>
+<valueDef value="SI" description=""/>
+</listOfValues>
+<defaultValue>&apos;NO&apos;</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TRABAJADORES_ID" id="7EAE86ED-A354-4D7D-1468-0B3754E2862F">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>6D659DC7-F32C-F19A-7A92-8098420ED212</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>D1D6408E-9F18-17E2-0006-25E6531CD77C</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F9580781-C873-5289-19C0-FF6CF5F5E39B" referredColumn="457AFA36-23E8-442B-0BA8-C6937CE00B1B"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="25647472-09EE-2D84-499A-8878721F0779" name="PARTES_PK">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>4D0ACBA4-E5BE-44B9-2EC9-2D06B0A09F29</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7EAE86ED-A354-4D7D-1468-0B3754E2862F"/>
+<colUsage columnID="5629E8CF-04FA-12B6-7C6D-4AE33DA477E6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7BB28C9D-B703-A5C8-52AF-0E599D0E4A45" name="PARTES_TRABAJADORES_FK">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7EAE86ED-A354-4D7D-1468-0B3754E2862F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+<tableCheckConstraints itemClass="oracle.dbtools.crest.model.design.constraint.TableLevelConstraint">
+<tableCheckConstraint name="PRT_KMF_CHK" directorySegmentName="seg_0" id="90449E8E-21BF-F7CA-D218-9F8437D6E71B">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>1DB8E9AD-176D-D96D-5F19-4A214009D770</importedID>
+<rule>kmFinal&gt; kmInicial</rule>
+</tableCheckConstraint>
+<tableCheckConstraint name="PRT_KMI_CHK" directorySegmentName="seg_0" id="11DA214F-D5A4-D697-79F4-8851DA354324">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>C7692483-710C-FFFD-9645-35C58D921743</importedID>
+<rule>kmInicial &lt; kmFinal AND kmInicial &gt;= 0</rule>
+</tableCheckConstraint>
+<tableCheckConstraint name="PRT_GSP_CHK" directorySegmentName="seg_0" id="16E91E38-40B4-36D1-BFAC-FA628AEB60EA">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>0BEA45DA-EBB2-C9E4-E5D8-E6DDB76BFC68</importedID>
+<rule>gastosPeaje&gt;=0</rule>
+</tableCheckConstraint>
+<tableCheckConstraint name="PRT_GSC_CHK" directorySegmentName="seg_0" id="C588588E-2542-1091-F353-11759450C205">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>58F13C59-3759-6318-6F90-ACA4F96E24F9</importedID>
+<rule>gastosCombustible&gt;=0</rule>
+</tableCheckConstraint>
+<tableCheckConstraint name="PRT_OTG_CHK" directorySegmentName="seg_0" id="09E60D3A-8A1C-60F6-277F-81D9B2F9B6D7">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>F85458A2-896B-C316-F34C-351D4E446A26</importedID>
+<rule>otrosGastos&gt;=0</rule>
+</tableCheckConstraint>
+</tableCheckConstraints>
+</Table>

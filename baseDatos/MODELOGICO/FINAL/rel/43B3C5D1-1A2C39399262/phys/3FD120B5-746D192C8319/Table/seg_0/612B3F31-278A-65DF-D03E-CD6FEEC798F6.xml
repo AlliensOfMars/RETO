@@ -1,0 +1,138 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="TRABAJADORES" directorySegmentName="seg_0" id="612B3F31-278A-65DF-D03E-CD6FEEC798F6">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="dni" id="13F5F8A6-99E8-B1DC-6072-08E1FEFECB0A">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="piso" id="147C7B61-C30B-1797-65D4-1FD8186E8447">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="numero" id="15587393-76AB-3DFF-32FA-F59F2662B542">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ciudad" id="1CC5E051-F818-1138-7A5F-7861400EFBBE">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="movilEmpresa" id="35199DD1-503E-EAC0-2B9B-DEF9E8C1E10B">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="salario" id="473A6AA1-F753-F869-3F13-1AA97CA701A2">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="nombre" id="71750FBF-073B-5393-0C4D-019D86EE4CA3">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="segundoApellido" id="7A988482-18C6-B996-D07A-A1BA18A6B3D5">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="calle" id="81EF4D17-95B6-D3C6-1B87-CF01D9020FD3">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="fechaNacimiento" id="AFDAE1EC-5C5D-DC6F-4505-A823B467CF25">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ID" id="C08C0833-6F10-9657-5840-6528A37096CF">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="movilPersonal" id="CD628DD7-F2EE-EE69-A550-5591F3C3CBFD">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="provincia" id="D69371CA-56ED-B9B2-0171-E1F0375FFE4D">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="codigoPostal" id="DE3E6131-AA92-78DA-9682-3E7C511AA02C">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="primerApellido" id="E0E38C8F-27C0-D533-3D43-319F7376DC20">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CENTROS_ID" id="E997209D-A47C-EBAC-C47C-E0D52CB8AC93">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="mano" id="F0A89A60-9502-DD92-361A-B8007A47BD7C">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="categoria" id="F1470D87-0DEE-B446-2915-81EF2075EC7D">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="TRABAJADORES_CENTROS_FK" id="46502EE5-6409-813E-4310-8BB0E84BA0E9">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="TRABAJADORES_PK" id="AA9DA175-7CF0-D20D-54BF-FAB98DC47993">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

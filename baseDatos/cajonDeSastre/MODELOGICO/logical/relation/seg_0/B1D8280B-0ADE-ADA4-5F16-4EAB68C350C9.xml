@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="AVISOS_PARTES_FK" directorySegmentName="seg_0" id="B1D8280B-0ADE-ADA4-5F16-4EAB68C350C9">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:34:31 UTC</createdTime>
+<generatorID>4AD9A621-D692-99F1-AF6B-0586A2768502</generatorID>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<engineerTo>
+<item key="61FB2CD1-DA6E-7C1E-B69C-3DEA72A011A9" value="true"/>
+<item key="9406D1C9-843B-98A7-743C-0368AEBF7C9A" value="true"/>
+</engineerTo>
+<sourcePk>FF240F3A-6F49-2570-1D7C-314DB6D1E92E</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>E771AF0A-2CA5-CB45-3062-D7A120C2A90A</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>E5382CC3-B292-A523-5DD9-D298FC070D7C</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

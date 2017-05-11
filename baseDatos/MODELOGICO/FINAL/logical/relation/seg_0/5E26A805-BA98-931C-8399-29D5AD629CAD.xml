@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="TRABAJADORES_CENTROS_FK" directorySegmentName="seg_0" id="5E26A805-BA98-931C-8399-29D5AD629CAD">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:09:15 UTC</createdTime>
+<generatorID>70BF6212-8C1B-F949-F26C-4FA55BD4423F</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<engineerTo>
+<item key="67A8670C-CF95-9CF5-A156-D43EBF7DC2CB" value="true"/>
+<item key="43B3C5D1-FDEB-E580-2898-1A2C39399262" value="true"/>
+</engineerTo>
+<sourcePk>5A8099EB-B8F3-45B4-E2A6-2612F38CEC56</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>97AC9DE5-30CB-D88E-EDD6-B64467065066</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>30523932-347F-1E8D-DCCE-CC2FC0D34F6C</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

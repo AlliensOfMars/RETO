@@ -1,0 +1,102 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B7A0A339-43B9-4E94-FF2B-5E2CC14239BF" name="AVISOS">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>E9023E09-6B48-CB94-F184-7713B3B7DE76</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="B2EEF3EE-4601-3818-3295-BC93053FCC52">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>91645557-D514-8F3C-7DA0-2ED0733FA4C0</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7A8802CB-73FC-106D-8609-82F55997C09D</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="aviso" id="13C2A98E-F7EA-F366-E72B-2114CF7B8315">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>9DBB4913-0870-E914-0BEE-0F5287CA29E6</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>FB26DA6C-6A76-85D1-8B7D-A53FD599AD81</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TRABAJADORES_ID" id="B49E0F36-465D-3C65-BA76-AFFB0BBA03F4">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>CAB33015-7203-2745-76B4-3A7F6798300A</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7A8802CB-73FC-106D-8609-82F55997C09D</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="16F7259C-9BD0-8A72-81EC-F1348FC7233C" referredColumn="39593D06-8FFC-2ABB-A363-CE003D094545"/>
+</associations>
+</Column>
+<Column name="FECHA_ID" id="99CD84CE-F239-50C3-872B-5443F5AB01D5">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>5FACEDB2-7B43-DCC6-D490-8C3BD7BD8A66</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>3F9E9E2B-7FC5-7DA7-227D-D7D39DD01290</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="16F7259C-9BD0-8A72-81EC-F1348FC7233C" referredColumn="E5193FB5-0469-082D-C5DA-C803ED8FBA9D"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="BE19AA44-9CCD-29C8-FFA1-1FF725D86D85" name="AVISOS_PK">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>ECCC03A1-25E6-DCAE-F429-1F6547C83BEC</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B2EEF3EE-4601-3818-3295-BC93053FCC52"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FF8E50BE-D37F-2B43-4237-4C418DE54413" name="AVISOS_PARTES_FK">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B49E0F36-465D-3C65-BA76-AFFB0BBA03F4"/>
+<colUsage columnID="99CD84CE-F239-50C3-872B-5443F5AB01D5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

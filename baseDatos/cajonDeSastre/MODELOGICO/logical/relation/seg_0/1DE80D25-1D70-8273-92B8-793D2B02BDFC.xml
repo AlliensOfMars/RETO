@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="CND_VID_FK" directorySegmentName="seg_0" id="1DE80D25-1D70-8273-92B8-793D2B02BDFC">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:34:31 UTC</createdTime>
+<generatorID>2135FC8B-6A65-596A-4D0F-A89D66275220</generatorID>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<engineerTo>
+<item key="61FB2CD1-DA6E-7C1E-B69C-3DEA72A011A9" value="true"/>
+<item key="9406D1C9-843B-98A7-743C-0368AEBF7C9A" value="true"/>
+</engineerTo>
+<sourcePk>0A682993-36FE-BE99-03D3-7897F8257675</sourcePk>
+<identifying>true</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>57E33392-0EF6-0065-5436-DF9229BFCEF9</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>09D973D9-0C53-2ECA-9EEE-DE998D6F6C50</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

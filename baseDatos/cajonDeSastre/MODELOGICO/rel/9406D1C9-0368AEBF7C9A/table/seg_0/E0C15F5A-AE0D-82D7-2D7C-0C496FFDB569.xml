@@ -1,0 +1,267 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E0C15F5A-AE0D-82D7-2D7C-0C496FFDB569" name="TRABAJADORES">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>F3764AC0-546B-F849-E5E0-7C83F0166886</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="457AFA36-23E8-442B-0BA8-C6937CE00B1B">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>A2BE4B64-7964-1FCD-FCF5-29A978D3446D</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>D1D6408E-9F18-17E2-0006-25E6531CD77C</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementGenerateAlways>true</autoIncrementGenerateAlways>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementOrder>false</autoIncrementOrder>
+</Column>
+<Column name="dni" id="26A1BA92-26D1-BAD6-2B3C-30C6689B6DD5">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>07C7AD5B-1F26-850C-66BD-09FCBCF220BE</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>093E585E-997F-32EA-49FE-8329FB2C464C</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre" id="12BBBB88-0912-9F5F-CEC7-D362DB239A77">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>A86C9DF0-2EBE-B8D2-07F9-89154A06B651</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>5F7DB759-2F2E-9396-C3BC-9F12E8AF10E8</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="primerApellido" id="9685A8D5-4100-FA03-DA77-1497BA492A12">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>6D83A76F-8EB8-6CE2-31CA-7F1B8AE966BC</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>889FC415-10D8-51EF-F319-0E04CEAC6C1D</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="segundoApellido" id="DDD1C160-CE99-2D28-A1F8-01067E5E3A03">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>2677E6BC-F667-3986-E6A9-2200936EFEB9</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>889FC415-10D8-51EF-F319-0E04CEAC6C1D</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="categoria" id="F441467C-0A44-BDF7-F66B-6706BAA11822">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>49399DE4-03C5-9316-CF52-C047D52AB7A4</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>0D7D440C-7606-0EAB-F3A6-EC18999168DB</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="calle" id="8B2B3B61-7A08-1610-03BF-4E2BB4D40CB4">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>8AD56B69-9864-2709-0F6A-0F84917F3B26</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>19A1DFBE-050D-D6D3-2E70-3CA27B04F38D</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="numero" id="8E828ADD-F584-7800-8068-FC94599B8D7B">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>D0D3177A-B69E-C586-9E55-CFE06A93D88D</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>683E55BE-2BD6-765E-0D1B-1C9769665DE4</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="piso" id="8AB6A9D1-FDB3-5D04-65AF-C1F2C8613DF7">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>C758FAD5-CC5D-CF42-C439-4C019DA9CA17</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>D9802EC9-AEE1-255A-E57C-2F664966FDBD</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="mano" id="2353F1BA-57B0-FDB0-D06E-4DF287029DCD">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>21D590BE-52D7-27EE-FCF8-2DC080FACC38</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>889FC415-10D8-51EF-F319-0E04CEAC6C1D</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ciudad" id="5DA62854-F20E-DED9-84FD-AFD6360BB990">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>2990A165-AEAE-3965-37C4-B8588E3DB0CE</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>5F7DB759-2F2E-9396-C3BC-9F12E8AF10E8</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="codigoPostal" id="A5CC12A5-8010-58EA-499D-ABC120D83C44">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>3BBCFA68-8D5A-425F-09D8-C892728F1F49</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>98293A86-C6B0-F2B4-0F83-DD97ECE87D0C</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="provincia" id="01D61D2B-AA5D-5C95-9839-124403695ACE">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>0CB141CC-D1BE-58A7-8D85-00CA31BF0112</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>5F7DB759-2F2E-9396-C3BC-9F12E8AF10E8</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="movilEmpresa" id="A769E20D-2325-F459-E3BB-9880C0C180A5">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>EADDEDAB-77BE-A3B4-226C-926833DC9D8C</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>EF8FF8F0-8131-54F0-2F29-EE943F36279E</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="movilPersonal" id="10C3DB0A-0CF2-B393-D975-0FB409B20056">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>682200F2-C3DC-0551-DB2A-FD8C1C4E3D7B</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>EF8FF8F0-8131-54F0-2F29-EE943F36279E</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="salario" id="62B9C28F-A412-A9DB-52DD-5E1EC1FDD0B3">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>0573E392-77C7-5A55-976B-926CC814DDAC</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>60598B40-A5B6-F01A-915B-572C45D013F0</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fechaNacimiento" id="713C0692-BE0D-70CF-3A23-68CC41B27D45">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>E4AECD83-88A2-B782-B4A7-BFBEB66AC201</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>37AB9123-D339-75FA-BB7D-6C82144ADCFA</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CENTROS_ID" id="D559C314-E653-5DDA-B0F6-4DBFCAAE6412">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>86BAA437-F072-CFBF-1C76-DADB9B13CC59</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>D1D6408E-9F18-17E2-0006-25E6531CD77C</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1F8AE481-75FF-2F1A-6485-6B6B66453961" referredColumn="A8C40A2E-245E-05A4-CCFA-654A8D72F3EB"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B20FCDF1-7170-C1BA-D02D-C75BD07C246D" name="TRABAJADORES_PK">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>D59603BF-086A-0E02-5C0C-6781C168D545</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="457AFA36-23E8-442B-0BA8-C6937CE00B1B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BA2487C5-4E50-1088-8ED3-8DCDFB3B2454" name="TRABAJADORES_CENTROS_FK">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D559C314-E653-5DDA-B0F6-4DBFCAAE6412"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

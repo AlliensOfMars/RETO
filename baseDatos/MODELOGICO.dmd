@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="MODELOGICO" id="4E3FA773-9004-94FE-F954-56A802AE0A9A" version="3.5">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:30:38 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>4E3FA773-9004-94FE-F954-56A802AE0A9A</designId>
+<usedDesignStorageDescriptors>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="FDB15EB9-4784-F5CC-9244-E797EE94EE1E">
+<designStoragePath>C:\PROYECTO_SCRIPT</designStoragePath>
+</designDescr>
+</usedDesignStorageDescriptors>
+</OSDM_Design>

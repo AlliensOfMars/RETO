@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<relationalModel class="oracle.dbtools.crest.model.design.relational.RelationalDesign" name="PROYECTO_SCRIPT" id="9406D1C9-843B-98A7-743C-0368AEBF7C9A" mainViewID="F2C71975-9368-F0AF-C20E-4871F2875E26">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:02 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+<selectedRDBMSSite>3FD120B5-9F4E-6278-D5E2-746D192C8319</selectedRDBMSSite>
+<importDDLFileStamps>
+<importDDLFileStamp class="oracle.dbtools.crest.imports.DDLFileStamp">
+<fileName>PROYECTO_SCRIPT.SQL</fileName>
+<pathName>C:\Users\7fprog03\Desktop</pathName>
+<dbType>11</dbType>
+</importDDLFileStamp>
+</importDDLFileStamps>
+</relationalModel>
