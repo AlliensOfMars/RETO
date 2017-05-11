@@ -1,0 +1,220 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="DCFF3439-35CF-4827-3179-506779A0634E" name="PARTES">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:09:15 UTC</createdTime>
+<generatorID>431D4A3E-6A4D-043F-4FD5-A0F56224C62F</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<engineerTo>
+<item key="67A8670C-CF95-9CF5-A156-D43EBF7DC2CB" value="true"/>
+<item key="43B3C5D1-FDEB-E580-2898-1A2C39399262" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="fecha" id="FC61D2BD-2C7D-2DEA-70B7-9445466FA32D">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:09:15 UTC</createdTime>
+<generatorID>E5193FB5-0469-082D-C5DA-C803ED8FBA9D</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<engineerTo>
+<item key="67A8670C-CF95-9CF5-A156-D43EBF7DC2CB" value="true"/>
+<item key="43B3C5D1-FDEB-E580-2898-1A2C39399262" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>3F9E9E2B-7FC5-7DA7-227D-D7D39DD01290</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="kmInicial" id="B10A08C3-567E-6D07-D509-1C29BABA0516">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:09:15 UTC</createdTime>
+<generatorID>A7E29A22-CBEE-CB9D-B810-B6F37BDC2C32</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<engineerTo>
+<item key="67A8670C-CF95-9CF5-A156-D43EBF7DC2CB" value="true"/>
+<item key="43B3C5D1-FDEB-E580-2898-1A2C39399262" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7A8802CB-73FC-106D-8609-82F55997C09D</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="kmFinal" id="D7B7BD57-B8DB-6BD6-0DA1-34C3147B5E1E">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:09:15 UTC</createdTime>
+<generatorID>BD648C7F-7267-0615-37E1-308857B32071</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<engineerTo>
+<item key="67A8670C-CF95-9CF5-A156-D43EBF7DC2CB" value="true"/>
+<item key="43B3C5D1-FDEB-E580-2898-1A2C39399262" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7A8802CB-73FC-106D-8609-82F55997C09D</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="gastosPeaje" id="4CADECB0-5FB5-0F04-76B2-632B2DF2D374">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:09:15 UTC</createdTime>
+<generatorID>52450710-FBE1-91D2-F38E-E8921F626D1A</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<engineerTo>
+<item key="67A8670C-CF95-9CF5-A156-D43EBF7DC2CB" value="true"/>
+<item key="43B3C5D1-FDEB-E580-2898-1A2C39399262" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>CCE151D5-FDC4-447B-8A25-E53BE94FBC9A</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="gastosDietas" id="D9FA42E9-A743-A070-FF73-344D39CE729D">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:09:15 UTC</createdTime>
+<generatorID>F2A3E248-BFB0-DC07-DD34-BE9841C64D74</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<engineerTo>
+<item key="67A8670C-CF95-9CF5-A156-D43EBF7DC2CB" value="true"/>
+<item key="43B3C5D1-FDEB-E580-2898-1A2C39399262" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>CCE151D5-FDC4-447B-8A25-E53BE94FBC9A</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="gastosCombustible" id="D766B6A0-2CE1-AD2A-3183-8829FE4091F7">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:09:15 UTC</createdTime>
+<generatorID>FA91E460-3EE4-353B-954E-BBE8BCDBE432</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<engineerTo>
+<item key="67A8670C-CF95-9CF5-A156-D43EBF7DC2CB" value="true"/>
+<item key="43B3C5D1-FDEB-E580-2898-1A2C39399262" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>CCE151D5-FDC4-447B-8A25-E53BE94FBC9A</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="otrosGastos" id="ECDC736C-C69B-E95B-25AE-0E606D4F6B3C">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:09:15 UTC</createdTime>
+<generatorID>962DC7DD-072D-86F7-59AD-E983835DDC4E</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<engineerTo>
+<item key="67A8670C-CF95-9CF5-A156-D43EBF7DC2CB" value="true"/>
+<item key="43B3C5D1-FDEB-E580-2898-1A2C39399262" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>CCE151D5-FDC4-447B-8A25-E53BE94FBC9A</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="incidencias" id="E2376833-D536-F95E-6A4D-C9B8D92E4F92">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:09:15 UTC</createdTime>
+<generatorID>0B3E10ED-DF51-33FA-03A3-9446803ACFC4</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<engineerTo>
+<item key="67A8670C-CF95-9CF5-A156-D43EBF7DC2CB" value="true"/>
+<item key="43B3C5D1-FDEB-E580-2898-1A2C39399262" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>FB26DA6C-6A76-85D1-8B7D-A53FD599AD81</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="estado" id="0F2428AC-A452-EFE2-E64B-43670050336B">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:09:15 UTC</createdTime>
+<generatorID>B1DCBB55-71E3-5116-A7FF-57CD5396F9B9</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<engineerTo>
+<item key="67A8670C-CF95-9CF5-A156-D43EBF7DC2CB" value="true"/>
+<item key="43B3C5D1-FDEB-E580-2898-1A2C39399262" value="true"/>
+</engineerTo>
+<constraintName>PRT_STD_CHK</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>306710CF-D121-085C-2A35-A9F65E3B197F</domain>
+<listOfValues>
+<valueDef value="ABIERTO" description=""/>
+<valueDef value="CERRADO" description=""/>
+</listOfValues>
+<defaultValue>&apos;ABIERTO&apos;</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="validado" id="6E4DD11B-09B4-4524-B01E-CF941EBCADFA">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:09:15 UTC</createdTime>
+<generatorID>BC544ACA-A574-32F9-DEC7-B0CFD8EC210D</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<engineerTo>
+<item key="67A8670C-CF95-9CF5-A156-D43EBF7DC2CB" value="true"/>
+<item key="43B3C5D1-FDEB-E580-2898-1A2C39399262" value="true"/>
+</engineerTo>
+<constraintName>PRT_VLD_CHK</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>8E035AAF-9DB5-AA10-BFD9-FE8ECA583F24</domain>
+<listOfValues>
+<valueDef value="NO" description=""/>
+<valueDef value="SI" description=""/>
+</listOfValues>
+<defaultValue>&apos;NO&apos;</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="TRABAJADORES ID" id="F4C2D338-8363-9ECD-75BA-C5FB36266E50">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:09:15 UTC</createdTime>
+<generatorID>92C11BD5-CA7E-C4BB-4DB4-0630CE6A1B8E</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<engineerTo>
+<item key="67A8670C-CF95-9CF5-A156-D43EBF7DC2CB" value="true"/>
+<item key="43B3C5D1-FDEB-E580-2898-1A2C39399262" value="true"/>
+</engineerTo>
+<referedAttribute>7F8611BF-9550-34D6-BB21-F79FC4D2A31C</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7A8802CB-73FC-106D-8609-82F55997C09D</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="B09B282B-06FF-3CD2-F491-05C5F34D04FD" name="PARTES PK">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:09:15 UTC</createdTime>
+<generatorID>BA5DC407-7D27-AF87-F221-9F3E4D5641E3</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<engineerTo>
+<item key="67A8670C-CF95-9CF5-A156-D43EBF7DC2CB" value="true"/>
+<item key="43B3C5D1-FDEB-E580-2898-1A2C39399262" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>F4C2D338-8363-9ECD-75BA-C5FB36266E50</attributeRef>
+<attributeRef>FC61D2BD-2C7D-2DEA-70B7-9445466FA32D</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

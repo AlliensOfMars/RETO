@@ -1,0 +1,149 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="97AC9DE5-30CB-D88E-EDD6-B64467065066" name="CENTROS">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:09:15 UTC</createdTime>
+<generatorID>AF18EC93-AF2C-93F0-98D3-AF2041471903</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<engineerTo>
+<item key="67A8670C-CF95-9CF5-A156-D43EBF7DC2CB" value="true"/>
+<item key="43B3C5D1-FDEB-E580-2898-1A2C39399262" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID" id="EB73E3B6-B2A3-6611-0865-883E36B0C642">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:09:15 UTC</createdTime>
+<generatorID>70414B76-9070-DD87-E9D7-BFD169D25310</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<engineerTo>
+<item key="67A8670C-CF95-9CF5-A156-D43EBF7DC2CB" value="true"/>
+<item key="43B3C5D1-FDEB-E580-2898-1A2C39399262" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7A8802CB-73FC-106D-8609-82F55997C09D</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nombre" id="83E241BB-3CD3-F59B-76B7-5BD497BE4402">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:09:15 UTC</createdTime>
+<generatorID>F90F4239-0958-2157-3D9C-9A8A8541A6D5</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<engineerTo>
+<item key="67A8670C-CF95-9CF5-A156-D43EBF7DC2CB" value="true"/>
+<item key="43B3C5D1-FDEB-E580-2898-1A2C39399262" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>071A8657-4F84-BE67-345C-0D292DFB417B</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="calle" id="1B62A471-1035-7B93-8FA3-355738A3522B">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:09:15 UTC</createdTime>
+<generatorID>F5104D53-58BD-61FB-5F84-AE2A021E1B14</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<engineerTo>
+<item key="67A8670C-CF95-9CF5-A156-D43EBF7DC2CB" value="true"/>
+<item key="43B3C5D1-FDEB-E580-2898-1A2C39399262" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>293F4DAB-0A5D-9FF2-24C1-7DC643A37716</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="numero" id="A300E05B-EA48-319A-9A66-07AAF6047949">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:09:15 UTC</createdTime>
+<generatorID>037E0794-07ED-1F30-671A-004582642002</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<engineerTo>
+<item key="67A8670C-CF95-9CF5-A156-D43EBF7DC2CB" value="true"/>
+<item key="43B3C5D1-FDEB-E580-2898-1A2C39399262" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7A8802CB-73FC-106D-8609-82F55997C09D</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ciudad" id="556EA0B7-BA6F-14F8-1B98-5C5B267DAF9C">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:09:15 UTC</createdTime>
+<generatorID>F1EB683B-3A6E-3BC0-696A-61920E156CAC</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<engineerTo>
+<item key="67A8670C-CF95-9CF5-A156-D43EBF7DC2CB" value="true"/>
+<item key="43B3C5D1-FDEB-E580-2898-1A2C39399262" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>071A8657-4F84-BE67-345C-0D292DFB417B</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="codigoPostal" id="5FFE86DC-2B27-E99A-080A-94CE3A7EF5BB">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:09:15 UTC</createdTime>
+<generatorID>5EA9FDE6-6D6E-14C9-4B46-2FAB8A589B37</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<engineerTo>
+<item key="67A8670C-CF95-9CF5-A156-D43EBF7DC2CB" value="true"/>
+<item key="43B3C5D1-FDEB-E580-2898-1A2C39399262" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7A8802CB-73FC-106D-8609-82F55997C09D</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="provincia" id="D5D1137C-B226-C88F-6C46-F1A611DB343A">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:09:15 UTC</createdTime>
+<generatorID>B71D16BF-A4CB-0215-24CD-FA0386ECD88B</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<engineerTo>
+<item key="67A8670C-CF95-9CF5-A156-D43EBF7DC2CB" value="true"/>
+<item key="43B3C5D1-FDEB-E580-2898-1A2C39399262" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>071A8657-4F84-BE67-345C-0D292DFB417B</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="telefono" id="ECFABDAB-AD7A-701D-CD96-774905D2AC8C">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:09:15 UTC</createdTime>
+<generatorID>6B9E0B9D-2CD9-F0FF-BDE6-EE563C55C732</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<engineerTo>
+<item key="67A8670C-CF95-9CF5-A156-D43EBF7DC2CB" value="true"/>
+<item key="43B3C5D1-FDEB-E580-2898-1A2C39399262" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>55AC55D2-82D4-2591-F140-33A7B2EAA971</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="5A8099EB-B8F3-45B4-E2A6-2612F38CEC56" name="CENTROS PK">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:09:15 UTC</createdTime>
+<generatorID>A8387FFF-BC48-44BD-AD89-3A561841641C</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<engineerTo>
+<item key="67A8670C-CF95-9CF5-A156-D43EBF7DC2CB" value="true"/>
+<item key="43B3C5D1-FDEB-E580-2898-1A2C39399262" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>EB73E3B6-B2A3-6611-0865-883E36B0C642</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

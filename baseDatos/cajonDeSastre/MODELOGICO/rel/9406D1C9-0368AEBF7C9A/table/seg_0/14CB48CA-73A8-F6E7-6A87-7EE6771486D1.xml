@@ -1,0 +1,130 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="14CB48CA-73A8-F6E7-6A87-7EE6771486D1" name="VIAJES">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>33B9C4B9-6919-AA25-F1EF-1CDE0B446EDE</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="625311D9-0950-FE11-7F8B-0BBFE3DD2EFF">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>43FCBCB9-38ED-7B6B-795E-AC0331D9D692</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>D1D6408E-9F18-17E2-0006-25E6531CD77C</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementGenerateAlways>true</autoIncrementGenerateAlways>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementOrder>false</autoIncrementOrder>
+</Column>
+<Column name="horaInicial" id="8A3D68A7-959A-2AA8-2471-7F77CA4E98A4">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>FA2DB2AD-29A6-F459-7BBB-C8661065FE39</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>3C6FECDB-6B8E-D259-975B-5BAB08DB57C7</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="horaFinal" id="ACED728E-833D-18F7-097B-8585548C6E14">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>5603B3DE-61C8-6C4C-9FD7-08172F91608A</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>3C6FECDB-6B8E-D259-975B-5BAB08DB57C7</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PARTES_TRABAJADORES_ID" id="86BA8EDA-65F5-3BFC-998C-5FFF54727C86">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>F065DBE4-628A-6A30-C70D-B0CEC99595E3</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>D1D6408E-9F18-17E2-0006-25E6531CD77C</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="48104A92-5514-2F16-C9B1-9D3D11B0F351" referredColumn="7EAE86ED-A354-4D7D-1468-0B3754E2862F"/>
+</associations>
+</Column>
+<Column name="PARTES_fecha" id="E1A2F3BE-BAF2-15B1-5943-D99427FA228D">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>6B43BA44-D510-ED1D-FC15-F07C5ACEC4F5</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>37AB9123-D339-75FA-BB7D-6C82144ADCFA</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="48104A92-5514-2F16-C9B1-9D3D11B0F351" referredColumn="5629E8CF-04FA-12B6-7C6D-4AE33DA477E6"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="837252CD-3E79-715F-BAA3-AAA30E60DB40" name="VIAJES_PK">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>DE8B79D0-4D1E-9006-E3B0-44CA2F124DCD</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="625311D9-0950-FE11-7F8B-0BBFE3DD2EFF"/>
+<colUsage columnID="8A3D68A7-959A-2AA8-2471-7F77CA4E98A4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D70EB9B6-6087-527E-8E21-3CA3DF5A3F9B" name="VIAJES_PARTES_FK">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="86BA8EDA-65F5-3BFC-998C-5FFF54727C86"/>
+<colUsage columnID="E1A2F3BE-BAF2-15B1-5943-D99427FA228D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+<tableCheckConstraints itemClass="oracle.dbtools.crest.model.design.constraint.TableLevelConstraint">
+<tableCheckConstraint name="VJS_HF_CHK" directorySegmentName="seg_0" id="78FEE43D-F7AB-8EE6-8809-C989BDD941F9">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>33EBFE03-B4EB-F3FF-9F7B-632D89283065</importedID>
+<rule>HORAFINAL &gt; HORAINICIAL</rule>
+</tableCheckConstraint>
+<tableCheckConstraint name="VJS_HI_CHK" directorySegmentName="seg_0" id="ECDC94F1-AAEF-6193-FB03-EF45376D1A92">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>7F2185AF-5E8A-09ED-D577-856E5F76C7F4</importedID>
+<rule>HORAINICIAL &gt;= 0</rule>
+</tableCheckConstraint>
+</tableCheckConstraints>
+</Table>

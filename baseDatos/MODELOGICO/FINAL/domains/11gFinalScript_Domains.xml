@@ -1,0 +1,230 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<DomainFile class="oracle.dbtools.crest.model.design.DomainFileWrapper" fileName="11gFinalScript_Domains">
+   <domains>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_50" id="071A8657-4F84-BE67-345C-0D292DFB417B">
+         <createdBy>7fprog03</createdBy>
+         <createdTime>2017-04-10 18:07:35 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>FINAL</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>50</dataTypeSize>
+         <fileName>11gFinalScript_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_200" id="293F4DAB-0A5D-9FF2-24C1-7DC643A37716">
+         <createdBy>7fprog03</createdBy>
+         <createdTime>2017-04-10 18:07:35 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>FINAL</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>200</dataTypeSize>
+         <fileName>11gFinalScript_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_7" id="306710CF-D121-085C-2A35-A9F65E3B197F">
+         <createdBy>7fprog03</createdBy>
+         <createdTime>2017-04-10 18:07:35 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>FINAL</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>7</dataTypeSize>
+         <fileName>11gFinalScript_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_25" id="372698F8-591C-9938-AE73-E1E10BDCDECD">
+         <createdBy>7fprog03</createdBy>
+         <createdTime>2017-04-10 18:07:35 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>FINAL</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>25</dataTypeSize>
+         <fileName>11gFinalScript_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="Date_0_0_0" id="3F9E9E2B-7FC5-7DA7-227D-D7D39DD01290">
+         <createdBy>7fprog03</createdBy>
+         <createdTime>2017-04-10 18:07:35 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>FINAL</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <fileName>11gFinalScript_Domains</fileName>
+         <logicalDatatype>LOGDT007</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_9" id="491594AB-B2F7-9343-6480-91024B0B46BA">
+         <createdBy>7fprog03</createdBy>
+         <createdTime>2017-04-10 18:07:35 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>FINAL</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>9</dataTypeSize>
+         <fileName>11gFinalScript_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_15" id="54B373A6-F4A2-249A-03B7-0E5B877EBDFE">
+         <createdBy>7fprog03</createdBy>
+         <createdTime>2017-04-10 18:07:35 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>FINAL</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>15</dataTypeSize>
+         <fileName>11gFinalScript_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_2_0_0" id="54C39393-8F59-6B4F-8310-D17716928A84">
+         <createdBy>7fprog03</createdBy>
+         <createdTime>2017-04-10 18:07:35 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>FINAL</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>2</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>0</dataTypeSize>
+         <fileName>11gFinalScript_Domains</fileName>
+         <logicalDatatype>LOGDT019</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_15_0_0" id="55AC55D2-82D4-2591-F140-33A7B2EAA971">
+         <createdBy>7fprog03</createdBy>
+         <createdTime>2017-04-10 18:07:35 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>FINAL</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>15</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>0</dataTypeSize>
+         <fileName>11gFinalScript_Domains</fileName>
+         <logicalDatatype>LOGDT019</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_7_0_0" id="7A8802CB-73FC-106D-8609-82F55997C09D">
+         <createdBy>7fprog03</createdBy>
+         <createdTime>2017-04-10 18:07:35 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>FINAL</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>7</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>0</dataTypeSize>
+         <fileName>11gFinalScript_Domains</fileName>
+         <logicalDatatype>LOGDT019</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_2" id="8E035AAF-9DB5-AA10-BFD9-FE8ECA583F24">
+         <createdBy>7fprog03</createdBy>
+         <createdTime>2017-04-10 18:07:35 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>FINAL</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>2</dataTypeSize>
+         <fileName>11gFinalScript_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_20" id="917B9B9A-99BD-5C83-1740-F4ED251E57CA">
+         <createdBy>7fprog03</createdBy>
+         <createdTime>2017-04-10 18:07:35 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>FINAL</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>20</dataTypeSize>
+         <fileName>11gFinalScript_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_30" id="A26FB206-766B-BB8E-0504-C91F1754C6D7">
+         <createdBy>7fprog03</createdBy>
+         <createdTime>2017-04-10 18:07:35 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>FINAL</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>30</dataTypeSize>
+         <fileName>11gFinalScript_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_4_0_0" id="BEB4DFD9-63A8-1395-5EEA-EBBCF06A6BC8">
+         <createdBy>7fprog03</createdBy>
+         <createdTime>2017-04-10 18:07:35 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>FINAL</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>4</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>0</dataTypeSize>
+         <fileName>11gFinalScript_Domains</fileName>
+         <logicalDatatype>LOGDT019</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_4_2_0" id="C9CD462B-5952-D576-1A5A-B667B0A76811">
+         <createdBy>7fprog03</createdBy>
+         <createdTime>2017-04-10 18:07:35 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>FINAL</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>4</dataTypePrecision>
+         <dataTypeScale>2</dataTypeScale>
+         <dataTypeSize>0</dataTypeSize>
+         <fileName>11gFinalScript_Domains</fileName>
+         <logicalDatatype>LOGDT019</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_7_2_0" id="CCE151D5-FDC4-447B-8A25-E53BE94FBC9A">
+         <createdBy>7fprog03</createdBy>
+         <createdTime>2017-04-10 18:07:35 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>FINAL</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>7</dataTypePrecision>
+         <dataTypeScale>2</dataTypeScale>
+         <dataTypeSize>0</dataTypeSize>
+         <fileName>11gFinalScript_Domains</fileName>
+         <logicalDatatype>LOGDT019</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_5_0_0" id="D26A85CA-1E9F-4EE3-E100-BB03D946147A">
+         <createdBy>7fprog03</createdBy>
+         <createdTime>2017-04-10 18:07:35 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>FINAL</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>5</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>0</dataTypeSize>
+         <fileName>11gFinalScript_Domains</fileName>
+         <logicalDatatype>LOGDT019</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_9_2_0" id="DFB9181A-7F55-F170-F94E-D11EB0B81C64">
+         <createdBy>7fprog03</createdBy>
+         <createdTime>2017-04-10 18:07:35 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>FINAL</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>9</dataTypePrecision>
+         <dataTypeScale>2</dataTypeScale>
+         <dataTypeSize>0</dataTypeSize>
+         <fileName>11gFinalScript_Domains</fileName>
+         <logicalDatatype>LOGDT019</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_1000" id="FB26DA6C-6A76-85D1-8B7D-A53FD599AD81">
+         <createdBy>7fprog03</createdBy>
+         <createdTime>2017-04-10 18:07:35 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>FINAL</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>1000</dataTypeSize>
+         <fileName>11gFinalScript_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+   </domains>
+</DomainFile>

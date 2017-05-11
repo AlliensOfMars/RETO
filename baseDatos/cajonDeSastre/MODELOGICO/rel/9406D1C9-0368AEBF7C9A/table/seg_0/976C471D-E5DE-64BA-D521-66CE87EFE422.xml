@@ -1,0 +1,92 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="976C471D-E5DE-64BA-D521-66CE87EFE422" name="CONDUCEN">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>AD1D1194-D5A6-18A3-92A7-5019A2B825F8</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="TRABAJADORES_ID" id="A78D9812-9510-FFFE-91F0-F5253740C599">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>D418F359-56C6-E547-3598-49B445D135BB</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>D1D6408E-9F18-17E2-0006-25E6531CD77C</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="778E9D6D-9CBA-6B21-7C6E-D6996B1241D0" referredColumn="457AFA36-23E8-442B-0BA8-C6937CE00B1B"/>
+</associations>
+</Column>
+<Column name="VEHICULOS_ID" id="A94AEBA0-BDF5-5DBA-1076-7A539B32CCCD">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>51DC60D4-DF93-C692-89C6-475A36DD0B78</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>D1D6408E-9F18-17E2-0006-25E6531CD77C</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2135FC8B-6A65-596A-4D0F-A89D66275220" referredColumn="B01AA73E-0F63-640E-90B8-68214C341B65"/>
+</associations>
+</Column>
+<Column name="fecha" id="E1260BF2-8A87-AA2E-D79F-F6FEBBDA88F0">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>FD447559-A21E-1469-A762-041C5209031D</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>37AB9123-D339-75FA-BB7D-6C82144ADCFA</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="95AA9F87-A470-677F-D85E-84E54D918C09" name="CONDUCEN_PK">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>A62667E3-5C1E-2EE5-6ACD-729E331F5733</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A78D9812-9510-FFFE-91F0-F5253740C599"/>
+<colUsage columnID="A94AEBA0-BDF5-5DBA-1076-7A539B32CCCD"/>
+<colUsage columnID="E1260BF2-8A87-AA2E-D79F-F6FEBBDA88F0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DBB06105-899C-03BE-5BE1-A2B281D4925E" name="CONDUCEN_TRABAJADORES_FK">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A78D9812-9510-FFFE-91F0-F5253740C599"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="20DE81E9-6FA4-6682-B74B-5E572E540B4A" name="CONDUCEN_VEHICULOS_FK">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A94AEBA0-BDF5-5DBA-1076-7A539B32CCCD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

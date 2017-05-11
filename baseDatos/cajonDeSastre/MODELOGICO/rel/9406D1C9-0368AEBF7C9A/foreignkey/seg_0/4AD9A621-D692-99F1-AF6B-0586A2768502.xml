@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="4AD9A621-D692-99F1-AF6B-0586A2768502" containerWithKeyObject="C9C2A2D3-E9D7-6323-3E90-86E362C384D8" localFKIndex="3115A5BE-253D-1499-4B73-9CD58C4A70FF" name="AVISOS_PARTES_FK">
+<sourceDDLFile>PROYECTO_SCRIPT.SQL</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-06 18:31:14 UTC</createdTime>
+<ownerDesignName>MODELOGICO</ownerDesignName>
+<importedID>5A8DAF97-550C-9403-5EE7-732AB6866CC1</importedID>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>D82E2E82-CB6A-A1CB-117A-C88BDFC1EEAB</referredTableID>
+<keyObject>25647472-09EE-2D84-499A-8878721F0779</keyObject>
+<referredKeyID>25647472-09EE-2D84-499A-8878721F0779</referredKeyID>
+<mandatory>false</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

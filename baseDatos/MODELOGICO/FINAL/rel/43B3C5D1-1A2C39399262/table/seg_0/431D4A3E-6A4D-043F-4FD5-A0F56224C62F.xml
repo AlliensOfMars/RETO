@@ -1,0 +1,271 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="431D4A3E-6A4D-043F-4FD5-A0F56224C62F" name="PARTES">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>D10EB100-F6B3-A749-B1F2-E7B4471B5F12</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="fecha" id="E5193FB5-0469-082D-C5DA-C803ED8FBA9D">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>C5D4BE70-D620-4778-DC96-ECD21821EC99</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>3F9E9E2B-7FC5-7DA7-227D-D7D39DD01290</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="kmInicial" id="A7E29A22-CBEE-CB9D-B810-B6F37BDC2C32">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>74B3F43E-FF21-805C-D663-1090730ED8AA</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7A8802CB-73FC-106D-8609-82F55997C09D</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="kmFinal" id="BD648C7F-7267-0615-37E1-308857B32071">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>5C711AD5-E9B9-AE3D-EB29-ED53DAE517AD</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7A8802CB-73FC-106D-8609-82F55997C09D</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="gastosPeaje" id="52450710-FBE1-91D2-F38E-E8921F626D1A">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>DBBF2C7B-884E-A634-AA04-7D3F0AC5997E</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>CCE151D5-FDC4-447B-8A25-E53BE94FBC9A</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="gastosDietas" id="F2A3E248-BFB0-DC07-DD34-BE9841C64D74">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>397893F3-6EA4-A5EE-7B5F-02A258349808</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>CCE151D5-FDC4-447B-8A25-E53BE94FBC9A</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="gastosCombustible" id="FA91E460-3EE4-353B-954E-BBE8BCDBE432">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>4702356C-E721-042B-303A-CA7323FED901</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>CCE151D5-FDC4-447B-8A25-E53BE94FBC9A</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="otrosGastos" id="962DC7DD-072D-86F7-59AD-E983835DDC4E">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>7B33CE13-864F-6A35-4109-151B78459B2B</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>CCE151D5-FDC4-447B-8A25-E53BE94FBC9A</domain>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="incidencias" id="0B3E10ED-DF51-33FA-03A3-9446803ACFC4">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>36562B6B-5F9C-A97F-ADC7-483AAD72378A</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>FB26DA6C-6A76-85D1-8B7D-A53FD599AD81</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="estado" id="B1DCBB55-71E3-5116-A7FF-57CD5396F9B9">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>7492C57B-917D-4458-D890-BD2FE37BAB1D</importedID>
+<constraintName>PRT_STD_CHK</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>306710CF-D121-085C-2A35-A9F65E3B197F</domain>
+<listOfValues>
+<valueDef value="ABIERTO" description=""/>
+<valueDef value="CERRADO" description=""/>
+</listOfValues>
+<defaultValue>&apos;ABIERTO&apos;</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="validado" id="BC544ACA-A574-32F9-DEC7-B0CFD8EC210D">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>8AC37141-A44D-B4DE-B09E-AF128AF0C1D7</importedID>
+<constraintName>PRT_VLD_CHK</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>8E035AAF-9DB5-AA10-BFD9-FE8ECA583F24</domain>
+<listOfValues>
+<valueDef value="NO" description=""/>
+<valueDef value="SI" description=""/>
+</listOfValues>
+<defaultValue>&apos;NO&apos;</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TRABAJADORES_ID" id="39593D06-8FFC-2ABB-A363-CE003D094545">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>1A343D5D-8E7B-56E4-6A1F-4873D97B5649</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7A8802CB-73FC-106D-8609-82F55997C09D</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5C875C21-3476-34D1-78B3-BBC9D1094A44" referredColumn="C08C0833-6F10-9657-5840-6528A37096CF"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="BA5DC407-7D27-AF87-F221-9F3E4D5641E3" name="PARTES_PK">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>038C8899-0DD0-0DF0-40C5-1B68DB8F5952</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="39593D06-8FFC-2ABB-A363-CE003D094545"/>
+<colUsage columnID="E5193FB5-0469-082D-C5DA-C803ED8FBA9D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7A11A570-BA70-4304-755E-D49BDF3A8289" name="PARTES_TRABAJADORES_FK">
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="39593D06-8FFC-2ABB-A363-CE003D094545"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+<tableCheckConstraints itemClass="oracle.dbtools.crest.model.design.constraint.TableLevelConstraint">
+<tableCheckConstraint name="PRT_KMF_CHK" directorySegmentName="seg_0" id="1F9D92AE-30CF-3B4D-93C7-5C244A1A56EE">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>F37DF4C3-9C9A-EF50-576B-14CD519792D4</importedID>
+<rule>kmFinal&gt; kmInicial</rule>
+</tableCheckConstraint>
+<tableCheckConstraint name="PRT_KMI_CHK" directorySegmentName="seg_0" id="FDFFBC6A-C5E4-6323-D277-F8EFA1989BF1">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>41F93BEB-68E5-09BF-B1CD-8FA09192322E</importedID>
+<rule>kmInicial &lt; kmFinal</rule>
+</tableCheckConstraint>
+<tableCheckConstraint name="PRT_KMII_CHK" directorySegmentName="seg_0" id="4F516DC4-ADFC-EDA0-8596-736066901DD8">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>E0AE1795-217C-2B7E-ABFC-C421550966A0</importedID>
+<rule>kmInicial&gt;=0</rule>
+</tableCheckConstraint>
+<tableCheckConstraint name="PRT_GSP_CHK" directorySegmentName="seg_0" id="FA7C4CD0-B536-3CAC-61C1-6E4CBE5C13D3">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>77D8979F-59E5-9406-7207-B640264E57E5</importedID>
+<rule>gastosPeaje&gt;=0</rule>
+</tableCheckConstraint>
+<tableCheckConstraint name="PRT_GSC_CHK" directorySegmentName="seg_0" id="32D8C7F8-F59F-C0CE-4FF9-EEB694214A69">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>0BF7356A-410C-2445-F6E6-0155D2C3A2F9</importedID>
+<rule>gastosCombustible&gt;=0</rule>
+</tableCheckConstraint>
+<tableCheckConstraint name="PRT_OTG_CHK" directorySegmentName="seg_0" id="ABC88275-109E-410C-65AA-B9D0098DC41D">
+<sourceDDLFile>11gFinalScript.sql</sourceDDLFile>
+<createdBy>7fprog03</createdBy>
+<createdTime>2017-04-10 18:07:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>FINAL</ownerDesignName>
+<importedID>5E7AD562-9ACD-19FC-759B-447164BC7C32</importedID>
+<rule>otrosGastos&gt;=0</rule>
+</tableCheckConstraint>
+</tableCheckConstraints>
+</Table>

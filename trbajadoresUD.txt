@@ -1,0 +1,121 @@
+        trabajadores= (DefaultTableModel) tTrabajadores.getModel();
+        int index = tTrabajadores.getSelectedRow();
+        uDni.setText(trabajador.get(index).getDni());
+        uNombre.setText(trabajador.get(index).getNombre());
+        uPrimerApellido.setText(trabajador.get(index).getPrimerApellido());
+        uSegundoApellido.setText(trabajador.get(index).getSegundoApellido());
+        uCalle.setText(trabajador.get(index).getCalle());
+        uNumero.setText(trabajador.get(index).getNumero().toString());
+        uPiso.setText(trabajador.get(index).getPiso().toString());
+        uMano.setText(trabajador.get(index).getMano());
+        uCiudad.setText(trabajador.get(index).getCiudad());
+        uCodigoPostal.setText(trabajador.get(index).getCodigoPostal().toString());
+        uProvincia.setText(trabajador.get(index).getProvincia());
+        uMovilEmpresa.setText(trabajador.get(index).getMovilEmpresa().toString());
+        uMovilPersonal.setText(trabajador.get(index).getMovilPersonal().toString());
+        uSalario.setText(trabajador.get(index).getSalario().toString());
+        uIdcent.setText(trabajador.get(index).getIdCent().toString());
+        uCategoria.setText(trabajador.get(index).getCategoria());
+        uFechaNacimiento.setText(trabajador.get(index).getFechaNacimiento());
+
+
+
+
+    public void limpiarFormulario() {
+        uDni.setText("");
+        uNombre.setText("");
+        uPrimerApellido.setText("");
+        uSegundoApellido.setText("");
+        uCalle.setText("");
+        uNumero.setText("");
+        uPiso.setText("");
+        uMano.setText("");
+        uCiudad.setText("");
+        uCodigoPostal.setText("");
+        uProvincia.setText("");
+        uMovilEmpresa.setText("");
+        uMovilPersonal.setText("");
+        uSalario.setText("");
+        uFechaNacimiento.setText("");
+        uIdcent.setText("");
+        uCategoria.setText("");
+    }
+
+
+
+botont modificar
+        Trabajador trabajadorM = new Trabajador(uDni.getText(), uNombre.getText(), uPrimerApellido.getText(),
+                uSegundoApellido.getText(), uCategoria.getText(), uCalle.getText(), new BigDecimal(uNumero.getText()),
+                new BigDecimal(uPiso.getText()), uMano.getText(), uCiudad.getText(), new BigDecimal(uCodigoPostal.getText()),
+                uProvincia.getText(), new BigDecimal(uMovilEmpresa.getText()), new BigDecimal(uMovilPersonal.getText()),
+                new BigDecimal(uSalario.getText()), uFechaNacimiento.getText(), new BigDecimal(uIdcent.getText()));
+
+        boolean modify = trabajadorM.modificarTrabajador(id);
+        if (modify == true) {
+            JOptionPane.showMessageDialog(null, "Trabajador modificado correctamente", "Modificado", JOptionPane.INFORMATION_MESSAGE);
+        }
+
+        //limpiar tabla
+        trabajadores.setRowCount(0);
+
+        //listar
+        listarTrabajadores();
+
+        //limpiar formulario
+        limpiarFormulario();
+
+
+boton listar
+ trabajadores.setRowCount(0);
+
+boton filtrar
+ docI = uFiltro.getText();
+        filtrarTrabajador1();
+
+//listar trabajadores
+    private void listarTrabajadores() {
+        trabajadores = (DefaultTableModel) tTrabajadores.getModel();
+        trabajador = Trabajador.listarTrabajadores();
+
+           trabajador.forEach((t) -> {
+            trabajadores.insertRow(trabajadores.getRowCount(), new Object[]{t.getId(),t.getDni(),t.getNombre(), t.getPrimerApellido(),
+            t.getSegundoApellido(),t.getCategoria(),t.getCalle(),t.getNumero(),t.getPiso(),t.getCentro(),t.getMano(),
+            t.getCiudad(),t.getCodigoPostal(),t.getProvincia(),t.getMovilEmpresa(),t.getMovilPersonal(),t.getSalario(),t.getFechaNacimiento(),
+            t.getCentro()
+            });
+        });
+    }
+
+    private void filtrarTrabajador() {
+        trabajadores.setRowCount(0);
+        trabajadores = (DefaultTableModel) tTrabajadores.getModel();
+        trabajador = Trabajador.filtrarTrabajador(docI);
+
+        trabajador.forEach((t) -> {
+            trabajadores.insertRow(trabajadores.getRowCount(), new Object[]{t.getId(),t.getDni(),t.getNombre(), t.getPrimerApellido(),
+            t.getSegundoApellido(),t.getCategoria(),t.getCalle(),t.getNumero(),t.getPiso(),t.getCentro(),t.getMano(),
+            t.getCiudad(),t.getCodigoPostal(),t.getProvincia(),t.getMovilEmpresa(),t.getMovilPersonal(),t.getSalario(),t.getFechaNacimiento(),
+            t.getCentro()
+            });
+        });
+    }
+
+    private void filtrarTrabajador1() {
+
+        trabajadores.setRowCount(0);
+        trabajadores = (DefaultTableModel) tTrabajadores.getModel();
+        trabajador1 = Trabajador.filtrarTrabajador1(docI);
+        trabajadores.insertRow(trabajadores.getRowCount(), new Object[]{trabajador1.getId(), trabajador1.getNombre(),
+            trabajador1.getPrimerApellido(), trabajador1.getDni(), trabajador1.getCategoria(),
+            trabajador1.getMovilEmpresa(),
+            trabajador1.getIdCent()});
+    }
+
+    
+//variables
+    private DefaultTableModel trabajadores;
+    private List<Trabajador> trabajador;
+    private Trabajador trabajador1;
+    private static String docI;
+    private static BigDecimal id;
+        listarTrabajadores();
