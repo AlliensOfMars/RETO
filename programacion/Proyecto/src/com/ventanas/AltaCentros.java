@@ -48,44 +48,66 @@ public class AltaCentros extends javax.swing.JFrame {
         alta = new javax.swing.JButton();
         limpiar = new javax.swing.JButton();
         volver = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Alta Centros");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Nombre");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 20, -1, -1));
+        jLabel1.setText("Nombre: *");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, -1, 26));
+        jLabel1.getAccessibleContext().setAccessibleDescription("");
 
-        jLabel2.setText("Calle");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 51, -1, -1));
+        jLabel2.setText("Calle: *");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, -1, 26));
+        jLabel2.getAccessibleContext().setAccessibleDescription("");
 
-        jLabel3.setText("Numero");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 87, -1, -1));
+        jLabel3.setText("Numero: *");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, -1, 26));
+        jLabel3.getAccessibleContext().setAccessibleDescription("");
 
-        jLabel4.setText("Ciudad");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 125, -1, -1));
+        jLabel4.setText("Ciudad: *");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, -1, 26));
+        jLabel4.getAccessibleContext().setAccessibleDescription("");
 
-        jLabel5.setText("Codigo Postal");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 163, -1, -1));
+        jLabel5.setText("Codigo Postal: *");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, -1, 26));
+        jLabel5.getAccessibleContext().setAccessibleDescription("");
 
-        jLabel6.setText("Provincia");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 201, -1, -1));
+        jLabel6.setText("Provincia: *");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, -1, 26));
+        jLabel6.getAccessibleContext().setAccessibleDescription("");
 
-        jLabel7.setText("Telefono");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 239, -1, -1));
+        jLabel7.setText("Telefono: *");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 410, -1, 26));
+        jLabel7.getAccessibleContext().setAccessibleDescription("");
 
         nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nombreActionPerformed(evt);
             }
         });
-        getContentPane().add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 17, 184, -1));
-        getContentPane().add(calle, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 48, 184, -1));
-        getContentPane().add(numero, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 84, 184, -1));
-        getContentPane().add(ciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 122, 184, -1));
-        getContentPane().add(codigoPostal, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 160, 184, -1));
-        getContentPane().add(provincia, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 198, 184, -1));
-        getContentPane().add(telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 236, 184, -1));
+        getContentPane().add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 184, 26));
+        nombre.getAccessibleContext().setAccessibleDescription("");
+
+        getContentPane().add(calle, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 184, 26));
+        calle.getAccessibleContext().setAccessibleDescription("");
+
+        getContentPane().add(numero, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 184, 26));
+        numero.getAccessibleContext().setAccessibleDescription("");
+
+        getContentPane().add(ciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 184, 26));
+        ciudad.getAccessibleContext().setAccessibleDescription("");
+
+        getContentPane().add(codigoPostal, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, 184, 26));
+        codigoPostal.getAccessibleContext().setAccessibleDescription("");
+
+        getContentPane().add(provincia, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, 184, 26));
+        provincia.getAccessibleContext().setAccessibleDescription("");
+
+        getContentPane().add(telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 410, 184, 26));
+        telefono.getAccessibleContext().setAccessibleDescription("");
 
         alta.setText("Alta");
         alta.setPreferredSize(new java.awt.Dimension(97, 23));
@@ -94,7 +116,7 @@ public class AltaCentros extends javax.swing.JFrame {
                 altaActionPerformed(evt);
             }
         });
-        getContentPane().add(alta, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, -1, -1));
+        getContentPane().add(alta, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 480, -1, -1));
 
         limpiar.setText("Limpiar");
         limpiar.setPreferredSize(new java.awt.Dimension(97, 23));
@@ -103,11 +125,24 @@ public class AltaCentros extends javax.swing.JFrame {
                 limpiarActionPerformed(evt);
             }
         });
-        getContentPane().add(limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, -1, -1));
+        getContentPane().add(limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 480, -1, -1));
 
         volver.setText("Volver");
         volver.setPreferredSize(new java.awt.Dimension(97, 23));
-        getContentPane().add(volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, -1, -1));
+        volver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volverActionPerformed(evt);
+            }
+        });
+        getContentPane().add(volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 480, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Andalus", 1, 24)); // NOI18N
+        jLabel8.setText("ALTA DE CENTROS DE TRABAJO");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, -1, -1));
+
+        jLabel11.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel11.setText("* Campos obligatorios");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 510, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -124,33 +159,7 @@ public class AltaCentros extends javax.swing.JFrame {
         String province = provincia.getText();
         BigDecimal phone = new BigDecimal(telefono.getText());
         Centro c = new Centro (name, street, number, city, postalCode, province, phone);
-        /*
-        //esto funciona en 11g
-        Centro c = new Centro();
-        //int id = c.autoincremente();
-        BigDecimal id = c.autoincremente();
-        String name = nombre.getText();
-        String street = calle.getText();
-        // int number = Integer.parseInt(numero.getText());
-        BigDecimal number = new BigDecimal(numero.getText());
-        String city = ciudad.getText();
-        // int postalCode = Integer.parseInt(codigoPostal.getText());
-        BigDecimal postalCode = new BigDecimal(codigoPostal.getText());
-        String province = provincia.getText();
-        // int phone = Integer.parseInt(telefono.getText());
-        BigDecimal phone = new BigDecimal(telefono.getText());
-        Centro d = new Centro();
-        d.setIDcent(id);
-        d.setNombre(name);
-        d.setCalle(street);
-        d.setNumero(number);
-        d.setCiudad(city);
-        d.setCodigoPostal(postalCode);
-        d.setProvincia(province);
-        d.setTelefonos(phone);
-          */
-        //esta parte es comun para 12c y 11g solo hay que cambiar  
-        // d.gestionCentros1(); por c.gestionCentros();
+       
         boolean guardado = c.gestionCentros();
 
         if (guardado) {
@@ -168,6 +177,12 @@ public class AltaCentros extends javax.swing.JFrame {
     private void nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nombreActionPerformed
+
+    private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
+        CentrosUd abrir = new CentrosUd();
+        abrir.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_volverActionPerformed
 
     private void limpiarFormulario() {
 
@@ -222,12 +237,14 @@ public class AltaCentros extends javax.swing.JFrame {
     private javax.swing.JTextField ciudad;
     private javax.swing.JTextField codigoPostal;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JButton limpiar;
     private javax.swing.JTextField nombre;
     private javax.swing.JTextField numero;

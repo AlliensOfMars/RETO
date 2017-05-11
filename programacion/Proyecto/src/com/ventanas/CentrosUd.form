@@ -62,27 +62,36 @@
                                   <Component id="uNombre" min="-2" pref="300" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="uTelefono" min="-2" pref="150" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="modificar" min="-2" max="-2" attributes="0"/>
+                                          </Group>
                                           <Component id="uProvincia" alignment="0" max="32767" attributes="0"/>
                                           <Component id="uCiudad" alignment="0" max="32767" attributes="0"/>
                                           <Component id="uCalle" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="uNumero" min="-2" pref="60" max="-2" attributes="0"/>
-                                          <Component id="uCodigoPostal" min="-2" pref="60" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="bAltaCentro" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="uTelefono" min="-2" pref="150" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="168" max="-2" attributes="0"/>
-                                      <Component id="modificar" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
-                                      <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Component id="uNumero" min="-2" pref="60" max="-2" attributes="0"/>
+                                                  <Component id="uCodigoPostal" min="-2" pref="60" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
+                                              <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
                               </Group>
                           </Group>
@@ -106,23 +115,16 @@
               <EmptySpace pref="66" max="32767" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="188" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="listado" min="-2" pref="26" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="bname" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                          <Component id="jLabel1" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                          <Component id="filtrar" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                          <Component id="eliminar" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="54" max="32767" attributes="0"/>
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                  </Group>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="bname" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                  <Component id="jLabel1" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                  <Component id="filtrar" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                  <Component id="eliminar" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                  <Component id="listado" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace pref="54" max="32767" attributes="0"/>
+              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="uNombre" min="-2" pref="26" max="-2" attributes="0"/>
@@ -154,6 +156,7 @@
                   <Component id="modificar" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                   <Component id="jLabel6" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                   <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="bAltaCentro" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
           </Group>
@@ -240,7 +243,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="filtrar">
       <Properties>
-        <Property name="text" type="java.lang.String" value="filtrar"/>
+        <Property name="text" type="java.lang.String" value="Filtrar"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="filtrarActionPerformed"/>
@@ -253,7 +256,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="listado">
       <Properties>
-        <Property name="text" type="java.lang.String" value="LISTAR"/>
+        <Property name="text" type="java.lang.String" value="Listar Todos"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="listadoActionPerformed"/>
@@ -261,7 +264,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="eliminar">
       <Properties>
-        <Property name="text" type="java.lang.String" value="ELIMINAR"/>
+        <Property name="text" type="java.lang.String" value="Eliminar Centro Seleccionado"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="eliminarActionPerformed"/>
@@ -286,7 +289,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="modificar">
       <Properties>
-        <Property name="text" type="java.lang.String" value="MODIFICAR"/>
+        <Property name="text" type="java.lang.String" value="Modificar Centro"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="modificarActionPerformed"/>
@@ -347,6 +350,14 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Datos del Centro Seleccionado :"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="bAltaCentro">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nuevo Centro"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bAltaCentroActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
