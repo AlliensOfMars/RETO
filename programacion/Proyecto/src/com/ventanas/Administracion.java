@@ -102,7 +102,9 @@ public class Administracion extends javax.swing.JFrame {
     }//GEN-LAST:event_bVehiculos1ActionPerformed
 
     private void bPartes1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPartes1ActionPerformed
-        /*PartesUd abrir = new ParteUd();*/
+        PartesUd abrir = new PartesUd();
+        abrir.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_bPartes1ActionPerformed
 
     /**

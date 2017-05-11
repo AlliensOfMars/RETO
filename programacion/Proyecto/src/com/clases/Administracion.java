@@ -8,7 +8,7 @@ package com.clases;
 import java.math.BigDecimal;
 
 /**
- *
+ 
  * @author 7fprog03
  */
 public class Administracion extends Trabajador  {
