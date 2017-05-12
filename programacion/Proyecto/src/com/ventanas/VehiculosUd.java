@@ -48,8 +48,8 @@ public class VehiculosUd extends javax.swing.JFrame {
         vehi= Vehiculo.filtrarVehiculo(matricula);
         
        
-        vehiculos.insertRow(vehiculos.getRowCount(), new Object[]{vehi.getMatricula(), vehi.getMarca(),
-            vehi.getModelo()});
+        vehiculos.insertRow(vehiculos.getRowCount(), new Object[]{vehi.getIdVehiculo(), vehi.getMarca(),
+               vehi.getModelo(), vehi.getMatricula()});
     }
     public VehiculosUd() {
         initComponents();
@@ -285,6 +285,7 @@ public class VehiculosUd extends javax.swing.JFrame {
         matricula = uFiltro.getText();
 
         filtrarVehiculo();
+        limpiarFormulario();
     }//GEN-LAST:event_bFiltrarActionPerformed
 
     private void uFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uFiltroActionPerformed

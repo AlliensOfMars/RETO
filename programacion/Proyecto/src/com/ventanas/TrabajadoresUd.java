@@ -240,19 +240,19 @@ public class TrabajadoresUd extends javax.swing.JFrame {
 
         jLabel7.setText("Movil Personal:");
 
-        jLabel8.setText("Calle: ");
+        jLabel8.setText("Calle:* ");
 
-        jLabel9.setText("Numero: ");
+        jLabel9.setText("Numero: *");
 
         jLabel10.setText("Piso: ");
 
         jLabel11.setText("Mano:");
 
-        jLabel12.setText("Ciudad: ");
+        jLabel12.setText("Ciudad:* ");
 
-        jLabel13.setText("Codigo Postal: ");
+        jLabel13.setText("Codigo Postal:* ");
 
-        jLabel14.setText("Provincia: ");
+        jLabel14.setText("Provincia:* ");
 
         bVolver.setText("Volver");
         bVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -355,8 +355,8 @@ public class TrabajadoresUd extends javax.swing.JFrame {
                                             .addGap(18, 18, 18)
                                             .addComponent(jLabel9)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(uNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(536, 536, 536))))))
+                                            .addComponent(uNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(533, 533, 533))))))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
@@ -426,11 +426,12 @@ public class TrabajadoresUd extends javax.swing.JFrame {
                             .addComponent(uDni, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(20, 20, 20)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(uMovilEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(uMovilPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(uMovilPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -504,6 +505,8 @@ public class TrabajadoresUd extends javax.swing.JFrame {
     private void bFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bFiltrarActionPerformed
         docI = uFiltro.getText();
         filtrarTrabajador1();
+
+        limpiarFormulario();
     }//GEN-LAST:event_bFiltrarActionPerformed
 
     private void listadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listadoActionPerformed
@@ -535,13 +538,9 @@ public class TrabajadoresUd extends javax.swing.JFrame {
 
     }//GEN-LAST:event_modificarActionPerformed
 
-    private void tTrabajadoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tTrabajadoresMouseClicked
-
-    }//GEN-LAST:event_tTrabajadoresMouseClicked
-
     private void bAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAltaActionPerformed
        //Se abre alta de trabajadores
-       altaTrabajador abrir = new altaTrabajador();
+       AltaTrabajador abrir = new AltaTrabajador();
        abrir.setVisible(true);
        this.setVisible(false);
     }//GEN-LAST:event_bAltaActionPerformed
@@ -554,6 +553,28 @@ public class TrabajadoresUd extends javax.swing.JFrame {
        
        
     }//GEN-LAST:event_bVolverActionPerformed
+
+    private void tTrabajadoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tTrabajadoresMouseClicked
+    trabajadores= (DefaultTableModel) tTrabajadores.getModel();
+        int index = tTrabajadores.getSelectedRow();
+        uDni.setText(trabajador.get(index).getDni());
+        uNombre.setText(trabajador.get(index).getNombre());
+        uPrimerApellido.setText(trabajador.get(index).getPrimerApellido());
+        uSegundoApellido.setText(trabajador.get(index).getSegundoApellido());
+        uCalle.setText(trabajador.get(index).getCalle());
+        uNumero.setText(trabajador.get(index).getNumero().toString());
+        uPiso.setText(trabajador.get(index).getPiso().toString());
+        uMano.setText(trabajador.get(index).getMano());
+        uCiudad.setText(trabajador.get(index).getCiudad());
+        uCodigoPostal.setText(trabajador.get(index).getCodigoPostal().toString());
+        uProvincia.setText(trabajador.get(index).getProvincia());
+        uMovilEmpresa.setText(trabajador.get(index).getMovilEmpresa().toString());
+        uMovilPersonal.setText(trabajador.get(index).getMovilPersonal().toString());
+        uSalario.setText(trabajador.get(index).getSalario().toString());
+        uIdcent.setText(trabajador.get(index).getIdCent().toString());
+        uCategoria.setText(trabajador.get(index).getCategoria());
+        uFechaNacimiento.setText(trabajador.get(index).getFechaNacimiento());
+    }//GEN-LAST:event_tTrabajadoresMouseClicked
     
     
     public void limpiarFormulario() {

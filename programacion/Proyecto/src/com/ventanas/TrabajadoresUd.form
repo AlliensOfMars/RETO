@@ -132,8 +132,8 @@
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="uNumero" min="-2" pref="28" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="536" max="-2" attributes="0"/>
+                                          <Component id="uNumero" min="-2" pref="37" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="533" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -230,11 +230,13 @@
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <Group type="103" groupAlignment="3" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="uMovilEmpresa" alignment="0" min="-2" pref="24" max="-2" attributes="0"/>
-                  <Component id="uMovilPersonal" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                  <Component id="jLabel7" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                  <Component id="jLabel4" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="uMovilPersonal" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                      <Component id="jLabel7" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                      <Component id="jLabel4" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -663,7 +665,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Calle: "/>
+        <Property name="text" type="java.lang.String" value="Calle:* "/>
       </Properties>
       <AccessibilityProperties>
         <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
@@ -671,7 +673,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Numero: "/>
+        <Property name="text" type="java.lang.String" value="Numero: *"/>
       </Properties>
       <AccessibilityProperties>
         <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
@@ -695,7 +697,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel12">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ciudad: "/>
+        <Property name="text" type="java.lang.String" value="Ciudad:* "/>
       </Properties>
       <AccessibilityProperties>
         <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
@@ -703,7 +705,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel13">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Codigo Postal: "/>
+        <Property name="text" type="java.lang.String" value="Codigo Postal:* "/>
       </Properties>
       <AccessibilityProperties>
         <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
@@ -711,7 +713,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel14">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Provincia: "/>
+        <Property name="text" type="java.lang.String" value="Provincia:* "/>
       </Properties>
       <AccessibilityProperties>
         <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>

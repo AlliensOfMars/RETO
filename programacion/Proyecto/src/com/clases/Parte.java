@@ -8,6 +8,7 @@ package com.clases;
 import java.math.BigDecimal;
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -137,7 +138,126 @@ public class Parte {
             }    
       return null;
     }
-    
+     public static List<Parte> listarPartes(){
+        List <Parte> partes=new ArrayList<>();
+        Conexion.conectar();
+        String sql = "call ppartes.partesList (?)";
+        
+            try {
+                CallableStatement cs = Conexion.getConexion().prepareCall(sql);
+                cs.registerOutParameter(1, OracleTypes.CURSOR);
+                cs.execute();
+                
+                ResultSet rs = (ResultSet) cs.getObject(1);
+                while (rs.next()){
+                Parte p = new Parte();
+                        p.setFecha(rs.getString("fecha"));
+                        p.setKmInicial(rs.getBigDecimal("kmInicial"));
+                        p.setKmFinal(rs.getBigDecimal("kmFinal"));
+                        p.setGastoPeaje(rs.getBigDecimal("gastosPeaje")); 
+                        p.setGastoDietas(rs.getBigDecimal("gastosDietas"));
+                        p.setGastoCombustible(rs.getBigDecimal("gastosCombustible"));
+                        p.setGastoVarios(rs.getBigDecimal("otrosGastos"));
+                        p.setIncidencias(rs.getString("incidencias"));
+                        p.setEstado(rs.getString("estado"));
+                        p.setValidado(rs.getString("validado"));
+                        p.setHorasExtras(rs.getBigDecimal("horasExtras"));
+                        p.setIdTrabajador(rs.getBigDecimal("TRABAJADORES_ID"));
+                        p.setNotasAdministrativas(rs.getString("notasAdministrativas"));
+                partes.add(p);
+                }
+                
+                rs.close();
+                cs.close();
+                Conexion.desconectar();
+                return partes;
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "No se puede efectuar la conexión, hable con el administrador del sistema" + ex.getMessage());
+            }
+            return null;
+    }
+     public static List<Parte> partesTFI(BigDecimal idT, String fechaIni, String fechaFin){
+        List <Parte> partes=new ArrayList<>();
+        Conexion.conectar();
+        String sql = "call ppartes.partesTFI (?,?,?,?)";
+        
+            try {
+                CallableStatement cs = Conexion.getConexion().prepareCall(sql);
+                cs.setBigDecimal(1, idT);
+                cs.setString(2, fechaIni);
+                cs.setString(3, fechaFin);
+                cs.registerOutParameter(4, OracleTypes.CURSOR);
+                cs.execute();
+                
+                ResultSet rs = (ResultSet) cs.getObject(4);
+                while (rs.next()){
+                Parte p = new Parte();
+                        p.setFecha(rs.getString("fecha"));
+                        p.setKmInicial(rs.getBigDecimal("kmInicial"));
+                        p.setKmFinal(rs.getBigDecimal("kmFinal"));
+                        p.setGastoPeaje(rs.getBigDecimal("gastosPeaje")); 
+                        p.setGastoDietas(rs.getBigDecimal("gastosDietas"));
+                        p.setGastoCombustible(rs.getBigDecimal("gastosCombustible"));
+                        p.setGastoVarios(rs.getBigDecimal("otrosGastos"));
+                        p.setIncidencias(rs.getString("incidencias"));
+                        p.setEstado(rs.getString("estado"));
+                        p.setValidado(rs.getString("validado"));
+                        p.setHorasExtras(rs.getBigDecimal("horasExtras"));
+                        p.setIdTrabajador(rs.getBigDecimal("TRABAJADORES_ID"));
+                        p.setNotasAdministrativas(rs.getString("notasAdministrativas"));
+                partes.add(p);
+                }
+                
+                rs.close();
+                cs.close();
+                Conexion.desconectar();
+                return partes;
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "No se puede efectuar la conexión, hable con el administrador del sistema" + ex.getMessage());
+            }
+            return null;
+    }
+     public static List<Parte> partesTFF(String fechaIni, String fechaFin){
+        List <Parte> partes=new ArrayList<>();
+        Conexion.conectar();
+        String sql = "call ppartes.partesTFF (?,?,?)";
+        
+            try {
+                CallableStatement cs = Conexion.getConexion().prepareCall(sql);
+               
+                cs.setString(1, fechaIni);
+                cs.setString(2, fechaFin);
+                cs.registerOutParameter(3, OracleTypes.CURSOR);
+                cs.execute();
+                
+                ResultSet rs = (ResultSet) cs.getObject(3);
+                while (rs.next()){
+                Parte p = new Parte();
+                        p.setFecha(rs.getString("fecha"));
+                        p.setKmInicial(rs.getBigDecimal("kmInicial"));
+                        p.setKmFinal(rs.getBigDecimal("kmFinal"));
+                        p.setGastoPeaje(rs.getBigDecimal("gastosPeaje")); 
+                        p.setGastoDietas(rs.getBigDecimal("gastosDietas"));
+                        p.setGastoCombustible(rs.getBigDecimal("gastosCombustible"));
+                        p.setGastoVarios(rs.getBigDecimal("otrosGastos"));
+                        p.setIncidencias(rs.getString("incidencias"));
+                        p.setEstado(rs.getString("estado"));
+                        p.setValidado(rs.getString("validado"));
+                        p.setHorasExtras(rs.getBigDecimal("horasExtras"));
+                        p.setIdTrabajador(rs.getBigDecimal("TRABAJADORES_ID"));
+                        p.setNotasAdministrativas(rs.getString("notasAdministrativas"));
+                partes.add(p);
+                }
+                
+                rs.close();
+                cs.close();
+                Conexion.desconectar();
+                return partes;
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "No se puede efectuar la conexión, hable con el administrador del sistema" + ex.getMessage());
+            }
+            return null;
+    }
     public boolean iniciarParte(){
         Conexion.conectar();
         
