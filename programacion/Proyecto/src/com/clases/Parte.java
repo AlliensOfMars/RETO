@@ -258,6 +258,91 @@ public class Parte {
             }
             return null;
     }
+      public static List<Parte> partesTFA(){
+        List <Parte> partes=new ArrayList<>();
+        Conexion.conectar();
+        String sql = "call ppartes.partesTFA (?)";
+        
+            try {
+                CallableStatement cs = Conexion.getConexion().prepareCall(sql);
+               
+               
+                
+                cs.registerOutParameter(1, OracleTypes.CURSOR);
+                cs.execute();
+                
+                ResultSet rs = (ResultSet) cs.getObject(1);
+                while (rs.next()){
+                Parte p = new Parte();
+                        p.setFecha(rs.getString("fecha"));
+                        p.setKmInicial(rs.getBigDecimal("kmInicial"));
+                        p.setKmFinal(rs.getBigDecimal("kmFinal"));
+                        p.setGastoPeaje(rs.getBigDecimal("gastosPeaje")); 
+                        p.setGastoDietas(rs.getBigDecimal("gastosDietas"));
+                        p.setGastoCombustible(rs.getBigDecimal("gastosCombustible"));
+                        p.setGastoVarios(rs.getBigDecimal("otrosGastos"));
+                        p.setIncidencias(rs.getString("incidencias"));
+                        p.setEstado(rs.getString("estado"));
+                        p.setValidado(rs.getString("validado"));
+                        p.setHorasExtras(rs.getBigDecimal("horasExtras"));
+                        p.setIdTrabajador(rs.getBigDecimal("TRABAJADORES_ID"));
+                        p.setNotasAdministrativas(rs.getString("notasAdministrativas"));
+                partes.add(p);
+                }
+                
+                rs.close();
+                cs.close();
+                Conexion.desconectar();
+                return partes;
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "No se puede efectuar la conexión, hable con el administrador del sistema" + ex.getMessage());
+            }
+            return null;
+    }
+      public static List<Parte> partesTFC(){
+        List <Parte> partes=new ArrayList<>();
+        Conexion.conectar();
+        String sql = "call ppartes.partesTFC (?)";
+        
+            try {
+                CallableStatement cs = Conexion.getConexion().prepareCall(sql);
+               
+               
+                
+                cs.registerOutParameter(1, OracleTypes.CURSOR);
+                cs.execute();
+                
+                ResultSet rs = (ResultSet) cs.getObject(1);
+                while (rs.next()){
+                Parte p = new Parte();
+                        p.setFecha(rs.getString("fecha"));
+                        p.setKmInicial(rs.getBigDecimal("kmInicial"));
+                        p.setKmFinal(rs.getBigDecimal("kmFinal"));
+                        p.setGastoPeaje(rs.getBigDecimal("gastosPeaje")); 
+                        p.setGastoDietas(rs.getBigDecimal("gastosDietas"));
+                        p.setGastoCombustible(rs.getBigDecimal("gastosCombustible"));
+                        p.setGastoVarios(rs.getBigDecimal("otrosGastos"));
+                        p.setIncidencias(rs.getString("incidencias"));
+                        p.setEstado(rs.getString("estado"));
+                        p.setValidado(rs.getString("validado"));
+                        p.setHorasExtras(rs.getBigDecimal("horasExtras"));
+                        p.setIdTrabajador(rs.getBigDecimal("TRABAJADORES_ID"));
+                        p.setNotasAdministrativas(rs.getString("notasAdministrativas"));
+                partes.add(p);
+                }
+                
+                rs.close();
+                cs.close();
+                Conexion.desconectar();
+                return partes;
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "No se puede efectuar la conexión, hable con el administrador del sistema" + ex.getMessage());
+            }
+            return null;
+    }
+      
+     
+     //TODO HACER QUE SALTE UN MENSAJE AL CONDUCTOR CUANDO ESTE PARTE SE REALIZE
     public boolean iniciarParte(){
         Conexion.conectar();
         

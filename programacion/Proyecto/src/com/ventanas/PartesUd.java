@@ -75,8 +75,35 @@ public class PartesUd extends javax.swing.JFrame {
               p.getGastoPeaje(),p.getGastoDietas(),p.getGastoCombustible(),p.getGastoVarios(),
               p.getHorasExtras(),p.getNotasAdministrativas()
           });
-      });
+      });   
+  }
+        private void partesTFA(){
+      tPartesModel.setRowCount(0);
+      tPartesModel=(DefaultTableModel) tPartes.getModel();
+      partes=Parte.partesTFA();
       
+      partes.forEach((p) -> {
+      
+          tPartesModel.insertRow(tPartesModel.getRowCount(), new Object[]{p.getIdTrabajador(),p.getFecha(),
+              p.getValidado(),p.getEstado(),p.getKmInicial(),p.getIncidencias(),p.getKmFinal(),
+              p.getGastoPeaje(),p.getGastoDietas(),p.getGastoCombustible(),p.getGastoVarios(),
+              p.getHorasExtras(),p.getNotasAdministrativas()
+          });
+      });   
+  }
+              private void partesTFC(){
+      tPartesModel.setRowCount(0);
+      tPartesModel=(DefaultTableModel) tPartes.getModel();
+      partes=Parte.partesTFC();
+      
+      partes.forEach((p) -> {
+      
+          tPartesModel.insertRow(tPartesModel.getRowCount(), new Object[]{p.getIdTrabajador(),p.getFecha(),
+              p.getValidado(),p.getEstado(),p.getKmInicial(),p.getIncidencias(),p.getKmFinal(),
+              p.getGastoPeaje(),p.getGastoDietas(),p.getGastoCombustible(),p.getGastoVarios(),
+              p.getHorasExtras(),p.getNotasAdministrativas()
+          });
+      });   
   }
   
     @SuppressWarnings("unchecked")
@@ -135,8 +162,18 @@ public class PartesUd extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tPartes);
 
         jButton1.setText("Lista Partes Abiertos");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Lista Partes Cerrados");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         listarPartes.setText("Ver todos los partes");
         listarPartes.addActionListener(new java.awt.event.ActionListener() {
@@ -367,6 +404,16 @@ public class PartesUd extends javax.swing.JFrame {
         // TODO add your handling code here:
         listarPartes();
     }//GEN-LAST:event_listarPartesActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        partesTFA();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        partesTFC();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
