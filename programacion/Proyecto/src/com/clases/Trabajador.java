@@ -258,7 +258,7 @@ public class Trabajador {
                 t.setDni(rs.getString("dni"));
                 t.setNombre(rs.getString("nombre"));
                 t.setPrimerApellido(rs.getString("primerApellido"));
-                t.setSegundoApellido(rs.getString("segundoapellido"));
+                t.setSegundoApellido(rs.getString("segundoApellido"));
                 t.setCategoria(rs.getString("categoria"));
                 t.setCalle(rs.getString("calle"));
                 t.setNumero(rs.getBigDecimal("numero"));
