@@ -96,12 +96,12 @@ public class Usuario {
             
             cs.close();
             Conexion.desconectar();
-            
+             return usuario;
         } catch (SQLException ex) {
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        return usuario;
+        return null;
     }
     
     public static String user(String nombre, String apellido) {

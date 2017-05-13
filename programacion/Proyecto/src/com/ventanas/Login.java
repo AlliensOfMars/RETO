@@ -148,6 +148,12 @@ public class Login extends javax.swing.JFrame {
         String pass = new String(password.getPassword());
         
         Usuario u = Usuario.log(usuario, pass);
+       if (u==null){
+         JOptionPane.showMessageDialog(null, "Usuario o Contraseña erroneos.", "Error", JOptionPane.INFORMATION_MESSAGE);   
+       }
+           
+       
+        
         Trabajador t = Trabajador.filtrarTrabajador2(u.getIdt());
         Centro c = t.getCentro();
 
@@ -197,13 +203,6 @@ public class Login extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_conectarActionPerformed
-
-    public static BigDecimal id(BigDecimal i) {
-
-        BigDecimal idT = i;
-
-        return idT;
-    }
 
     /**
      * @param args the command line arguments

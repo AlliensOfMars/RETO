@@ -22,6 +22,7 @@ public class CentrosUd extends javax.swing.JFrame {
     private DefaultTableModel centros;
   
     private List<Centro> centro;
+    private Centro c;
 
     private void listarCentros() {
         centros = (DefaultTableModel) jTable1.getModel();
@@ -38,13 +39,17 @@ public class CentrosUd extends javax.swing.JFrame {
     private void filtrarCentos() {
         centros.setRowCount(0);
         centros = (DefaultTableModel) jTable1.getModel();
-        centro = Centro.filtrarcentCentros(name);
-           
-       
-        centro.forEach((c) -> {
-            centros.insertRow(centros.getRowCount(), new Object[]{c.getIDcent(), c.getNombre(),
+        c = Centro.centroN(name);
+          if (c==null){
+              listarCentros();
+          } else{
+               centros.insertRow(centros.getRowCount(), new Object[]{c.getIDcent(), c.getNombre(),
                 c.getCalle(), c.getNumero(), c.getCiudad(), c.getCodigoPostal(), c.getProvincia(), c.getTelefonos()});
-        });
+          }
+       
+        
+           
+        
     }
 
     public CentrosUd() {
@@ -367,16 +372,16 @@ public class CentrosUd extends javax.swing.JFrame {
 
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
         
-        Centro.bajaCenro(idCent);
-
+        if (JOptionPane.showConfirmDialog(null, "Este viaje va a ser eliminado. \n¿Esta seguro?", "Atención",
+                JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+             Centro.bajaCenro(idCent);
+            if (centro.size() > 0) {
+                centros.setRowCount(0);
+            }
+            listarCentros();
+        }               
         //limpio formulario
         limpiarFormulario();
-
-        //limpio tabla 
-        centros.setRowCount(0);
-
-        //cargo lista de nuevo
-        listarCentros();
     }//GEN-LAST:event_eliminarActionPerformed
 
     private void bAltaCentroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAltaCentroActionPerformed

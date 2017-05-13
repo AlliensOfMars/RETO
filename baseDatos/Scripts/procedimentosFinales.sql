@@ -308,7 +308,7 @@ procedure filtrarVehiculo (mat in vehiculos.matricula%type,
 idv out vehiculos.id%type,
 marc out vehiculos.marca%type,
 model out vehiculos.modelo%type,
-matt out matricula%type
+matt out vehiculos.matricula%type
 );
 end pvehiculos;
 
@@ -343,8 +343,9 @@ end pvehiculos;
 
 
 --trigger
+--trigger
 create or replace trigger horas
-before insert or update
+AFTER insert or update
 on viajes
 declare
 exceso_horas exception;
@@ -353,22 +354,19 @@ HORAS NUMBER(2);
 MINUTOS NUMBER(2);
 TOTALMINUTOS NUMBER (4,2);
 TOTAL NUMBER (4,2);
-idt PARTES.TRABAJADORES_ID%type;
-est partes.estado%type;
+IDT NUMBER(7);
+TOTALH NUMBER(4,2);
 BEGIN
 SELECT TRABAJADORES_ID , extract(hour from (to_timestamp((select max(horafinal) from viajes where TRABAJADORES_ID = (select trabajadores_id from partes where estado='ABIERTO')), 'HH24:MI') - to_timestamp((select min(horainicial)from viajes where TRABAJADORES_ID = (select trabajadores_id from partes where estado='ABIERTO')),  'HH24:MI'))) ,
    extract(minute from (to_timestamp((select max(horafinal) from VIAJES where TRABAJADORES_ID = (select trabajadores_id from partes where estado='ABIERTO')), 'HH24:MI') - to_timestamp((select min(HORAINICIAL)from viajes where TRABAJADORES_ID = (select trabajadores_id from partes where estado='ABIERTO') ),  'HH24:MI'))) INTO  idt, HORAS, MINUTOS
 FROM VIAJES where TRABAJADORES_ID =(select trabajadores_id from partes where estado='ABIERTO') group by TRABAJADORES_ID ;
 TOTALMINUTOS:=MINUTOS/100;
 TOTAL:=HORAS+TOTALMINUTOS;
-IF TOTAL<8 THEN
-RAISE menos_horas;
-else 
-RAISE exceso_horas;
+SELECT TRABAJADORES_ID INTO IDT
+FROM VIAJES 
+WHERE TRABAJADORES_ID=(select trabajadores_id from partes where estado='ABIERTO');
+IF TOTAL>8 THEN
+TOTALH := TOTAL-8;
+UPDATE PARTES SET HORASEXTRAS = TOTALH WHERE TRABAJADORES_ID = IDT;
 end if;
-EXCEPTION
-when menos_horas then
- RAISE_APPLICATION_ERROR(-20001,'pocas horas');
-when exceso_horas then
- RAISE_APPLICATION_ERROR(-20001,'muchas horas');
 END horas;

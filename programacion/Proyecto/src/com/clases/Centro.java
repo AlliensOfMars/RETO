@@ -272,7 +272,7 @@ public class Centro {
         Conexion.conectar();
         
         try {
-            CallableStatement cs = Conexion.getConexion().prepareCall("{call centrosFi(?,?,?,?,?,?,?,?,?)}");
+            CallableStatement cs = Conexion.getConexion().prepareCall("{call pcentros.centrosFi(?,?,?,?,?,?,?,?,?)}");
             cs.setBigDecimal(1, id);
             
             cs.registerOutParameter(2, OracleTypes.INTEGER);
@@ -303,6 +303,44 @@ public class Centro {
         return centro;
     }
 
+     public static Centro centroN(String name){
+        Centro centro = new Centro();
+        
+        Conexion.conectar();
+        
+        try {
+            CallableStatement cs = Conexion.getConexion().prepareCall("{call pcentros.centrosFn(?,?,?,?,?,?,?,?,?)}");
+            cs.setString(1, name);
+            
+            cs.registerOutParameter(2, OracleTypes.INTEGER);
+            cs.registerOutParameter(3, OracleTypes.VARCHAR);
+            cs.registerOutParameter(4, OracleTypes.VARCHAR);
+            cs.registerOutParameter(5, OracleTypes.INTEGER);
+            cs.registerOutParameter(6, OracleTypes.VARCHAR);
+            cs.registerOutParameter(7, OracleTypes.INTEGER);
+            cs.registerOutParameter(8, OracleTypes.VARCHAR);
+            cs.registerOutParameter(9, OracleTypes.INTEGER);
+            cs.execute();
+            
+            BigDecimal idu = cs.getBigDecimal(2);
+            String nombre = cs.getString(3);
+            String calle = cs.getString(4);
+            BigDecimal nu = cs.getBigDecimal(5);
+            String pro = cs.getString(6);
+            BigDecimal cd = cs.getBigDecimal(7);
+            String no = cs.getString(8);
+            BigDecimal tel = cs.getBigDecimal(9);
+                
+          centro = new Centro(idu, nombre, calle, nu, pro, cd, no, tel);
+            return centro;
+        } catch (SQLException ex) {
+         JOptionPane.showMessageDialog(null, "No se ha encontrado registros.\nVerifique el parametro de"
+                    + "busqueda.\n"+ex.getMessage()); 
+        }
+        
+        return null;
+    }
+    
     public boolean modificarCentro(BigDecimal id) {
 
         Conexion.conectar();
@@ -344,6 +382,7 @@ public class Centro {
             return false;
         }
     }
+    
 
     @Override
     public String toString() {

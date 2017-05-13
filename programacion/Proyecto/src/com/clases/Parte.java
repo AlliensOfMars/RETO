@@ -261,7 +261,7 @@ public class Parte {
       public static List<Parte> partesTFA(){
         List <Parte> partes=new ArrayList<>();
         Conexion.conectar();
-        String sql = "call ppartes.partesTFA (?)";
+        String sql = "call ppartes.partesTA (?)";
         
             try {
                 CallableStatement cs = Conexion.getConexion().prepareCall(sql);
@@ -302,7 +302,7 @@ public class Parte {
       public static List<Parte> partesTFC(){
         List <Parte> partes=new ArrayList<>();
         Conexion.conectar();
-        String sql = "call ppartes.partesTFC (?)";
+        String sql = "call ppartes.partesTC (?)";
         
             try {
                 CallableStatement cs = Conexion.getConexion().prepareCall(sql);

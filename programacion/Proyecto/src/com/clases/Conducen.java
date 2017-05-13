@@ -77,10 +77,12 @@ public class Conducen {
             smt.setBigDecimal(1, idT);
             smt.setBigDecimal(2, idvH);
             smt.setString(3, fecha);
-            smt.execute();
+            smt.executeUpdate();
             smt.close();
+          
             Conexion.desconectar();
-            return true;
+             return true;
+
         } catch (SQLException ex) {
             Logger.getLogger(Conducen.class.getName()).log(Level.SEVERE, null, ex);
         }

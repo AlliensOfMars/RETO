@@ -243,9 +243,9 @@ private Viajes v;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       Parte p = new Parte(id,new BigDecimal(kmI.getText()),new BigDecimal(kmF.getText()), 
-               new BigDecimal(peaje.getText()), new BigDecimal(dietas.getText()), 
-               new BigDecimal(combustible.getText()),new BigDecimal(otros.getText()), incidencias.getText());
+       Parte p = new Parte(id,new BigDecimal(kmI.getText()),new BigDecimal(kmF.getText().replace(",", ".")), 
+               new BigDecimal(peaje.getText().replace(",", ".")), new BigDecimal(dietas.getText().replace(",", ".")), 
+               new BigDecimal(combustible.getText().replace(",", ".")),new BigDecimal(otros.getText().replace(",", ".")), incidencias.getText());
        
        boolean cerrarParte=Logistica.cerrarParte(p);
        

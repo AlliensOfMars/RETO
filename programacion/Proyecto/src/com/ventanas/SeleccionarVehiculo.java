@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class SeleccionarVehiculo extends javax.swing.JFrame {
-    
+
     private BigDecimal idT = Login.idt;
     private DefaultTableModel vehiculos;
     private List<Vehiculo> vehiculo;
@@ -26,7 +26,7 @@ public class SeleccionarVehiculo extends javax.swing.JFrame {
     private Viajes viaje;
     //para filtrar
     private static String docI;
-    
+
     public SeleccionarVehiculo() {
         initComponents();
         listarVehiculos();
@@ -41,17 +41,17 @@ public class SeleccionarVehiculo extends javax.swing.JFrame {
                 v.getModelo(), v.getMatricula()});
         });
     }
-    
+
     private void filtrarVehiculo() {
         vehiculos.setRowCount(0);
         vehiculos = (DefaultTableModel) jTable1.getModel();
         v = Vehiculo.filtrarVehiculo(docI);
-        
+
         vehiculos.insertRow(vehiculos.getRowCount(), new Object[]{v.getIdVehiculo(),
             v.getMarca(), v.getModelo(), v.getMatricula()});
-        
+
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -169,19 +169,20 @@ public class SeleccionarVehiculo extends javax.swing.JFrame {
 
     private void seleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seleccionarActionPerformed
         // selecciono vehiculo y hago insert en la tabla conducen utilizando la fecha
-        SimpleDateFormat cfecha=new SimpleDateFormat("dd/MM/yyyy");
-        Date ccfecha=new Date();
-        String fechacc= cfecha.format(ccfecha);
+        SimpleDateFormat cfecha = new SimpleDateFormat("dd/MM/yyyy");
+        Date ccfecha = new Date();
+        String fechacc = cfecha.format(ccfecha);
         Conducen conducen = new Conducen(new BigDecimal(uIdV.getText()), fechacc, idT);
-        Logistica t = (Logistica) Trabajador.filtrarTrabajador2(idT);
-        conducen.añadirLogistica(t);
-        t.añadirVehiculo(conducen);    
+
         if (conducen.insertarConducen() == true) {
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             Date fecha = new Date();
             String fechaParte = dateFormat.format(fecha);
             Parte p = new Parte(fechaParte, idT);
             p.iniciarParte();
+            Logistica t = (Logistica) Trabajador.filtrarTrabajador2(idT);
+            conducen.añadirLogistica(t);
+            t.añadirVehiculo(conducen);
             viaje = new Viajes();
             viaje.setVisible(true);
             this.setVisible(false);

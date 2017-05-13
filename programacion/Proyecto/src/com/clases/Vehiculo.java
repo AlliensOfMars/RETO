@@ -157,7 +157,7 @@ public Vehiculo( BigDecimal idVehiculo,String matricula, String marca, String mo
             Conexion.desconectar();
             return v;
         } catch (SQLException ex) {
-            Logger.getLogger(Vehiculo.class.getName()).log(Level.SEVERE, null, ex);
+           JOptionPane.showMessageDialog(null, "No se encuentra ningun vehiculo con esa matricula\n" + ex.getMessage());
             return null;
         }
 
