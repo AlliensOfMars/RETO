@@ -83,6 +83,15 @@ public class Parte {
         this.fecha = fecha;
         this.idTrabajador = idTrabajador;
     }
+
+    public Parte(String fecha, BigDecimal idTrabajador, String notasAdministrativas) {
+        this.fecha = fecha;
+        this.idTrabajador = idTrabajador;
+        this.notasAdministrativas = notasAdministrativas;
+    }
+
+    
+    
     
 
     public Parte(BigDecimal idTrabajador) {

@@ -77,7 +77,7 @@ public class Administracion extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Andalus", 1, 24)); // NOI18N
         jLabel1.setText("SELECCIONE LO QUE QUIERE GESTIONAR");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

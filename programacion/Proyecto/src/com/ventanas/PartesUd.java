@@ -6,9 +6,14 @@
 package com.ventanas;
 
 import com.clases.Parte;
+import com.clases.Administracion;
+import com.clases.Aviso;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
+
 import javax.swing.table.DefaultTableModel;
 
 
@@ -21,7 +26,7 @@ public class PartesUd extends javax.swing.JFrame {
 
   private DefaultTableModel tPartesModel;
   private List<Parte>partes;
-  
+  private static int index;
    
     public PartesUd() {
         initComponents();
@@ -126,12 +131,12 @@ public class PartesUd extends javax.swing.JFrame {
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
         jLabel12 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        uPeaje = new javax.swing.JTextField();
+        uDietas = new javax.swing.JTextField();
+        uCombustible = new javax.swing.JTextField();
+        uOtros = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        uIncidencias = new javax.swing.JTextArea();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -139,7 +144,7 @@ public class PartesUd extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        uNotasAdministrativas = new javax.swing.JTextArea();
         jLabel19 = new javax.swing.JLabel();
         validar = new javax.swing.JButton();
         avisar = new javax.swing.JButton();
@@ -163,6 +168,11 @@ public class PartesUd extends javax.swing.JFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        tPartes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tPartesMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(tPartes);
@@ -208,18 +218,18 @@ public class PartesUd extends javax.swing.JFrame {
 
         jLabel12.setText("DATOS DEL PARTE");
 
-        jTextField2.setEditable(false);
+        uPeaje.setEditable(false);
 
-        jTextField3.setEditable(false);
+        uDietas.setEditable(false);
 
-        jTextField4.setEditable(false);
+        uCombustible.setEditable(false);
 
-        jTextField5.setEditable(false);
+        uOtros.setEditable(false);
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
+        uIncidencias.setEditable(false);
+        uIncidencias.setColumns(20);
+        uIncidencias.setRows(5);
+        jScrollPane2.setViewportView(uIncidencias);
 
         jLabel13.setText("GASTOS:");
 
@@ -233,9 +243,9 @@ public class PartesUd extends javax.swing.JFrame {
 
         jLabel18.setText("INCIDENCIAS");
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane3.setViewportView(jTextArea2);
+        uNotasAdministrativas.setColumns(20);
+        uNotasAdministrativas.setRows(5);
+        jScrollPane3.setViewportView(uNotasAdministrativas);
 
         jLabel19.setText("NOTAS ADMINISTRATIVAS");
 
@@ -247,6 +257,11 @@ public class PartesUd extends javax.swing.JFrame {
         });
 
         avisar.setText("AVISAR");
+        avisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                avisarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -293,19 +308,19 @@ public class PartesUd extends javax.swing.JFrame {
                                         .addGroup(layout.createSequentialGroup()
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(uPeaje, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addGap(18, 18, 18)
                                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(uDietas, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addComponent(jLabel15)))
                                                 .addComponent(jLabel14))
                                             .addGap(18, 18, 18)
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(uCombustible, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(jLabel16))
                                             .addGap(18, 18, 18)
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(uOtros, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(jLabel17)))
                                         .addComponent(jLabel13)
                                         .addComponent(jLabel12)
@@ -376,8 +391,8 @@ public class PartesUd extends javax.swing.JFrame {
                                     .addComponent(avisar)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(uPeaje, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(uDietas, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(23, 23, 23)
                                 .addComponent(jLabel19)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -385,11 +400,11 @@ public class PartesUd extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel17)
                         .addGap(13, 13, 13)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(uOtros, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel16)
                         .addGap(13, 13, 13)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(uCombustible, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(jLabel11)
                 .addGap(27, 27, 27))
@@ -428,8 +443,52 @@ public class PartesUd extends javax.swing.JFrame {
 
     private void validarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_validarActionPerformed
         // TODO add your handling code here:
+        Parte p = new Parte(partes.get(index).getFecha(), partes.get(index).getIdTrabajador(), procesarCampo(uNotasAdministrativas));
+       if(!partes.get(index).getValidado().equalsIgnoreCase("si")){
+              if( Administracion.gestionParte(p)==true){
+             JOptionPane.showMessageDialog(null, "Parte validado correctamente.", "Validado", JOptionPane.INFORMATION_MESSAGE);
+        }
+       }else{
+           JOptionPane.showMessageDialog(null, "Este parte ya ha sido validado.", "Validado", JOptionPane.INFORMATION_MESSAGE); 
+       }
+     
     }//GEN-LAST:event_validarActionPerformed
 
+    private void tPartesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tPartesMouseClicked
+        // TODO add your handling code here:
+        
+        index = tPartes.getSelectedRow();
+        uPeaje.setText(partes.get(index).getGastoPeaje().toString());
+        uDietas.setText(partes.get(index).getGastoDietas().toString());
+        uCombustible.setText(partes.get(index).getGastoCombustible().toString());
+        uOtros.setText(partes.get(index).getGastoVarios().toString());
+        uIncidencias.setText(partes.get(index).getIncidencias());
+        
+    }//GEN-LAST:event_tPartesMouseClicked
+
+    private void avisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avisarActionPerformed
+      String resultado= JOptionPane.showInputDialog(null,"Aviso","Generar aviso",JOptionPane.YES_OPTION);
+if (resultado!=null){
+    Aviso a = new Aviso(resultado, partes.get(index).getIdTrabajador(), partes.get(index).getFecha());
+    if(Administracion.gestionarAviso(a)==true){
+         JOptionPane.showMessageDialog(null, "Aviso enviado correctamente.", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+   
+}
+    }//GEN-LAST:event_avisarActionPerformed
+
+        public String procesarCampo(JTextArea t){
+  
+            String cadena="";
+        
+     if (t.getText().equalsIgnoreCase("")){
+          cadena = "No Procede";
+        }else{
+     cadena = t.getText();
+     }
+    return cadena;
+    }
     /**
      * @param args the command line arguments
      */
@@ -489,15 +548,15 @@ public class PartesUd extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JButton listarPartes;
     private javax.swing.JTable tPartes;
+    private javax.swing.JTextField uCombustible;
+    private javax.swing.JTextField uDietas;
     private javax.swing.JTextField uIdTrab;
+    private javax.swing.JTextArea uIncidencias;
+    private javax.swing.JTextArea uNotasAdministrativas;
+    private javax.swing.JTextField uOtros;
+    private javax.swing.JTextField uPeaje;
     private javax.swing.JButton validar;
     // End of variables declaration//GEN-END:variables
 }

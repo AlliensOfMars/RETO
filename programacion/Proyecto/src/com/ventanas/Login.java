@@ -155,9 +155,9 @@ public class Login extends javax.swing.JFrame {
        
         
         Trabajador t = Trabajador.filtrarTrabajador2(u.getIdt());
-        Centro c = t.getCentro();
+       
 
-        //Centro.centro(Trabajador.filtrarTrabajador2(u.getIdt()).getIdCent());
+        Centro.centro(Trabajador.filtrarTrabajador2(u.getIdt()).getIdCent());
         u.setTrabajador(t);
         t.setUsuario(u);
         // c.agregarTrabajador(t);

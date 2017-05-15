@@ -344,7 +344,7 @@ public class Trabajador {
             Conexion.desconectar();
             return trabajador;
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "No se ha encontrado registros.\nVerifique el parametro de"
+            JOptionPane.showMessageDialog(null, "No se ha encontrado ningun trabajador con ese DNI.\nVerifique el DNI de"
                     + "busqueda.\n"+ex.getMessage()); 
         }
         return null;
@@ -401,13 +401,14 @@ public class Trabajador {
            }else{
             trabajador =  new Logistica (idt, doc, no, pa, sa, cat, ca, nu, pi, ma, ci, cd, pro, mve, mvp, sal, fe, idc);   
            }
-            
+          
             
             Conexion.desconectar();
+              return trabajador;
         } catch (SQLException ex) {
             Logger.getLogger(Trabajador.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return trabajador;
+        return null;
     }
     
     public boolean altaTrabajador12c(){

@@ -297,7 +297,7 @@ public class VehiculosUd extends javax.swing.JFrame {
     }//GEN-LAST:event_uModeloActionPerformed
 
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
-      if (JOptionPane.showConfirmDialog(null, "Este trabajador va ser eliminado. \n¿Esta seguro?", "Atención",
+      if (JOptionPane.showConfirmDialog(null, "Este vehiculo va ser eliminado. \n¿Esta seguro?", "Atención",
                 JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
          Vehiculo.bajaVehiculo(idV);
             if (vehiculo.size() > 0) {

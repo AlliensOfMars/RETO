@@ -334,8 +334,8 @@ public class Centro {
           centro = new Centro(idu, nombre, calle, nu, pro, cd, no, tel);
             return centro;
         } catch (SQLException ex) {
-         JOptionPane.showMessageDialog(null, "No se ha encontrado registros.\nVerifique el parametro de"
-                    + "busqueda.\n"+ex.getMessage()); 
+         JOptionPane.showMessageDialog(null, "No se ha encontrado ningùn centro con ese nombre.\nVerifique el nombre del"
+                    + "Centro.\n"+ex.getMessage()); 
         }
         
         return null;

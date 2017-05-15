@@ -372,7 +372,7 @@ public class CentrosUd extends javax.swing.JFrame {
 
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
         
-        if (JOptionPane.showConfirmDialog(null, "Este viaje va a ser eliminado. \n¿Esta seguro?", "Atención",
+        if (JOptionPane.showConfirmDialog(null, "Este centro va a ser eliminado. \n¿Esta seguro?", "Atención",
                 JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
              Centro.bajaCenro(idCent);
             if (centro.size() > 0) {
