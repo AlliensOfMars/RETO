@@ -17,8 +17,8 @@ import oracle.jdbc.OracleTypes;
 
 
 /**
- *
- * @author 7fprog03
+ Clase creada con el fin de realizar diferentes listados relacionados con el parte, tambien es la encargada de 
+ * dar de alta el mismo.
  */
 public class Parte {
         
@@ -147,6 +147,8 @@ public class Parte {
             }    
       return null;
     }
+    //metodo utilizado para listar todos los partes existentes en nuestra base datos
+    
      public static List<Parte> listarPartes(){
         List <Parte> partes=new ArrayList<>();
         Conexion.conectar();
@@ -185,6 +187,8 @@ public class Parte {
             }
             return null;
     }
+     
+     //metodo para el listado de partes de un trabajado y un rago de fechas
      public static List<Parte> partesTFI(BigDecimal idT, String fechaIni, String fechaFin){
         List <Parte> partes=new ArrayList<>();
         Conexion.conectar();
@@ -226,6 +230,8 @@ public class Parte {
             }
             return null;
     }
+     
+     //metodo para el listado de partes en un rango de fechas determinado.
      public static List<Parte> partesTFF(String fechaIni, String fechaFin){
         List <Parte> partes=new ArrayList<>();
         Conexion.conectar();
@@ -267,6 +273,8 @@ public class Parte {
             }
             return null;
     }
+     
+     //metodo que realiza el listado de todos los partes abiertos hasta ese momento 
       public static List<Parte> partesTFA(){
         List <Parte> partes=new ArrayList<>();
         Conexion.conectar();
@@ -308,6 +316,8 @@ public class Parte {
             }
             return null;
     }
+      
+      //metodo de listado de todos los partes cerrados hasta ese momento
       public static List<Parte> partesTFC(){
         List <Parte> partes=new ArrayList<>();
         Conexion.conectar();
@@ -351,7 +361,7 @@ public class Parte {
     }
       
      
-     //TODO HACER QUE SALTE UN MENSAJE AL CONDUCTOR CUANDO ESTE PARTE SE REALIZE
+     //metodo de creacion de parte, se ejectuta una vez que el trabajador inicia jornada.
     public boolean iniciarParte(){
         Conexion.conectar();
         

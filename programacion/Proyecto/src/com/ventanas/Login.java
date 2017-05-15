@@ -83,6 +83,11 @@ public class Login extends javax.swing.JFrame {
         Salir.setText("Salir");
         Salir.setMaximumSize(new java.awt.Dimension(77, 23));
         Salir.setMinimumSize(new java.awt.Dimension(77, 23));
+        Salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -203,6 +208,10 @@ public class Login extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_conectarActionPerformed
+
+    private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
+        System.exit( 0 ); 
+    }//GEN-LAST:event_SalirActionPerformed
 
     /**
      * @param args the command line arguments

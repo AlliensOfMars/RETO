@@ -5,6 +5,8 @@
  */
 package com.ventanas;
 
+import com.clases.Trabajador;
+
 /**
  *
  * @author bcastrof
@@ -16,6 +18,11 @@ public class Administracion extends javax.swing.JFrame {
      */
     public Administracion() {
         initComponents();
+         Trabajador t = Trabajador.filtrarTrabajador2(Login.idt);
+        String nombre = t.getNombre();
+        String apellido = t.getPrimerApellido();
+        String etiqueta = nombre.toUpperCase().concat(" ").concat(apellido.toUpperCase());
+        jLabel3.setText(etiqueta);
     }
 
     /**
@@ -32,10 +39,11 @@ public class Administracion extends javax.swing.JFrame {
         bVehiculos1 = new javax.swing.JButton();
         bPartes1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Administración");
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setTitle("Panel de Administración");
 
         bCentros1.setText("Centros");
         bCentros1.setMaximumSize(new java.awt.Dimension(97, 23));
@@ -46,7 +54,6 @@ public class Administracion extends javax.swing.JFrame {
                 bCentros1ActionPerformed(evt);
             }
         });
-        getContentPane().add(bCentros1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, 30));
 
         bTrabajadores1.setText("Trabajadores");
         bTrabajadores1.addActionListener(new java.awt.event.ActionListener() {
@@ -54,7 +61,6 @@ public class Administracion extends javax.swing.JFrame {
                 bTrabajadores1ActionPerformed(evt);
             }
         });
-        getContentPane().add(bTrabajadores1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, -1, 30));
 
         bVehiculos1.setText("Vehiculos");
         bVehiculos1.setToolTipText("");
@@ -64,7 +70,6 @@ public class Administracion extends javax.swing.JFrame {
                 bVehiculos1ActionPerformed(evt);
             }
         });
-        getContentPane().add(bVehiculos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, -1, 30));
 
         bPartes1.setText("Partes");
         bPartes1.setPreferredSize(new java.awt.Dimension(97, 23));
@@ -73,11 +78,53 @@ public class Administracion extends javax.swing.JFrame {
                 bPartes1ActionPerformed(evt);
             }
         });
-        getContentPane().add(bPartes1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, -1, 30));
 
         jLabel1.setFont(new java.awt.Font("Andalus", 1, 24)); // NOI18N
         jLabel1.setText("SELECCIONE LO QUE QUIERE GESTIONAR");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
+
+        jLabel2.setText("BIEN VENIDO:");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(bCentros1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(13, 13, 13)
+                        .addComponent(bTrabajadores1)
+                        .addGap(23, 23, 23)
+                        .addComponent(bVehiculos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(13, 13, 13)
+                        .addComponent(bPartes1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(41, 41, 41))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addComponent(jLabel1)
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bCentros1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bTrabajadores1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bVehiculos1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bPartes1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -148,5 +195,7 @@ public class Administracion extends javax.swing.JFrame {
     private javax.swing.JButton bTrabajadores1;
     private javax.swing.JButton bVehiculos1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }

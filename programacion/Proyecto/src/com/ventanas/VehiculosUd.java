@@ -97,6 +97,7 @@ public class VehiculosUd extends javax.swing.JFrame {
         uVolverInicio = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Gestión de Vehiculos");
 
         tablaV.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

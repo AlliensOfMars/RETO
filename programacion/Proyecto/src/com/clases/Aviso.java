@@ -14,8 +14,7 @@ import java.util.logging.Logger;
 import oracle.jdbc.OracleTypes;
 
 /**
- *
- * @author 7fprog03
+clase creada con el fin de administrar los diferentes avisos, que son enviados por la administracion a los trabajadores
  */
 public class Aviso {
 
@@ -75,7 +74,11 @@ public class Aviso {
         this.idT = idT;
     }
 
-    
+    /* 
+    Este metodo se utiliza en el login y nos sirve para saber si el trabajador tiene un aviso o no para asi poder 
+    mostrarle la ventana que le corresponda, recibe un bigdecimal que lo genera la clase login una vez que nos logueamos
+    y lo que guarda es la id del trabajador.
+    */
     public static Aviso aviso(BigDecimal idt) {
         Aviso a = new Aviso();
         Conexion.conectar();
@@ -105,6 +108,10 @@ public class Aviso {
         return null;
     }
 
+    /*
+    Con este metodo cambiamos el estado del aviso a leyido para que este una vez que se haya leyido no vuelva a salir
+    */
+    
     public void confirmarAviso(BigDecimal id) {
         Conexion.conectar();
 

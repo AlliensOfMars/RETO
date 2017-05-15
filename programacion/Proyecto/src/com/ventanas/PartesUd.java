@@ -8,15 +8,17 @@ package com.ventanas;
 import com.clases.Parte;
 import com.clases.Administracion;
 import com.clases.Aviso;
+import com.clases.Conducen;
+import com.clases.Viaje;
 import java.math.BigDecimal;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
 import javax.swing.table.DefaultTableModel;
-
-
 
 /**
  *
@@ -24,10 +26,15 @@ import javax.swing.table.DefaultTableModel;
  */
 public class PartesUd extends javax.swing.JFrame {
 
-  private DefaultTableModel tPartesModel;
-  private List<Parte>partes;
-  private static int index;
-   
+    private DefaultTableModel tPartesModel;
+    private List<Parte> partes;
+    private DefaultTableModel tViajes;
+    private List<Viaje> viaje;
+    private int index;
+    private BigDecimal idt;
+    private String fecha;
+    private com.ventanas.Administracion administracion;
+
     public PartesUd() {
         initComponents();
         /* coloco aqui el listar partes para cuando la ventana se abra directamente saque el listado de todos
@@ -38,79 +45,103 @@ public class PartesUd extends javax.swing.JFrame {
     /*listado de todos los partes, aqui llamamos al metodo listarPartes que esta dentro de la calse partes 
   el cual recibe la informacion que le devuelve un cursor de la base de datos y vuelca dicha información, en 
   un Array List*/
-  
-  private void listarPartes(){
-      tPartesModel=(DefaultTableModel) tPartes.getModel();
-      partes=Parte.listarPartes();
-      
-      partes.forEach((p) -> {
-     
-          tPartesModel.insertRow(tPartesModel.getRowCount(), new Object[]{p.getIdTrabajador(),p.getFecha(),
-              p.getValidado(),p.getEstado(),p.getHorasExtras(),p.getKmInicial(),p.getIncidencias(),p.getKmFinal(),
-              p.getGastoPeaje(),p.getGastoDietas(),p.getGastoCombustible(),p.getGastoVarios(),
-              p.getNotasAdministrativas()
-          });
-      });
-  }
-  
-  private void partesTFI(BigDecimal idT, String fechaIni, String fechaFin){
-      tPartesModel.setRowCount(0);
-      tPartesModel=(DefaultTableModel) tPartes.getModel();
-      partes=Parte.partesTFI(idT, fechaIni, fechaFin);
-      
-      partes.forEach((p) -> {
-      
-          tPartesModel.insertRow(tPartesModel.getRowCount(), new Object[]{p.getIdTrabajador(),p.getFecha(),
-              p.getValidado(),p.getEstado(),p.getKmInicial(),p.getIncidencias(),p.getKmFinal(),
-              p.getGastoPeaje(),p.getGastoDietas(),p.getGastoCombustible(),p.getGastoVarios(),
-              p.getHorasExtras(),p.getNotasAdministrativas()
-          });
-      });
-      
-  }
-    private void partesTFF(String fechaIni, String fechaFin){
-      tPartesModel.setRowCount(0);
-      tPartesModel=(DefaultTableModel) tPartes.getModel();
-      partes=Parte.partesTFF(fechaIni, fechaFin);
-      
-      partes.forEach((p) -> {
-      
-          tPartesModel.insertRow(tPartesModel.getRowCount(), new Object[]{p.getIdTrabajador(),p.getFecha(),
-              p.getValidado(),p.getEstado(),p.getKmInicial(),p.getIncidencias(),p.getKmFinal(),
-              p.getGastoPeaje(),p.getGastoDietas(),p.getGastoCombustible(),p.getGastoVarios(),
-              p.getHorasExtras(),p.getNotasAdministrativas()
-          });
-      });   
-  }
-        private void partesTFA(){
-      tPartesModel.setRowCount(0);
-      tPartesModel=(DefaultTableModel) tPartes.getModel();
-      partes=Parte.partesTFA();
-      
-      partes.forEach((p) -> {
-      
-          tPartesModel.insertRow(tPartesModel.getRowCount(), new Object[]{p.getIdTrabajador(),p.getFecha(),
-              p.getValidado(),p.getEstado(),p.getKmInicial(),p.getIncidencias(),p.getKmFinal(),
-              p.getGastoPeaje(),p.getGastoDietas(),p.getGastoCombustible(),p.getGastoVarios(),
-              p.getHorasExtras(),p.getNotasAdministrativas()
-          });
-      });   
-  }
-              private void partesTFC(){
-      tPartesModel.setRowCount(0);
-      tPartesModel=(DefaultTableModel) tPartes.getModel();
-      partes=Parte.partesTFC();
-      
-      partes.forEach((p) -> {
-      
-          tPartesModel.insertRow(tPartesModel.getRowCount(), new Object[]{p.getIdTrabajador(),p.getFecha(),
-              p.getValidado(),p.getEstado(),p.getKmInicial(),p.getIncidencias(),p.getKmFinal(),
-              p.getGastoPeaje(),p.getGastoDietas(),p.getGastoCombustible(),p.getGastoVarios(),
-              p.getHorasExtras(),p.getNotasAdministrativas()
-          });
-      });   
-  }
-  
+    private void listarPartes() {
+        tPartesModel = (DefaultTableModel) tPartes.getModel();
+        partes = Parte.listarPartes();
+
+        partes.forEach((p) -> {
+
+            tPartesModel.insertRow(tPartesModel.getRowCount(), new Object[]{p.getIdTrabajador(), p.getFecha(),
+                p.getValidado(), p.getEstado(), p.getHorasExtras(), p.getKmInicial(), p.getIncidencias(), p.getKmFinal(),
+                p.getGastoPeaje(), p.getGastoDietas(), p.getGastoCombustible(), p.getGastoVarios(),
+                p.getNotasAdministrativas()
+            });
+        });
+    }
+
+    private void partesTFI(BigDecimal idT, String fechaIni, String fechaFin) {
+        tPartesModel.setRowCount(0);
+        tPartesModel = (DefaultTableModel) tPartes.getModel();
+        partes = Parte.partesTFI(idT, fechaIni, fechaFin);
+
+        partes.forEach((p) -> {
+
+            tPartesModel.insertRow(tPartesModel.getRowCount(), new Object[]{p.getIdTrabajador(), p.getFecha(),
+                p.getValidado(), p.getEstado(), p.getKmInicial(), p.getIncidencias(), p.getKmFinal(),
+                p.getGastoPeaje(), p.getGastoDietas(), p.getGastoCombustible(), p.getGastoVarios(),
+                p.getHorasExtras(), p.getNotasAdministrativas()
+            });
+        });
+
+    }
+
+    private void partesTFF(String fechaIni, String fechaFin) {
+        tPartesModel.setRowCount(0);
+        tPartesModel = (DefaultTableModel) tPartes.getModel();
+        partes = Parte.partesTFF(fechaIni, fechaFin);
+
+        partes.forEach((p) -> {
+
+            tPartesModel.insertRow(tPartesModel.getRowCount(), new Object[]{p.getIdTrabajador(), p.getFecha(),
+                p.getValidado(), p.getEstado(), p.getKmInicial(), p.getIncidencias(), p.getKmFinal(),
+                p.getGastoPeaje(), p.getGastoDietas(), p.getGastoCombustible(), p.getGastoVarios(),
+                p.getHorasExtras(), p.getNotasAdministrativas()
+            });
+        });
+    }
+
+    private void partesTFA() {
+        tPartesModel.setRowCount(0);
+        tPartesModel = (DefaultTableModel) tPartes.getModel();
+        partes = Parte.partesTFA();
+
+        partes.forEach((p) -> {
+
+            tPartesModel.insertRow(tPartesModel.getRowCount(), new Object[]{p.getIdTrabajador(), p.getFecha(),
+                p.getValidado(), p.getEstado(), p.getKmInicial(), p.getIncidencias(), p.getKmFinal(),
+                p.getGastoPeaje(), p.getGastoDietas(), p.getGastoCombustible(), p.getGastoVarios(),
+                p.getHorasExtras(), p.getNotasAdministrativas()
+            });
+        });
+    }
+
+    private void partesTFC() {
+        tPartesModel.setRowCount(0);
+        tPartesModel = (DefaultTableModel) tPartes.getModel();
+        partes = Parte.partesTFC();
+
+        partes.forEach((p) -> {
+
+            tPartesModel.insertRow(tPartesModel.getRowCount(), new Object[]{p.getIdTrabajador(), p.getFecha(),
+                p.getValidado(), p.getEstado(), p.getKmInicial(), p.getIncidencias(), p.getKmFinal(),
+                p.getGastoPeaje(), p.getGastoDietas(), p.getGastoCombustible(), p.getGastoVarios(),
+                p.getHorasExtras(), p.getNotasAdministrativas()
+            });
+        });
+    }
+
+    private void listarViajes() {
+          
+        tViajes = (DefaultTableModel) viajes.getModel();
+        viaje = Viaje.logisticaViajes(idt, fecha);
+       
+        for (Viaje v : viaje) {
+            tViajes.insertRow(viajes.getRowCount(), new Object[]{v.getAlabaran(), v.getHoraInicio(), v.getHoraFin()
+            });
+        }
+    }
+        private void listarViajes2() {
+          tViajes.setRowCount(0);
+        tViajes = (DefaultTableModel) viajes.getModel();
+        viaje = Viaje.logisticaViajes(idt, fecha);
+       
+        for (Viaje v : viaje) {
+            tViajes.insertRow(viajes.getRowCount(), new Object[]{v.getAlabaran(), v.getHoraInicio(), v.getHoraFin()
+            });
+        }
+    }
+    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -148,8 +179,17 @@ public class PartesUd extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         validar = new javax.swing.JButton();
         avisar = new javax.swing.JButton();
+        volver = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        uTrabajador = new javax.swing.JTextField();
+        uMatricula = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        viajes = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Gestión de Partes");
 
         jLabel1.setFont(new java.awt.Font("Andalus", 1, 24)); // NOI18N
         jLabel1.setText("GESTION DE PARTES");
@@ -216,7 +256,7 @@ public class PartesUd extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(255, 51, 51));
         jLabel11.setText("* Campos obligatorios");
 
-        jLabel12.setText("DATOS DEL PARTE");
+        jLabel12.setText("DATOS DEL PARTE:");
 
         uPeaje.setEditable(false);
 
@@ -263,6 +303,41 @@ public class PartesUd extends javax.swing.JFrame {
             }
         });
 
+        volver.setText("VOLVER");
+        volver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volverActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("TRABAJADOR:");
+
+        jLabel4.setText("MATRICULA VEHICULO:");
+
+        uTrabajador.setEditable(false);
+
+        uMatricula.setEditable(false);
+
+        jLabel5.setText("jLabel5");
+
+        viajes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Albaran", "Hora Inicio", "Hora fin"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane4.setViewportView(viajes);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -275,12 +350,21 @@ public class PartesUd extends javax.swing.JFrame {
                 .addGap(77, 77, 77)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel11))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel3))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(uTrabajador, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(uMatricula, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGap(2, 2, 2)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -302,11 +386,12 @@ public class PartesUd extends javax.swing.JFrame {
                                     .addComponent(listarPartes, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jButton1)
                                     .addComponent(jButton2)))
+                            .addComponent(jLabel12)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addGroup(layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                 .addGroup(layout.createSequentialGroup()
                                                     .addComponent(uPeaje, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addGap(18, 18, 18)
@@ -323,18 +408,22 @@ public class PartesUd extends javax.swing.JFrame {
                                                 .addComponent(uOtros, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(jLabel17)))
                                         .addComponent(jLabel13)
-                                        .addComponent(jLabel12)
                                         .addComponent(jScrollPane3))
                                     .addComponent(jLabel19))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(76, 76, 76)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel18)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(validar)
                                         .addGap(18, 18, 18)
-                                        .addComponent(avisar)))))
-                        .addContainerGap(77, Short.MAX_VALUE))))
+                                        .addComponent(avisar)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(volver))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(165, 165, 165)
+                                        .addComponent(jLabel11)))))
+                        .addContainerGap(47, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -372,42 +461,57 @@ public class PartesUd extends javax.swing.JFrame {
                         .addComponent(jLabel2)))
                 .addGap(25, 25, 25)
                 .addComponent(jLabel12)
-                .addGap(13, 13, 13)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(uTrabajador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(uMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel13)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel15)
-                            .addComponent(jLabel18))
-                        .addGap(13, 13, 13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(43, 43, 43)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(validar)
-                                    .addComponent(avisar)))
-                            .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel14)
+                                    .addComponent(jLabel15))
+                                .addGap(13, 13, 13)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(uPeaje, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(uDietas, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(23, 23, 23)
                                 .addComponent(jLabel19)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel17)
+                                .addGap(13, 13, 13)
+                                .addComponent(uOtros, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel16)
+                                .addGap(13, 13, 13)
+                                .addComponent(uCombustible, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel17)
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabel18)
                         .addGap(13, 13, 13)
-                        .addComponent(uOtros, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel16)
-                        .addGap(13, 13, 13)
-                        .addComponent(uCombustible, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addComponent(jLabel11)
-                .addGap(27, 27, 27))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(validar)
+                            .addComponent(avisar)
+                            .addComponent(volver))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel11)))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
@@ -416,79 +520,114 @@ public class PartesUd extends javax.swing.JFrame {
     private void bBuscarPartesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBuscarPartesActionPerformed
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        
+
         if (uIdTrab.getText().equalsIgnoreCase("")) {
             partesTFF(dateFormat.format(jDateChooser1.getDate()), dateFormat.format(jDateChooser2.getDate()));
-        }else{    
-           
+        } else {
+
             partesTFI(new BigDecimal(uIdTrab.getText()), dateFormat.format(jDateChooser1.getDate()), dateFormat.format(jDateChooser2.getDate()));
         }
-    
+        limpiarFormulario();
     }//GEN-LAST:event_bBuscarPartesActionPerformed
 
     private void listarPartesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarPartesActionPerformed
         // TODO add your handling code here:
         listarPartes();
+        limpiarFormulario();
     }//GEN-LAST:event_listarPartesActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         partesTFA();
+        limpiarFormulario();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         partesTFC();
+        limpiarFormulario();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void validarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_validarActionPerformed
         // TODO add your handling code here:
         Parte p = new Parte(partes.get(index).getFecha(), partes.get(index).getIdTrabajador(), procesarCampo(uNotasAdministrativas));
-       if(!partes.get(index).getValidado().equalsIgnoreCase("si")){
-              if( Administracion.gestionParte(p)==true){
-             JOptionPane.showMessageDialog(null, "Parte validado correctamente.", "Validado", JOptionPane.INFORMATION_MESSAGE);
+        if (!partes.get(index).getValidado().equalsIgnoreCase("si")) {
+            if (Administracion.gestionParte(p) == true) {
+                JOptionPane.showMessageDialog(null, "Parte validado correctamente.", "Validado", JOptionPane.INFORMATION_MESSAGE);
+                listarPartes();
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Este parte ya ha sido validado.", "Validado", JOptionPane.INFORMATION_MESSAGE);
+            listarPartes();
+            limpiarFormulario();
         }
-       }else{
-           JOptionPane.showMessageDialog(null, "Este parte ya ha sido validado.", "Validado", JOptionPane.INFORMATION_MESSAGE); 
-       }
-     
+
     }//GEN-LAST:event_validarActionPerformed
 
     private void tPartesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tPartesMouseClicked
         // TODO add your handling code here:
-        
+
         index = tPartes.getSelectedRow();
         uPeaje.setText(partes.get(index).getGastoPeaje().toString());
         uDietas.setText(partes.get(index).getGastoDietas().toString());
         uCombustible.setText(partes.get(index).getGastoCombustible().toString());
         uOtros.setText(partes.get(index).getGastoVarios().toString());
         uIncidencias.setText(partes.get(index).getIncidencias());
+        fecha = partes.get(index).getFecha();
+        idt = partes.get(index).getIdTrabajador();
+        uTrabajador.setText(Conducen.listar(idt, fecha).getNombret());
+        uMatricula.setText(Conducen.listar(idt, fecha).getMatricula());
+
+        listarViajes();
         
+        if(viaje.size()>0){
+            listarViajes2();
+        }
+
     }//GEN-LAST:event_tPartesMouseClicked
 
     private void avisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avisarActionPerformed
-      String resultado= JOptionPane.showInputDialog(null,"Aviso","Generar aviso",JOptionPane.YES_OPTION);
-if (resultado!=null){
-    Aviso a = new Aviso(resultado, partes.get(index).getIdTrabajador(), partes.get(index).getFecha());
-    if(Administracion.gestionarAviso(a)==true){
-         JOptionPane.showMessageDialog(null, "Aviso enviado correctamente.", "Aviso", JOptionPane.INFORMATION_MESSAGE);
-    }
-    
-   
-}
+        String resultado = JOptionPane.showInputDialog(null, "Aviso", "Generar aviso", JOptionPane.YES_OPTION);
+        if (resultado != null) {
+            Aviso a = new Aviso(resultado, partes.get(index).getIdTrabajador(), partes.get(index).getFecha());
+            if (Administracion.gestionarAviso(a) == true) {
+                JOptionPane.showMessageDialog(null, "Aviso enviado correctamente.", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+            }
+            limpiarFormulario();
+        }
     }//GEN-LAST:event_avisarActionPerformed
 
-        public String procesarCampo(JTextArea t){
-  
-            String cadena="";
-        
-     if (t.getText().equalsIgnoreCase("")){
-          cadena = "No Procede";
-        }else{
-     cadena = t.getText();
-     }
-    return cadena;
+    private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
+        // TODO add your handling code here:
+        administracion = new com.ventanas.Administracion();
+        administracion.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_volverActionPerformed
+
+
+    
+    public void limpiarFormulario() {
+        uPeaje.setText("");
+        uDietas.setText("");
+        uCombustible.setText("");
+        uOtros.setText("");
+        uIncidencias.setText("");
+        uTrabajador.setText("");
+        uMatricula.setText("");
     }
+
+    public String procesarCampo(JTextArea t) {
+
+        String cadena = "";
+
+        if (t.getText().equalsIgnoreCase("")) {
+            cadena = "No Procede";
+        } else {
+            cadena = t.getText();
+        }
+        return cadena;
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -543,20 +682,28 @@ if (resultado!=null){
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JButton listarPartes;
     private javax.swing.JTable tPartes;
     private javax.swing.JTextField uCombustible;
     private javax.swing.JTextField uDietas;
     private javax.swing.JTextField uIdTrab;
     private javax.swing.JTextArea uIncidencias;
+    private javax.swing.JTextField uMatricula;
     private javax.swing.JTextArea uNotasAdministrativas;
     private javax.swing.JTextField uOtros;
     private javax.swing.JTextField uPeaje;
+    private javax.swing.JTextField uTrabajador;
     private javax.swing.JButton validar;
+    private javax.swing.JTable viajes;
+    private javax.swing.JButton volver;
     // End of variables declaration//GEN-END:variables
 }

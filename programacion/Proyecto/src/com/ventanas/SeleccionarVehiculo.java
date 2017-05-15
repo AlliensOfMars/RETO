@@ -65,6 +65,7 @@ public class SeleccionarVehiculo extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Selección de Vehiculo");
 
         jLabel1.setFont(new java.awt.Font("Andalus", 1, 24)); // NOI18N
         jLabel1.setText("SELECCIONE EL VEHICULO QUE VA UTILIZAR");

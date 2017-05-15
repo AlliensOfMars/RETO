@@ -11,8 +11,7 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author 7fprog03
+Esta clase se usa para que administración pueda validar partes y enviar avisos sobre los mismos, a los diferentes trabajadores.
  */
 public class Administracion extends Trabajador {
 
@@ -27,18 +26,23 @@ public class Administracion extends Trabajador {
         super(id, dni, nombre, primerApellido, segundoApellido, categoria, calle, numero, piso, mano, ciudad, codigoPostal, provincia, movilEmpresa, movilPersonal, salario, fechaNacimiento, idCent);
     }
 
+    /*
+    Con este metodo gestionamos el envio de avisos, dicho metodo recibe un objeto de la clase aviso que fue generado
+    en la ventana partesUD.
+    */
+    
    public static boolean gestionarAviso( Aviso aviso){
        Conexion. conectar();
        Aviso a=aviso;
        BigDecimal id = new BigDecimal(4);
-       String sql= "insert into avisos(ID, aviso, TRABAJADORES_ID, FECHA_ID) values (?,?,?,?)";
+       String sql= "insert into avisos(aviso, TRABAJADORES_ID, FECHA_ID) values (?,?,?)";
        
         try {
             PreparedStatement ps = Conexion.getConexion().prepareStatement(sql);
-            ps.setBigDecimal(1,id);
-            ps.setString (2, a.getDescripcion());
-            ps.setBigDecimal(3,a.getIdT());
-            ps.setString(4, a.getFecha());
+       
+            ps.setString (1, a.getDescripcion());
+            ps.setBigDecimal(2,a.getIdT());
+            ps.setString(3, a.getFecha());
             ps.executeUpdate();
             ps.close();
             
@@ -50,7 +54,11 @@ public class Administracion extends Trabajador {
        
      return false;
    }
-
+/*
+   Con este metodo damos el visto bueno al parte, ya que lo validamos, este metodo recibe un obejeto de tipo parte
+   que fue generado en la ventana partesUd.
+   */
+   
     public static boolean gestionParte(Parte parte) {
         Conexion.conectar();
         Parte p = parte;

@@ -95,7 +95,7 @@ public class CentrosUd extends javax.swing.JFrame {
         bVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Listado, Actualizacion y Eliminación de Centros");
+        setTitle("Gestión de Centros");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

@@ -18,8 +18,7 @@ import javax.swing.JOptionPane;
 import oracle.jdbc.OracleTypes;
 
 /**
- *
- * @author 7fprog03
+ * clase creada para la gestion de centros, y listado de los mismos.
  */
 public class Centro {
 
@@ -60,7 +59,6 @@ public class Centro {
         this.Provincia = Provincia;
         this.Telefonos = Telefonos;
     }
-    
 
     public BigDecimal getIDcent() {
         return IDcent;
@@ -127,6 +125,9 @@ public class Centro {
     }
 
     //ESTO FUNCIONA 12C
+    /*
+    Metodo de creacion de centro y su respectica inserción en la base de datos
+     */
     public boolean gestionCentros() {
         Conexion.conectar();
 
@@ -152,57 +153,15 @@ public class Centro {
 
     }
 
-    //alta centros para 11G
-    public boolean gestionCentros1() {
-        Conexion.conectar();
-
-        try {
-            PreparedStatement smt = Conexion.getConexion().prepareStatement("insert into centros (id, nombre,calle,numero,ciudad,codigoPostal,provincia,telefono) values (?,?,?,?,?,?,?,?)");
-
-            smt.setBigDecimal(1, IDcent);
-            smt.setString(2, Nombre);
-            smt.setString(3, Calle);
-            smt.setBigDecimal(4, Numero);
-            smt.setString(5, Ciudad);
-            smt.setBigDecimal(6, CodigoPostal);
-            smt.setString(7, Provincia);
-            smt.setBigDecimal(8, Telefonos);
-
-            smt.executeUpdate();
-
-            smt.close();
-            Conexion.desconectar();
-            return true;
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "No se puede efectuar la conexión, hable con el administrador del sistema" + ex.getMessage());
-            return false;
-        }
-    }
-
-    //auto incrementado para 11g
-    public BigDecimal autoincremente() {
-        BigDecimal id= new BigDecimal(0);
-        try {
-            Conexion.conectar();
-            CallableStatement cs = Conexion.getConexion().prepareCall("{call incrementCenter(?)}");
-            cs.registerOutParameter(1, OracleTypes.INTEGER);
-            cs.execute();
-            int idc;
-            //idc = cs.getInt(1);
-            id = cs.getBigDecimal(1);
-            cs.close();
-            Conexion.desconectar();
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "No se puede efectuar la conexión, hable con el administrador del sistema" + ex.getMessage());
-        }
-        return id;
-    }
-
+    /*
+    metodo utilzado para le listado de centros, el cual realiza una llamada al paquete pcentros al procedimento centrosList 
+    y nos enseña todos los centros activos en ese momento 
+    */
     public static List<Centro> listarCentros() {
         List<Centro> centro = new ArrayList<>();
         try {
             Conexion.conectar();
-            CallableStatement cs = Conexion.getConexion().prepareCall("{call complejos.CONSULTACENTROS(?)}");
+            CallableStatement cs = Conexion.getConexion().prepareCall("{call pcentros.centrosList(?)}");
             cs.registerOutParameter(1, OracleTypes.CURSOR);
             cs.execute();
 
@@ -221,8 +180,8 @@ public class Centro {
                 centro.add(c);
                 System.out.println(c);
             }
-             rs.close();
-             cs.close();
+            rs.close();
+            cs.close();
             Conexion.desconectar();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "No se puede efectuar la conexión, hable con el administrador del sistema" + ex.getMessage());
@@ -230,51 +189,19 @@ public class Centro {
         return centro;
     }
 
-    public static List<Centro> filtrarcentCentros(String name) {
-        List<Centro> c = new ArrayList<>();
-
-        Conexion.conectar();
-
-        try {
-            CallableStatement cs = Conexion.getConexion().prepareCall("{call COMPLEJOS.CONSULTACENTRO(?,?)}");
-            cs.setString(1, name);
-            cs.registerOutParameter(2, OracleTypes.CURSOR);
-            cs.execute();
-
-            ResultSet rs = (ResultSet) cs.getObject(2);
-
-            while (rs.next()) {
-                Centro d = new Centro();
-                d.setIDcent(rs.getBigDecimal("ID"));
-                d.setNombre(rs.getString("nombre"));
-                d.setCalle(rs.getString("calle"));
-                d.setNumero(rs.getBigDecimal("numero"));
-                d.setCiudad(rs.getString("ciudad"));
-                d.setCodigoPostal(rs.getBigDecimal("codigoPostal"));
-                d.setProvincia(rs.getString("provincia"));
-                d.setTelefonos(rs.getBigDecimal("telefono"));
-                c.add(d);
-
-                System.out.println(c);
-            }
-            rs.close();
-            Conexion.desconectar();
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "No se puede efectuar la conexión, hable con el administrador del sistema \n" + ex.getMessage());
-        }
-
-        return c;
-    }
-    
-    public static Centro centro(BigDecimal id){
+  /*
+    metodo utilzado para recuperar un centro de la base datos, el cual realiza una llamada al paquete pcentros al procedimento centrosFi 
+    y nos devuelve el centro que buscamos, este filtrado se realiza por la id del centro
+    */
+    public static Centro centro(BigDecimal id) {
         Centro centro = new Centro();
-        
+
         Conexion.conectar();
-        
+
         try {
             CallableStatement cs = Conexion.getConexion().prepareCall("{call pcentros.centrosFi(?,?,?,?,?,?,?,?,?)}");
             cs.setBigDecimal(1, id);
-            
+
             cs.registerOutParameter(2, OracleTypes.INTEGER);
             cs.registerOutParameter(3, OracleTypes.VARCHAR);
             cs.registerOutParameter(4, OracleTypes.VARCHAR);
@@ -284,7 +211,7 @@ public class Centro {
             cs.registerOutParameter(8, OracleTypes.VARCHAR);
             cs.registerOutParameter(9, OracleTypes.INTEGER);
             cs.execute();
-            
+
             BigDecimal idu = cs.getBigDecimal(2);
             String nombre = cs.getString(3);
             String calle = cs.getString(4);
@@ -293,25 +220,29 @@ public class Centro {
             BigDecimal cd = cs.getBigDecimal(7);
             String no = cs.getString(8);
             BigDecimal tel = cs.getBigDecimal(9);
-                
-          centro = new Centro(idu, nombre, calle, nu, pro, cd, no, tel);
-            
+
+            centro = new Centro(idu, nombre, calle, nu, pro, cd, no, tel);
+
         } catch (SQLException ex) {
             Logger.getLogger(Centro.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return centro;
     }
 
-     public static Centro centroN(String name){
+     /*
+    metodo utilzado para recuperar un centro de la base datos, el cual realiza una llamada al paquete pcentros al procedimento centrosFi 
+    y nos devuelve el centro que buscamos, este filtrado se realiza por el nombre del centro
+    */
+    public static Centro centroN(String name) {
         Centro centro = new Centro();
-        
+
         Conexion.conectar();
-        
+
         try {
             CallableStatement cs = Conexion.getConexion().prepareCall("{call pcentros.centrosFn(?,?,?,?,?,?,?,?,?)}");
             cs.setString(1, name);
-            
+
             cs.registerOutParameter(2, OracleTypes.INTEGER);
             cs.registerOutParameter(3, OracleTypes.VARCHAR);
             cs.registerOutParameter(4, OracleTypes.VARCHAR);
@@ -321,7 +252,7 @@ public class Centro {
             cs.registerOutParameter(8, OracleTypes.VARCHAR);
             cs.registerOutParameter(9, OracleTypes.INTEGER);
             cs.execute();
-            
+
             BigDecimal idu = cs.getBigDecimal(2);
             String nombre = cs.getString(3);
             String calle = cs.getString(4);
@@ -330,16 +261,21 @@ public class Centro {
             BigDecimal cd = cs.getBigDecimal(7);
             String no = cs.getString(8);
             BigDecimal tel = cs.getBigDecimal(9);
-                
-          centro = new Centro(idu, nombre, calle, nu, pro, cd, no, tel);
+
+            centro = new Centro(idu, nombre, calle, nu, pro, cd, no, tel);
             return centro;
         } catch (SQLException ex) {
-         JOptionPane.showMessageDialog(null, "No se ha encontrado ningùn centro con ese nombre.\nVerifique el nombre del"
-                    + "Centro.\n"+ex.getMessage()); 
+            JOptionPane.showMessageDialog(null, "No se ha encontrado ningùn centro con ese nombre.\nVerifique el nombre del"
+                    + "Centro.\n" + ex.getMessage());
         }
-        
+
         return null;
     }
+
+     /*
+    metodo utilzado para la modificacion un centro de la base datos, este metodo recibe la id del centro que queremos 
+    actualizar la informacion, dicha informacion es recogida en la ventana centrosUD
+    */
     
     public boolean modificarCentro(BigDecimal id) {
 
@@ -368,6 +304,10 @@ public class Centro {
         }
     }
 
+       /*
+    metodo utilzado para la baja de  un centro de la base datos, este metodo recibe la id del centro que queremos 
+    dar de baja, dicha informacion es recogida en la ventana centrosUD
+    */
     public static boolean bajaCenro(BigDecimal id) {
         try {
             Conexion.conectar();
@@ -382,7 +322,6 @@ public class Centro {
             return false;
         }
     }
-    
 
     @Override
     public String toString() {
@@ -395,9 +334,10 @@ public class Centro {
                 + ", Provincia=" + Provincia
                 + ", Telefonos=" + Telefonos + '}';
     }
-    public void agregarTrabajador (Trabajador t){
+
+    public void agregarTrabajador(Trabajador t) {
         trabajador.add(t);
         t.setCentro(this);
     }
-    
+
 }

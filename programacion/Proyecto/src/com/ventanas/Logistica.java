@@ -5,11 +5,10 @@
  */
 package com.ventanas;
 
-import com.clases.Parte;
+
 import com.clases.Trabajador;
 import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
 
 
 /**

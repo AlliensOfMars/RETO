@@ -12,15 +12,14 @@ import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
 /**
  *
  * @author 7FPROG02
  */
-
-
 public class AltaTrabajador extends javax.swing.JFrame {
 
-     public void limpiarFormulario(){
+    public void limpiarFormulario() {
         uDni.setText("");
         uNombre.setText("");
         uPrimerApellido.setText("");
@@ -38,24 +37,22 @@ public class AltaTrabajador extends javax.swing.JFrame {
         jDateChooser1.setCalendar(null);
         uIdCent.setText("");
     }
-    
 
     public AltaTrabajador() {
         initComponents();
     }
-     
-     //proceso para comprobar si el campo está vacío y cambiarlo por un null
-    public BigDecimal procesarCampo(JTextField t){
-    BigDecimal num=null;
-        
-     if (t.getText().equalsIgnoreCase("")){
-           
-        }else{
-     num = new BigDecimal(t.getText());
-     }
-    return num;
+
+    //proceso para comprobar si el campo está vacío y cambiarlo por un null
+    public BigDecimal procesarCampo(JTextField t) {
+        BigDecimal num = null;
+
+        if (t.getText().equalsIgnoreCase("")) {
+
+        } else {
+            num = new BigDecimal(t.getText());
+        }
+        return num;
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -107,6 +104,7 @@ public class AltaTrabajador extends javax.swing.JFrame {
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Alta de Trabajadores");
 
         label1.setText("DNI : *");
 
@@ -378,8 +376,9 @@ public class AltaTrabajador extends javax.swing.JFrame {
     }//GEN-LAST:event_uIdCentActionPerformed
 
     private void altaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altaActionPerformed
-   String user;
-         String password;
+        String user;
+        String password;
+
         String ad = uCategoria.getSelectedItem().toString();
         if (ad.equalsIgnoreCase("Administración")) {
             ad = "administracion";
@@ -389,7 +388,7 @@ public class AltaTrabajador extends javax.swing.JFrame {
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         String fecha = dateFormat.format(jDateChooser1.getDate());
-        
+
         //BigDecimal id = Trabajador.autoincremente();
         // todo esto tiene que funcionar en las dos versiones el unico cambio que hay que hacer es en los dos constructores
         //quitar el id de trabajador 
@@ -402,17 +401,18 @@ public class AltaTrabajador extends javax.swing.JFrame {
 
             user = Usuario.user(uNombre.getText(), uPrimerApellido.getText());
             password = Usuario.password();
+            //int hash = password.hashCode() % 100000; // Would give numbers from 0-99999
+            // String pass = Integer.toString(hash);
             Usuario usuario = new Usuario(user, password);
             t.setUsuario(usuario);
             usuario.setTrabajador(t);
-            String lolo=usuario.getPassword();
-            System.out.println(lolo);
+
             boolean guardado = t.altaTrabajador12c();
             boolean guardad = usuario.altaUsuario(uDni.getText(), user, password);
             if (guardad == guardado) {
                 //todo intentar poner este mensaje mas guapo             
                 JOptionPane.showMessageDialog(null, "Trabajador dado de alta correctamente", "Alta", JOptionPane.INFORMATION_MESSAGE);
-                JOptionPane.showMessageDialog(null, "Usuario dado de alta correctamente\nUsuario: "+user+"\nContraseña: "+password, "Alta", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Usuario dado de alta correctamente\nUsuario: " + user + "\nContraseña: " + password, "Alta", JOptionPane.INFORMATION_MESSAGE);
             }
         } else {
             Trabajador t = new Logistica(uDni.getText(), uNombre.getText(), uPrimerApellido.getText(), uSegundoApellido.getText(), ad,
@@ -426,33 +426,30 @@ public class AltaTrabajador extends javax.swing.JFrame {
             Usuario usuario = new Usuario(user, password);
             t.setUsuario(usuario);
             usuario.setTrabajador(t);
-            String lolo=usuario.getPassword();
+            String lolo = usuario.getPassword();
             System.out.println(lolo);
             boolean guardado = t.altaTrabajador12c();
             boolean guardad = usuario.altaUsuario(uDni.getText(), user, password);
-             if (guardad == guardado) {
+            if (guardad == guardado) {
                 //todo intentar poner este mensaje mas guapo             
                 JOptionPane.showMessageDialog(null, "Trabajador dado de alta correctamente", "Alta", JOptionPane.INFORMATION_MESSAGE);
-                JOptionPane.showMessageDialog(null, "Usuario dado de alta correctamente\nUsuario: "+user+"\nContraseña: "+password, "Alta", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Usuario dado de alta correctamente\nUsuario: " + user + "\nContraseña: " + password, "Alta", JOptionPane.INFORMATION_MESSAGE);
             }
         }
         limpiarFormulario();
-        
-       
+
+
     }//GEN-LAST:event_altaActionPerformed
 
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
         // se vuelve a la de trabajadores ud
-        
+
         TrabajadoresUd abrir = new TrabajadoresUd();
         abrir.setVisible(true);
-        
+
         this.setVisible(false);
     }//GEN-LAST:event_volverActionPerformed
 
-    
-    
-    
     /**
      * @param args the command line arguments
      */

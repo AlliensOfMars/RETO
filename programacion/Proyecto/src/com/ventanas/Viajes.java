@@ -92,6 +92,7 @@ public class Viajes extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Viajes");
 
         jLabel2.setText("PARTE VIAJES DIA:");
 

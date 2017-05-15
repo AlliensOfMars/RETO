@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import oracle.jdbc.OracleTypes;
 
 
@@ -193,7 +194,7 @@ public class Viaje {
             Conexion.desconectar();
 
         } catch (SQLException ex) {
-            Logger.getLogger(Viaje.class.getName()).log(Level.SEVERE, null, ex);
+          JOptionPane.showMessageDialog(null, "No se puede efectuar la conexión, hable con el administrador del sistema" + ex.getMessage());
         }
 
         return viajes;

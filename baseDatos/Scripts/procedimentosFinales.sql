@@ -317,6 +317,19 @@ WHEN NO_DATA_FOUND THEN
    RAISE_APPLICATION_ERROR(-20002,'NO SE ENCUENTRAN REGISTROS.'); 
 END LOGIN;
 
+--procidimento conducen 
+create or replace procedure cDetalle
+(fechao in CONDUCEN.FECHA%type, idt in CONDUCEN.TRABAJADORES_ID%type, 
+f out CONDUCEN.FECHA%type,
+m out VEHICULOS.MATRICULA%TYPE,
+n out trabajadores.nombre%type,
+idtt out trabajadores.id%type)
+as
+begin
+select  matricula, nombre into m, n
+from detalle where id=idt and fecha=fechao;
+end cDetalle;
+
 --paquete de vehiculos
 create or replace package pvehiculos
 as

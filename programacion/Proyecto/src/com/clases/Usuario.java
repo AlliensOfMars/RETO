@@ -8,7 +8,7 @@ package com.clases;
 import java.math.BigDecimal;
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+
 import java.sql.SQLException;
 import java.util.Random;
 import java.util.logging.Level;
@@ -17,8 +17,7 @@ import javax.swing.JOptionPane;
 import oracle.jdbc.OracleTypes;
 
 /**
- *
- * @author 7fprog03
+ clase para la insercion y generacion de nuevos usuarios y gestion del login
  */
 public class Usuario {
 
@@ -43,39 +42,8 @@ public class Usuario {
     }
 
   
-
-    public String loguearse(String idUsuario, String password) {
-        String cat = null;
-        try {
-            Conexion.conectar();
-            CallableStatement cs = Conexion.getConexion().prepareCall("{call LOGIN(?,?,?,?,?,?)}");
-            cs.setString(1, idUsuario);
-            cs.setNString(2, password);
-            cs.registerOutParameter(3, OracleTypes.VARCHAR);
-            cs.registerOutParameter(4, OracleTypes.VARCHAR);
-            cs.registerOutParameter(5, OracleTypes.INTEGER);
-            cs.registerOutParameter(6, OracleTypes.VARCHAR);
-            cs.execute();
-            String categoria = cs.getString(3);
-            String idU = cs.getString(4);
-            BigDecimal idT = cs.getBigDecimal(5);
-            //Usuario.setDni(cs.getString(6));
-            //dni=cs.getString(6);
-            if (categoria.equalsIgnoreCase("administracion")) {
-                cat = categoria;
-            }
-            if (categoria.equalsIgnoreCase("logistica")) {
-                cat = categoria;
-            }
-           cs.close();
-            Conexion.desconectar();
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "No se puede efectuar la conexión, hable con el administrador del sistema \n" + ex.getMessage());
-        }
-        return cat;
-    }
-    
-    
+//metodo que se encarga en la gestion del login a  nuestra base datos
+   
     public static Usuario log(String idUsuario, String password){
         Usuario usuario = new Usuario();
         
@@ -104,6 +72,7 @@ public class Usuario {
         return null;
     }
     
+    //metodo que nos genera el nombre de usuario partiendo del nombre y apellido del trabajador que estamos dando de alta
     public static String user(String nombre, String apellido) {
 
         String name = nombre.replaceAll(" ", "");
@@ -112,6 +81,7 @@ public class Usuario {
         return user;
     }
 
+    //metodo que nos genera una contraseña para el usario que estamos dando de alta
     public static String password() {
 
         String caracteres = "TRWAGMYFPDXBNJZSQVHLCKEtrwagmyfpdxbnjzsqvhlcke1234567890";
@@ -127,6 +97,7 @@ public class Usuario {
         return password1;
     }
     
+    //metodo de dada de alta de usuario en nuestra base de datos
     public boolean altaUsuario(String dni, String user, String password){
         String ido="call idTrabajador(?,?)";
         String insert = "insert into usuarios (usuario, password, TRABAJADORES_ID) values(?,?,?)";
