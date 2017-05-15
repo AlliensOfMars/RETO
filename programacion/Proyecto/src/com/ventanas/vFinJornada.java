@@ -10,6 +10,7 @@ import com.clases.Parte;
 import com.clases.Trabajador;
 
 import java.math.BigDecimal;
+import javax.swing.JOptionPane;
 
 
 
@@ -81,6 +82,7 @@ private Viajes v;
         jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cierre Jornada");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Parte de fin de jornada del dia: ");
@@ -123,7 +125,7 @@ private Viajes v;
 
         jLabel9.setText("INCIDENCIAS");
 
-        jButton1.setText("VALIDAR");
+        jButton1.setText("TERMINAR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -243,16 +245,17 @@ private Viajes v;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       Parte p = new Parte(id,new BigDecimal(kmI.getText()),new BigDecimal(kmF.getText()), 
-               new BigDecimal(peaje.getText()), new BigDecimal(dietas.getText()), 
-               new BigDecimal(combustible.getText()),new BigDecimal(otros.getText()), incidencias.getText());
+       Parte p = new Parte(id,new BigDecimal(kmI.getText()),new BigDecimal(kmF.getText().replace(",", ".")), 
+               new BigDecimal(peaje.getText().replace(",", ".")), new BigDecimal(dietas.getText().replace(",", ".")), 
+               new BigDecimal(combustible.getText().replace(",", ".")),new BigDecimal(otros.getText().replace(",", ".")), incidencias.getText());
        
        boolean cerrarParte=Logistica.cerrarParte(p);
        
         if (cerrarParte==true) {
-            System.out.println("yuju");
+           JOptionPane.showMessageDialog(null, "Parte cerrado correctamente.", "Fin Jornada", JOptionPane.INFORMATION_MESSAGE);
         }else{
-            System.out.println(":(");
+          JOptionPane.showMessageDialog(null, "No se ha podido realizar el cierre de jornada\n"
+                  + "por favor hable con Administración.", "Fin Jornada", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

@@ -48,8 +48,8 @@ public class VehiculosUd extends javax.swing.JFrame {
         vehi= Vehiculo.filtrarVehiculo(matricula);
         
        
-        vehiculos.insertRow(vehiculos.getRowCount(), new Object[]{vehi.getMatricula(), vehi.getMarca(),
-            vehi.getModelo()});
+        vehiculos.insertRow(vehiculos.getRowCount(), new Object[]{vehi.getIdVehiculo(), vehi.getMarca(),
+               vehi.getModelo(), vehi.getMatricula()});
     }
     public VehiculosUd() {
         initComponents();
@@ -97,6 +97,7 @@ public class VehiculosUd extends javax.swing.JFrame {
         uVolverInicio = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Gestión de Vehiculos");
 
         tablaV.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -196,16 +197,10 @@ public class VehiculosUd extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(285, 285, 285)
-                            .addComponent(bFiltrar)
-                            .addGap(40, 40, 40)
-                            .addComponent(eliminar)
-                            .addGap(11, 11, 11)
-                            .addComponent(listar))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(70, 70, 70)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(listar)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 597, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
@@ -221,21 +216,27 @@ public class VehiculosUd extends javax.swing.JFrame {
                                 .addComponent(jLabel6))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(uMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(40, 40, 40)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(33, 33, 33)
-                                    .addComponent(uMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel4)
                                     .addGap(18, 18, 18)
                                     .addComponent(uModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(31, 31, 31)
                                     .addComponent(jButton1)
                                     .addGap(47, 47, 47)
-                                    .addComponent(jButton2)))))
+                                    .addComponent(jButton2))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(uMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(40, 40, 40)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(bFiltrar)
+                                            .addGap(37, 37, 37)
+                                            .addComponent(eliminar))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(33, 33, 33)
+                                            .addComponent(uMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(208, 208, 208)
                         .addComponent(jLabel1)))
@@ -285,6 +286,7 @@ public class VehiculosUd extends javax.swing.JFrame {
         matricula = uFiltro.getText();
 
         filtrarVehiculo();
+        limpiarFormulario();
     }//GEN-LAST:event_bFiltrarActionPerformed
 
     private void uFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uFiltroActionPerformed
@@ -296,18 +298,17 @@ public class VehiculosUd extends javax.swing.JFrame {
     }//GEN-LAST:event_uModeloActionPerformed
 
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
-        
+      if (JOptionPane.showConfirmDialog(null, "Este vehiculo va ser eliminado. \n¿Esta seguro?", "Atención",
+                JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+         Vehiculo.bajaVehiculo(idV);
+            if (vehiculo.size() > 0) {
+                vehiculos.setRowCount(0);
+            }
+             limpiarFormulario();
+            listarVehiculos();
+        }         
      
-        Vehiculo.bajaVehiculo(idV);
-
-        //limpio formulario
-        limpiarFormulario();
-
-        //limpio tabla 
-       vehiculos.setRowCount(0);
-
-        //cargo lista de nuevo
-        listarVehiculos();
+      
     
     }//GEN-LAST:event_eliminarActionPerformed
 

@@ -14,8 +14,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author 7fprog03
+clase que controla la gestion de parte de logistica. 
  */
 public class Logistica extends Trabajador {
 
@@ -39,6 +38,11 @@ public class Logistica extends Trabajador {
         super(id, dni, nombre, primerApellido, segundoApellido, categoria, calle, numero, piso, mano, ciudad, codigoPostal, provincia, movilEmpresa, movilPersonal, salario, fechaNacimiento, idCent);
     }
 
+    /*
+    Metodo que actualiza la informacion del parte del trabajador de logistica, dicho metodo se ejecuta una vez que 
+    el trabajador decide finalizar su jornada.
+    */
+    
     public static boolean cerrarParte(Parte parte) {
         Parte p = parte;
         BigDecimal idT =p.getIdTrabajador();

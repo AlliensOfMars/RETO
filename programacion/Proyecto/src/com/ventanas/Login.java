@@ -83,6 +83,11 @@ public class Login extends javax.swing.JFrame {
         Salir.setText("Salir");
         Salir.setMaximumSize(new java.awt.Dimension(77, 23));
         Salir.setMinimumSize(new java.awt.Dimension(77, 23));
+        Salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -148,10 +153,16 @@ public class Login extends javax.swing.JFrame {
         String pass = new String(password.getPassword());
         
         Usuario u = Usuario.log(usuario, pass);
+       if (u==null){
+         JOptionPane.showMessageDialog(null, "Usuario o Contraseña erroneos.", "Error", JOptionPane.INFORMATION_MESSAGE);   
+       }
+           
+       
+        
         Trabajador t = Trabajador.filtrarTrabajador2(u.getIdt());
-        Centro c = t.getCentro();
+       
 
-        //Centro.centro(Trabajador.filtrarTrabajador2(u.getIdt()).getIdCent());
+        Centro.centro(Trabajador.filtrarTrabajador2(u.getIdt()).getIdCent());
         u.setTrabajador(t);
         t.setUsuario(u);
         // c.agregarTrabajador(t);
@@ -198,12 +209,9 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_conectarActionPerformed
 
-    public static BigDecimal id(BigDecimal i) {
-
-        BigDecimal idT = i;
-
-        return idT;
-    }
+    private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
+        System.exit( 0 ); 
+    }//GEN-LAST:event_SalirActionPerformed
 
     /**
      * @param args the command line arguments

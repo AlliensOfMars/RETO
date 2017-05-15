@@ -8,6 +8,7 @@ package com.clases;
 import java.math.BigDecimal;
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +17,8 @@ import oracle.jdbc.OracleTypes;
 
 
 /**
- *
- * @author 7fprog03
+ Clase creada con el fin de realizar diferentes listados relacionados con el parte, tambien es la encargada de 
+ * dar de alta el mismo.
  */
 public class Parte {
         
@@ -82,6 +83,15 @@ public class Parte {
         this.fecha = fecha;
         this.idTrabajador = idTrabajador;
     }
+
+    public Parte(String fecha, BigDecimal idTrabajador, String notasAdministrativas) {
+        this.fecha = fecha;
+        this.idTrabajador = idTrabajador;
+        this.notasAdministrativas = notasAdministrativas;
+    }
+
+    
+    
     
 
     public Parte(BigDecimal idTrabajador) {
@@ -137,7 +147,221 @@ public class Parte {
             }    
       return null;
     }
+    //metodo utilizado para listar todos los partes existentes en nuestra base datos
     
+     public static List<Parte> listarPartes(){
+        List <Parte> partes=new ArrayList<>();
+        Conexion.conectar();
+        String sql = "call ppartes.partesList (?)";
+        
+            try {
+                CallableStatement cs = Conexion.getConexion().prepareCall(sql);
+                cs.registerOutParameter(1, OracleTypes.CURSOR);
+                cs.execute();
+                
+                ResultSet rs = (ResultSet) cs.getObject(1);
+                while (rs.next()){
+                Parte p = new Parte();
+                        p.setFecha(rs.getString("fecha"));
+                        p.setKmInicial(rs.getBigDecimal("kmInicial"));
+                        p.setKmFinal(rs.getBigDecimal("kmFinal"));
+                        p.setGastoPeaje(rs.getBigDecimal("gastosPeaje")); 
+                        p.setGastoDietas(rs.getBigDecimal("gastosDietas"));
+                        p.setGastoCombustible(rs.getBigDecimal("gastosCombustible"));
+                        p.setGastoVarios(rs.getBigDecimal("otrosGastos"));
+                        p.setIncidencias(rs.getString("incidencias"));
+                        p.setEstado(rs.getString("estado"));
+                        p.setValidado(rs.getString("validado"));
+                        p.setHorasExtras(rs.getBigDecimal("horasExtras"));
+                        p.setIdTrabajador(rs.getBigDecimal("TRABAJADORES_ID"));
+                        p.setNotasAdministrativas(rs.getString("notasAdministrativas"));
+                partes.add(p);
+                }
+                
+                rs.close();
+                cs.close();
+                Conexion.desconectar();
+                return partes;
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "No se puede efectuar la conexión, hable con el administrador del sistema" + ex.getMessage());
+            }
+            return null;
+    }
+     
+     //metodo para el listado de partes de un trabajado y un rago de fechas
+     public static List<Parte> partesTFI(BigDecimal idT, String fechaIni, String fechaFin){
+        List <Parte> partes=new ArrayList<>();
+        Conexion.conectar();
+        String sql = "call ppartes.partesTFI (?,?,?,?)";
+        
+            try {
+                CallableStatement cs = Conexion.getConexion().prepareCall(sql);
+                cs.setBigDecimal(1, idT);
+                cs.setString(2, fechaIni);
+                cs.setString(3, fechaFin);
+                cs.registerOutParameter(4, OracleTypes.CURSOR);
+                cs.execute();
+                
+                ResultSet rs = (ResultSet) cs.getObject(4);
+                while (rs.next()){
+                Parte p = new Parte();
+                        p.setFecha(rs.getString("fecha"));
+                        p.setKmInicial(rs.getBigDecimal("kmInicial"));
+                        p.setKmFinal(rs.getBigDecimal("kmFinal"));
+                        p.setGastoPeaje(rs.getBigDecimal("gastosPeaje")); 
+                        p.setGastoDietas(rs.getBigDecimal("gastosDietas"));
+                        p.setGastoCombustible(rs.getBigDecimal("gastosCombustible"));
+                        p.setGastoVarios(rs.getBigDecimal("otrosGastos"));
+                        p.setIncidencias(rs.getString("incidencias"));
+                        p.setEstado(rs.getString("estado"));
+                        p.setValidado(rs.getString("validado"));
+                        p.setHorasExtras(rs.getBigDecimal("horasExtras"));
+                        p.setIdTrabajador(rs.getBigDecimal("TRABAJADORES_ID"));
+                        p.setNotasAdministrativas(rs.getString("notasAdministrativas"));
+                partes.add(p);
+                }
+                
+                rs.close();
+                cs.close();
+                Conexion.desconectar();
+                return partes;
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "No se puede efectuar la conexión, hable con el administrador del sistema" + ex.getMessage());
+            }
+            return null;
+    }
+     
+     //metodo para el listado de partes en un rango de fechas determinado.
+     public static List<Parte> partesTFF(String fechaIni, String fechaFin){
+        List <Parte> partes=new ArrayList<>();
+        Conexion.conectar();
+        String sql = "call ppartes.partesTFF (?,?,?)";
+        
+            try {
+                CallableStatement cs = Conexion.getConexion().prepareCall(sql);
+               
+                cs.setString(1, fechaIni);
+                cs.setString(2, fechaFin);
+                cs.registerOutParameter(3, OracleTypes.CURSOR);
+                cs.execute();
+                
+                ResultSet rs = (ResultSet) cs.getObject(3);
+                while (rs.next()){
+                Parte p = new Parte();
+                        p.setFecha(rs.getString("fecha"));
+                        p.setKmInicial(rs.getBigDecimal("kmInicial"));
+                        p.setKmFinal(rs.getBigDecimal("kmFinal"));
+                        p.setGastoPeaje(rs.getBigDecimal("gastosPeaje")); 
+                        p.setGastoDietas(rs.getBigDecimal("gastosDietas"));
+                        p.setGastoCombustible(rs.getBigDecimal("gastosCombustible"));
+                        p.setGastoVarios(rs.getBigDecimal("otrosGastos"));
+                        p.setIncidencias(rs.getString("incidencias"));
+                        p.setEstado(rs.getString("estado"));
+                        p.setValidado(rs.getString("validado"));
+                        p.setHorasExtras(rs.getBigDecimal("horasExtras"));
+                        p.setIdTrabajador(rs.getBigDecimal("TRABAJADORES_ID"));
+                        p.setNotasAdministrativas(rs.getString("notasAdministrativas"));
+                partes.add(p);
+                }
+                
+                rs.close();
+                cs.close();
+                Conexion.desconectar();
+                return partes;
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "No se puede efectuar la conexión, hable con el administrador del sistema" + ex.getMessage());
+            }
+            return null;
+    }
+     
+     //metodo que realiza el listado de todos los partes abiertos hasta ese momento 
+      public static List<Parte> partesTFA(){
+        List <Parte> partes=new ArrayList<>();
+        Conexion.conectar();
+        String sql = "call ppartes.partesTA (?)";
+        
+            try {
+                CallableStatement cs = Conexion.getConexion().prepareCall(sql);
+               
+               
+                
+                cs.registerOutParameter(1, OracleTypes.CURSOR);
+                cs.execute();
+                
+                ResultSet rs = (ResultSet) cs.getObject(1);
+                while (rs.next()){
+                Parte p = new Parte();
+                        p.setFecha(rs.getString("fecha"));
+                        p.setKmInicial(rs.getBigDecimal("kmInicial"));
+                        p.setKmFinal(rs.getBigDecimal("kmFinal"));
+                        p.setGastoPeaje(rs.getBigDecimal("gastosPeaje")); 
+                        p.setGastoDietas(rs.getBigDecimal("gastosDietas"));
+                        p.setGastoCombustible(rs.getBigDecimal("gastosCombustible"));
+                        p.setGastoVarios(rs.getBigDecimal("otrosGastos"));
+                        p.setIncidencias(rs.getString("incidencias"));
+                        p.setEstado(rs.getString("estado"));
+                        p.setValidado(rs.getString("validado"));
+                        p.setHorasExtras(rs.getBigDecimal("horasExtras"));
+                        p.setIdTrabajador(rs.getBigDecimal("TRABAJADORES_ID"));
+                        p.setNotasAdministrativas(rs.getString("notasAdministrativas"));
+                partes.add(p);
+                }
+                
+                rs.close();
+                cs.close();
+                Conexion.desconectar();
+                return partes;
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "No se puede efectuar la conexión, hable con el administrador del sistema" + ex.getMessage());
+            }
+            return null;
+    }
+      
+      //metodo de listado de todos los partes cerrados hasta ese momento
+      public static List<Parte> partesTFC(){
+        List <Parte> partes=new ArrayList<>();
+        Conexion.conectar();
+        String sql = "call ppartes.partesTC (?)";
+        
+            try {
+                CallableStatement cs = Conexion.getConexion().prepareCall(sql);
+               
+               
+                
+                cs.registerOutParameter(1, OracleTypes.CURSOR);
+                cs.execute();
+                
+                ResultSet rs = (ResultSet) cs.getObject(1);
+                while (rs.next()){
+                Parte p = new Parte();
+                        p.setFecha(rs.getString("fecha"));
+                        p.setKmInicial(rs.getBigDecimal("kmInicial"));
+                        p.setKmFinal(rs.getBigDecimal("kmFinal"));
+                        p.setGastoPeaje(rs.getBigDecimal("gastosPeaje")); 
+                        p.setGastoDietas(rs.getBigDecimal("gastosDietas"));
+                        p.setGastoCombustible(rs.getBigDecimal("gastosCombustible"));
+                        p.setGastoVarios(rs.getBigDecimal("otrosGastos"));
+                        p.setIncidencias(rs.getString("incidencias"));
+                        p.setEstado(rs.getString("estado"));
+                        p.setValidado(rs.getString("validado"));
+                        p.setHorasExtras(rs.getBigDecimal("horasExtras"));
+                        p.setIdTrabajador(rs.getBigDecimal("TRABAJADORES_ID"));
+                        p.setNotasAdministrativas(rs.getString("notasAdministrativas"));
+                partes.add(p);
+                }
+                
+                rs.close();
+                cs.close();
+                Conexion.desconectar();
+                return partes;
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "No se puede efectuar la conexión, hable con el administrador del sistema" + ex.getMessage());
+            }
+            return null;
+    }
+      
+     
+     //metodo de creacion de parte, se ejectuta una vez que el trabajador inicia jornada.
     public boolean iniciarParte(){
         Conexion.conectar();
         

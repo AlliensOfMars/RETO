@@ -78,7 +78,7 @@ begin
 
 select id, nombre, calle, numero, ciudad, codigoPostal, provincia, telefono into ido, nom, cal, nu, ci, co, pro, tel
 from centros 
-where nombre = nomu;
+where upper(nombre) = nomu or lower(nombre)=nomu;
 exception 
 when NO_DATA_FOUND then 
 RAISE_APPLICATION_ERROR(-20001,'No se han encontrado registros de Centros');
@@ -217,7 +217,7 @@ calle, numero, piso, mano, ciudad, CODIGOPOSTAL, PROVINCIA, MOVILEMPRESA,
 MOVILPERSONAL, SALARIO, FECHANACIMIENTO, CENTROS_ID 
 into ido, do ,nou, pa, sa, ca, cal, nu, pi, ma, ci, co, pro, mve, mvp, sal, fe, cei 
 from trabajadores
-where DNI=doc;
+where upper(DNI)=doc or lower(DNI)=doc;
 exception 
 when NO_DATA_FOUND then 
 RAISE_APPLICATION_ERROR(-20001,'No se han encontrado registros de Trabajadores');
@@ -231,7 +231,7 @@ as
 begin
 select id into idi
 from trabajadores
-where dni = doc;
+where upper(DNI)=doc or lower(DNI)=doc;
 
 exception 
 when NO_DATA_FOUND then 
@@ -255,8 +255,10 @@ end logisticaViajes;
 create or replace package ppartes
 as
 procedure partesList (c out SYS_REFCURSOR);
-procedure partesTFAI (idt in partes.trabajadores_id%type, fechain in partes.fecha%type, fechafi in partes.fecha%type, c out SYS_REFCURSOR);
-procedure partesTFAF (fechain in partes.fecha%type, fechafi in partes.fecha%type, c out SYS_REFCURSOR);
+procedure partesTFI (idt in partes.trabajadores_id%type, fechain in partes.fecha%type, fechafi in partes.fecha%type, c out SYS_REFCURSOR);
+procedure partesTFF (fechain in partes.fecha%type, fechafi in partes.fecha%type, c out SYS_REFCURSOR);
+procedure partesTFA (c out SYS_REFCURSOR);
+procedure partesTFC (c out SYS_REFCURSOR);
 end ppartes;
 
 create or replace package body ppartes
@@ -268,22 +270,37 @@ open c for
 select * from partes;
 end partesList;
 
-procedure partesTFAI (idt in partes.trabajadores_id%type, fechain in partes.fecha%type, fechafi in partes.fecha%type, c out SYS_REFCURSOR)
+procedure partesTFI (idt in partes.trabajadores_id%type, fechain in partes.fecha%type, fechafi in partes.fecha%type, c out SYS_REFCURSOR)
 as
 begin
 
 open c for
 select * from partes
 where fecha BETWEEN (fechain) and  (fechafi) and trabajadores_id=idt;
-end partesTFAI;
+end partesTFI;
 
-procedure partesTFAF (fechain in partes.fecha%type, fechafi in partes.fecha%type, c out SYS_REFCURSOR)
+procedure partesTFF (fechain in partes.fecha%type, fechafi in partes.fecha%type, c out SYS_REFCURSOR)
 as
 begin
 open c for
 select * from partes
 where fecha BETWEEN (fechain) and  (fechafi);
-end partesTFAF;
+end partesTFF;
+
+procedure partesTFA (c out SYS_REFCURSOR)
+as
+begin
+open c for 
+select * from partes where estado = 'ABIERTO';
+end partesTFA;
+
+procedure partesTFC (c out SYS_REFCURSOR)
+as
+begin
+open c for 
+select * from partes where estado = 'CERRADO';
+end partesTFC;
+
 end ppartes;
 
 --procedimento de login
@@ -300,6 +317,19 @@ WHEN NO_DATA_FOUND THEN
    RAISE_APPLICATION_ERROR(-20002,'NO SE ENCUENTRAN REGISTROS.'); 
 END LOGIN;
 
+--procidimento conducen 
+create or replace procedure cDetalle
+(fechao in CONDUCEN.FECHA%type, idt in CONDUCEN.TRABAJADORES_ID%type, 
+f out CONDUCEN.FECHA%type,
+m out VEHICULOS.MATRICULA%TYPE,
+n out trabajadores.nombre%type,
+idtt out trabajadores.id%type)
+as
+begin
+select  matricula, nombre into m, n
+from detalle where id=idt and fecha=fechao;
+end cDetalle;
+
 --paquete de vehiculos
 create or replace package pvehiculos
 as
@@ -308,7 +338,7 @@ procedure filtrarVehiculo (mat in vehiculos.matricula%type,
 idv out vehiculos.id%type,
 marc out vehiculos.marca%type,
 model out vehiculos.modelo%type,
-matt out matricula%type
+matt out vehiculos.matricula%type
 );
 end pvehiculos;
 
@@ -331,7 +361,7 @@ as
 begin
 select id, marca, modelo, matricula into idv, marc, model, matt
 from vehiculos
-where matricula = mat;
+where upper(matricula) = mat or lower(matricula)=mat;
 exception 
 when NO_DATA_FOUND then 
 RAISE_APPLICATION_ERROR(-20001,'No se han encontrado registros de Vehiculos');
@@ -343,8 +373,9 @@ end pvehiculos;
 
 
 --trigger
+--trigger
 create or replace trigger horas
-before insert or update
+AFTER insert or update
 on viajes
 declare
 exceso_horas exception;
@@ -353,22 +384,19 @@ HORAS NUMBER(2);
 MINUTOS NUMBER(2);
 TOTALMINUTOS NUMBER (4,2);
 TOTAL NUMBER (4,2);
-idt PARTES.TRABAJADORES_ID%type;
-est partes.estado%type;
+IDT NUMBER(7);
+TOTALH NUMBER(4,2);
 BEGIN
 SELECT TRABAJADORES_ID , extract(hour from (to_timestamp((select max(horafinal) from viajes where TRABAJADORES_ID = (select trabajadores_id from partes where estado='ABIERTO')), 'HH24:MI') - to_timestamp((select min(horainicial)from viajes where TRABAJADORES_ID = (select trabajadores_id from partes where estado='ABIERTO')),  'HH24:MI'))) ,
    extract(minute from (to_timestamp((select max(horafinal) from VIAJES where TRABAJADORES_ID = (select trabajadores_id from partes where estado='ABIERTO')), 'HH24:MI') - to_timestamp((select min(HORAINICIAL)from viajes where TRABAJADORES_ID = (select trabajadores_id from partes where estado='ABIERTO') ),  'HH24:MI'))) INTO  idt, HORAS, MINUTOS
 FROM VIAJES where TRABAJADORES_ID =(select trabajadores_id from partes where estado='ABIERTO') group by TRABAJADORES_ID ;
 TOTALMINUTOS:=MINUTOS/100;
 TOTAL:=HORAS+TOTALMINUTOS;
-IF TOTAL<8 THEN
-RAISE menos_horas;
-else 
-RAISE exceso_horas;
+SELECT TRABAJADORES_ID INTO IDT
+FROM VIAJES 
+WHERE TRABAJADORES_ID=(select trabajadores_id from partes where estado='ABIERTO');
+IF TOTAL>8 THEN
+TOTALH := TOTAL-8;
+UPDATE PARTES SET HORASEXTRAS = TOTALH WHERE TRABAJADORES_ID = IDT;
 end if;
-EXCEPTION
-when menos_horas then
- RAISE_APPLICATION_ERROR(-20001,'pocas horas');
-when exceso_horas then
- RAISE_APPLICATION_ERROR(-20001,'muchas horas');
 END horas;

@@ -258,7 +258,7 @@ public class Trabajador {
                 t.setDni(rs.getString("dni"));
                 t.setNombre(rs.getString("nombre"));
                 t.setPrimerApellido(rs.getString("primerApellido"));
-                t.setSegundoApellido(rs.getString("segundoapellido"));
+                t.setSegundoApellido(rs.getString("segundoApellido"));
                 t.setCategoria(rs.getString("categoria"));
                 t.setCalle(rs.getString("calle"));
                 t.setNumero(rs.getBigDecimal("numero"));
@@ -287,52 +287,12 @@ public class Trabajador {
       
     }
     
-    public static  List<Trabajador>filtrarTrabajador(String dni){
-        List<Trabajador>trabajador=new ArrayList<>();
-        Conexion.conectar();
-        try {
-            CallableStatement cs = Conexion.getConexion().prepareCall("{call listartrabajador(?,?)}");
-            cs.setString(1, dni);
-            cs.registerOutParameter(2, OracleTypes.CURSOR);
-            cs.execute();
-            
-            ResultSet rs = (ResultSet) cs.getObject(2);
-           
-            while(rs.next()){
-                Trabajador t = new Trabajador();
-                t.setId(rs.getBigDecimal("ID"));
-                t.setDni(rs.getString("dni"));
-                t.setNombre(rs.getString("nombre"));
-                t.setPrimerApellido(rs.getString("primerApellido"));
-                t.setSegundoApellido(rs.getString("segundoApellido"));
-                t.setCategoria(rs.getString("categoria"));
-                t.setCalle(rs.getString("calle"));
-                t.setNumero(rs.getBigDecimal("numero"));
-                t.setPiso(rs.getBigDecimal("piso"));
-                t.setMano(rs.getString("mano"));
-                t.setCiudad(rs.getString("ciudad"));
-                t.setCodigoPostal(rs.getBigDecimal("codigoPostal"));
-                t.setProvincia(rs.getString("provincia"));
-                t.setMovilEmpresa(rs.getBigDecimal("movilEmpresa"));
-                t.setMovilPersonal(rs.getBigDecimal("movilPersonal"));
-                t.setSalario(rs.getBigDecimal("salario"));
-                t.setFechaNacimiento(rs.getString("fechaNacimiento"));
-                t.setIdCent(rs.getBigDecimal("CENTROS_ID"));
-                trabajador.add(t);
-            }
-            rs.close();
-            Conexion.desconectar();
-        } catch (SQLException ex) {
-            Logger.getLogger(Trabajador.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return trabajador;
-    }
     
      public static  Trabajador filtrarTrabajador1(String dni){
         Trabajador trabajador=new Trabajador();
         Conexion.conectar();
         try {
-            CallableStatement cs = Conexion.getConexion().prepareCall("{call ifTrabajador(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
+            CallableStatement cs = Conexion.getConexion().prepareCall("{call ptrabajadores.ifTrabajador(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
            
             cs.setString(1, dni); 
             cs.registerOutParameter(2, OracleTypes.INTEGER); 
@@ -379,20 +339,22 @@ public class Trabajador {
            }else{
             trabajador =  new Logistica (id, dni, no, pa, sa, cat, ca, nu, pi, ma, ci, cd, pro, mve, mvp, sal, fe, idc);   
            }
-            
+             
             cs.close();
             Conexion.desconectar();
+            return trabajador;
         } catch (SQLException ex) {
-            Logger.getLogger(Trabajador.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "No se ha encontrado ningun trabajador con ese DNI.\nVerifique el DNI de"
+                    + "busqueda.\n"+ex.getMessage()); 
         }
-        return trabajador;
+        return null;
     }
      
         public  static  Trabajador filtrarTrabajador2(BigDecimal idt){
         Trabajador trabajador=new Trabajador();
         Conexion.conectar();
         try {
-            CallableStatement cs = Conexion.getConexion().prepareCall("{call ifTrabajadorid(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
+            CallableStatement cs = Conexion.getConexion().prepareCall("{call ptrabajadores.ifTrabajadorid(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
            
             cs.setBigDecimal(1, idt); 
             cs.registerOutParameter(2, OracleTypes.INTEGER); 
@@ -439,13 +401,14 @@ public class Trabajador {
            }else{
             trabajador =  new Logistica (idt, doc, no, pa, sa, cat, ca, nu, pi, ma, ci, cd, pro, mve, mvp, sal, fe, idc);   
            }
-            
+          
             
             Conexion.desconectar();
+              return trabajador;
         } catch (SQLException ex) {
             Logger.getLogger(Trabajador.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return trabajador;
+        return null;
     }
     
     public boolean altaTrabajador12c(){
@@ -588,6 +551,25 @@ public class Trabajador {
             return false;
         }  
     }
+    
+    public static boolean borrartrabajador(BigDecimal idT){
+        Conexion.conectar();
+        String sql = "delte from trabajadores where id=?";
+        
+        try {
+            PreparedStatement ps = Conexion.getConexion().prepareStatement(sql);
+            ps.setBigDecimal(1, idT);
+            ps.execute();
+            ps.close();
+            
+            Conexion.desconectar();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(Trabajador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return false;
+    }
 
     @Override
     public String toString() {
@@ -609,7 +591,7 @@ public class Trabajador {
     }
 
     public Centro getCentro() {
-       if (centro ==null){
+      if (centro ==null){
          centro = Centro.centro(idCent);
        }
         return centro;

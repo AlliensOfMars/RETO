@@ -49,6 +49,7 @@ public class AltaVehiculos extends javax.swing.JFrame {
         bVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Alta de Vehiculos");
 
         jLabel1.setFont(new java.awt.Font("Andalus", 1, 24)); // NOI18N
         jLabel1.setText("ALTA DE VEHICULOS");
