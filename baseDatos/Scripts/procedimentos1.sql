@@ -26,7 +26,7 @@ pro out CENTROS.PROVINCIA%type,
 tel out CENTROS.TELEFONO%type
 );
 end pcentros;
-
+/
 create or replace package body pcentros
 as
 procedure centrosList
@@ -86,7 +86,7 @@ WHEN TOO_MANY_ROWS THEN
 RAISE_APPLICATION_ERROR(-20002,'Se ha encontrado más de un registro por favor hable con el Administrador'); 
 end centrosFn;
 end pcentros;
-
+/
 --PAQUETE TRABAJADORES
 create or replace package ptrabajadores
 as
@@ -139,7 +139,7 @@ cei out TRABAJADORES.CENTROS_ID%type
 procedure idTrabajador
 (doc in trabajadores.dni%type, idi out trabajadores.id%type);
 end ptrabajadores;
-
+/
 create or replace package body ptrabajadores
 as
 procedure listartrabajadores 
@@ -147,7 +147,9 @@ procedure listartrabajadores
 as
 begin
 open c for
-select * from trabajadores;
+select id, dni, nombre, PRIMERAPELLIDO, nvl(SEGUNDOAPELLIDO, ' ') as segundoApellido, CATEGORIA,
+calle, nvl(numero,0) as numero, nvl(piso,0) as piso, nvl(mano,' ') as mano, ciudad, CODIGOPOSTAL, PROVINCIA, MOVILEMPRESA,
+nvl(MOVILPERSONAL,0) as movilPersonal, nvl(SALARIO,0) as salario, nvl(FECHANACIMIENTO,' ') as fechaNacimiento, CENTROS_ID from trabajadores;
 end listartrabajadores;
 
 PROCEDURE ifTrabajadorid
@@ -174,9 +176,9 @@ cei out TRABAJADORES.CENTROS_ID%type
 as
 begin
 
-select id, dni, nombre, PRIMERAPELLIDO, SEGUNDOAPELLIDO, CATEGORIA,
-calle, numero, piso, mano, ciudad, CODIGOPOSTAL, PROVINCIA, MOVILEMPRESA,
-MOVILPERSONAL, SALARIO, FECHANACIMIENTO, CENTROS_ID 
+select id, dni, nombre, PRIMERAPELLIDO, nvl(SEGUNDOAPELLIDO, ' ') as segundoApellido, CATEGORIA,
+calle, nvl(numero,0) as numero, nvl(piso,0) as piso, nvl(mano,' ') as mano, ciudad, CODIGOPOSTAL, PROVINCIA, MOVILEMPRESA,
+nvl(MOVILPERSONAL,0) as movilPersonal, nvl(SALARIO,0) as salario, nvl(FECHANACIMIENTO,' ') as fechaNacimiento, CENTROS_ID
 into ido, do ,nou, pa, sa, ca, cal, nu, pi, ma, ci, co, pro, mve, mvp, sal, fe, cei 
 from trabajadores
 where ID=idi;
@@ -212,9 +214,9 @@ cei out TRABAJADORES.CENTROS_ID%type
 as
 begin
 
-select id, dni, nombre, PRIMERAPELLIDO, SEGUNDOAPELLIDO, CATEGORIA,
-calle, numero, piso, mano, ciudad, CODIGOPOSTAL, PROVINCIA, MOVILEMPRESA,
-MOVILPERSONAL, SALARIO, FECHANACIMIENTO, CENTROS_ID 
+select id, dni, nombre, PRIMERAPELLIDO, nvl(SEGUNDOAPELLIDO, ' ') as segundoApellido, CATEGORIA,
+calle, nvl(numero,0) as numero, nvl(piso,0) as piso, nvl(mano,' ') as mano, ciudad, CODIGOPOSTAL, PROVINCIA, MOVILEMPRESA,
+nvl(MOVILPERSONAL,0) as movilPersonal, nvl(SALARIO,0) as salario, nvl(FECHANACIMIENTO,' ') as fechaNacimiento, CENTROS_ID
 into ido, do ,nou, pa, sa, ca, cal, nu, pi, ma, ci, co, pro, mve, mvp, sal, fe, cei 
 from trabajadores
 where upper(DNI)=doc or lower(DNI)=doc;
@@ -240,7 +242,7 @@ WHEN TOO_MANY_ROWS THEN
 RAISE_APPLICATION_ERROR(-20002,'Se ha encontrado más de un registro por favor hable con el Administrador'); 
 end idTrabajador;
 end ptrabajadores;
-
+/
 --procedimento de viajes
 create or replace procedure logisticaViajes
 (idt in VIAJES.TRABAJADORES_ID%type, fecha in VIAJES.FECHA_ID%type, c out SYS_REFCURSOR)
@@ -250,7 +252,7 @@ OPEN C FOR
 SELECT albaran, horaInicial, horaFinal
 from viajes where trabajadores_id=idt and fecha_id=fecha;
 end logisticaViajes;
-
+/
 --paquete de partesAdministracion 
 create or replace package ppartes
 as
@@ -260,7 +262,7 @@ procedure partesTFF (fechain in partes.fecha%type, fechafi in partes.fecha%type,
 procedure partesTFA (c out SYS_REFCURSOR);
 procedure partesTFC (c out SYS_REFCURSOR);
 end ppartes;
-
+/
 create or replace package body ppartes
 as
 procedure partesList (c out SYS_REFCURSOR)
@@ -287,14 +289,14 @@ select * from partes
 where fecha BETWEEN (fechain) and  (fechafi);
 end partesTFF;
 
-procedure partesTFA (c out SYS_REFCURSOR)
+procedure partesTA (c out SYS_REFCURSOR)
 as
 begin
 open c for 
 select * from partes where estado = 'ABIERTO';
 end partesTFA;
 
-procedure partesTFC (c out SYS_REFCURSOR)
+procedure partesTC (c out SYS_REFCURSOR)
 as
 begin
 open c for 
@@ -302,7 +304,7 @@ select * from partes where estado = 'CERRADO';
 end partesTFC;
 
 end ppartes;
-
+/
 --paquete de vehiculos
 create or replace package pvehiculos
 as
@@ -314,7 +316,7 @@ model out vehiculos.modelo%type,
 matt out vehiculos.matricula%type
 );
 end pvehiculos;
-
+/
 create or replace package body pvehiculos
 as
 procedure listarVehiculos (c out SYS_REFCURSOR)
@@ -342,7 +344,7 @@ WHEN TOO_MANY_ROWS THEN
 RAISE_APPLICATION_ERROR(-20002,'Se ha encontrado más de un registro por favor hable con el Administrador'); 
 end filtrarVehiculo;
 end pvehiculos;
-
+/
 --procedimento de login
 create or replace PROCEDURE LOGIN
 (USER IN USUARIOS.USUARIO%TYPE, PASS IN USUARIOS.PASSWORD%TYPE, idu out usuarios.usuario%type, idt out usuarios.TRABAJADORES_ID%type)
@@ -356,7 +358,7 @@ EXCEPTION
 WHEN NO_DATA_FOUND THEN
    RAISE_APPLICATION_ERROR(-20002,'NO SE ENCUENTRAN REGISTROS.'); 
 END LOGIN;
-
+/
 --procidimento conducen 
 create or replace procedure cDetalle
 (fechao in CONDUCEN.FECHA%type, idt in CONDUCEN.TRABAJADORES_ID%type, 
@@ -369,7 +371,7 @@ begin
 select  matricula, nombre into m, n
 from detalle where id=idt and fecha=fechao;
 end cDetalle;
-
+/
 --procedimento notificacion.
 create or replace procedure notificacion
 (idc in USUARIOS.TRABAJADORES_ID%type, ida out avisos.id%type, av out AVISOS.AVISO%type, fe out AVISOS.FECHA_ID%type)
@@ -386,7 +388,7 @@ RAISE_APPLICATION_ERROR(-20001,'No se han encontrado registros');
 when to_many_rows then
 RAISE_APPLICATION_ERROR(-20002,'hay más de un registro por favor hable con Administración');
 end notificacion;
-
+/
 --procedimento quien conduce que
 create or replace procedure cDetalle
 (fechao in CONDUCEN.FECHA%type, idt in CONDUCEN.TRABAJADORES_ID%type, 
@@ -397,7 +399,7 @@ begin
 select  matricula, nombre into m, n
 from detalle where id=idt and fecha=fechao;
 end cDetalle;
-
+/
 --procedimento recuperar partes
 create or replace procedure recuperarParte
 (idt in TRABAJADORES.ID%type, 
@@ -427,7 +429,7 @@ EXCEPTION WHEN
 NO_DATA_FOUND THEN NULL;
 
 end recuperarParte;
-
+/
 --procedimento calcularHoras
 create or replace PROCEDURE horasExtras
 (IND IN TRABAJADORES.ID%TYPE,
@@ -452,7 +454,7 @@ UPDATE PARTES SET HORASEXTRAS = TOTALH WHERE TRABAJADORES_ID = Ind;
 commit;
 end if;
 END horasExtras;
-
+/
 
 
 
