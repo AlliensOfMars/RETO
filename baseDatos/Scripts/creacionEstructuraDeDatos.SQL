@@ -144,7 +144,7 @@ CREATE
     ID          NUMBER GENERATED AS IDENTITY ,
     horaInicial varchar2(5) default '00:00' not null,
     horaFinal   varchar2(5) default '00:00' not null,
-	albaran     number(7) not null,
+	albaran     number(7) not null unique,
     TRABAJADORES_ID  NUMBER (7) NOT NULL,
 	FECHA_ID varchar2(10)
   ) ;

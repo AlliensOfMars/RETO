@@ -102,6 +102,7 @@ public class Viaje {
      * viajes y que realiza la insercion del viaje en la base datos.
      */
     public boolean insertarViaje(BigDecimal idt, String fecha) {
+        
         Conexion.conectar();
         String sql = "insert into viajes (horaInicial, horaFinal, TRABAJADORES_ID, FECHA_ID, albaran) values(?,?,?,?,?)";
 
@@ -115,13 +116,35 @@ public class Viaje {
 
             smt.executeUpdate();
             smt.close();
+            horasExtras(idt, fecha);
             Conexion.desconectar();
-
             return true;
         } catch (SQLException ex) {
             Logger.getLogger(Viaje.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
+    }
+    
+    public void horasExtras(BigDecimal idt, String fecha){
+        
+        Conexion.conectar();
+        String sql = "call horasExtras (?,?)";
+        
+        try {
+            CallableStatement cs = Conexion.getConexion().prepareCall(sql);
+            
+            cs.setBigDecimal(1, idt);
+            cs.setString(2, fecha);
+            cs.execute();
+            cs.close();
+            
+            Conexion.desconectar();
+            
+        } catch (SQLException ex) {
+             JOptionPane.showMessageDialog(null, "No se puede llamar al procedimento horas extras" + ex.getMessage());
+        }
+        
+        
     }
 
     /**
