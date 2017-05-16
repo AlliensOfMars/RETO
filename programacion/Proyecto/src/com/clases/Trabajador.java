@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import oracle.jdbc.OracleTypes;
+
 /**
  *
  * @author 7fprog03
@@ -51,10 +52,9 @@ public class Trabajador {
     public Trabajador(BigDecimal id) {
         this.id = id;
     }
-    
 
     public Trabajador(String dni, String nombre, String primerApellido, String segundoApellido, String categoria, String calle, BigDecimal numero, BigDecimal piso, String mano, String ciudad, BigDecimal codigoPostal, String provincia, BigDecimal movilEmpresa, BigDecimal movilPersonal, BigDecimal salario, String fechaNacimiento, BigDecimal idCent) {
-        
+
         this.dni = dni;
         this.nombre = nombre;
         this.primerApellido = primerApellido;
@@ -94,8 +94,6 @@ public class Trabajador {
         this.fechaNacimiento = fechaNacimiento;
         this.idCent = idCent;
     }
-
-
 
     public BigDecimal getId() {
         return id;
@@ -240,19 +238,24 @@ public class Trabajador {
     public void setIdCent(BigDecimal idCent) {
         this.idCent = idCent;
     }
-    
-    //listar trabajadores
-    public static List <Trabajador>listarTrabajadores(){
-        List<Trabajador>trabajadores=new ArrayList<>();
-        
+
+    /**
+     * Metodo que nos recupera todo los trabajadores existentes en nuestra base
+     * datos, esta informacion es recorrida mediante un cursor y almacenada en
+     * un array, el cual utilizaremos posteriormente para poder visualizar la
+     * infromacion recuperada.
+     */
+    public static List<Trabajador> listarTrabajadores() {
+        List<Trabajador> trabajadores = new ArrayList<>();
+
         Conexion.conectar();
         try {
             CallableStatement cs = Conexion.getConexion().prepareCall("{call ptrabajadores.listartrabajadores (?)}");
             cs.registerOutParameter(1, OracleTypes.CURSOR);
             cs.execute();
-            
+
             ResultSet rs = (ResultSet) cs.getObject(1);
-            while(rs.next()){
+            while (rs.next()) {
                 Trabajador t = new Trabajador();
                 t.setId(rs.getBigDecimal("ID"));
                 t.setDni(rs.getString("dni"));
@@ -273,163 +276,173 @@ public class Trabajador {
                 t.setFechaNacimiento(rs.getString("fechaNacimiento"));
                 t.setIdCent(rs.getBigDecimal("CENTROS_ID"));
                 trabajadores.add(t);
-                System.out.println(t);  
+                System.out.println(t);
             }
             rs.close();
             cs.close();
             Conexion.desconectar();
-              return trabajadores;
+            return trabajadores;
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "No se puede efectuar la conexión, hable con el administrador del sistema" + ex.getMessage());
             return null;
         }
-        
-      
+
     }
-    
-    
-     public static  Trabajador filtrarTrabajador1(String dni){
-        Trabajador trabajador=new Trabajador();
+
+    /**
+     *
+     * Metodo que se ocupa de devolverno un objeto de la clase trabajador,
+     * utilizando la variable dni que ha sido recogida en la ventana
+     * trabajadoresUD.
+     */
+    public static Trabajador filtrarTrabajador1(String dni) {
+        Trabajador trabajador = new Trabajador();
         Conexion.conectar();
         try {
             CallableStatement cs = Conexion.getConexion().prepareCall("{call ptrabajadores.ifTrabajador(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
-           
-            cs.setString(1, dni); 
-            cs.registerOutParameter(2, OracleTypes.INTEGER); 
-            cs.registerOutParameter(3, OracleTypes.VARCHAR); 
-            cs.registerOutParameter(4, OracleTypes.VARCHAR); 
-            cs.registerOutParameter(5, OracleTypes.VARCHAR); 
-            cs.registerOutParameter(6, OracleTypes.VARCHAR); 
-            cs.registerOutParameter(7, OracleTypes.VARCHAR); 
-            cs.registerOutParameter(8, OracleTypes.VARCHAR); 
-            cs.registerOutParameter(9, OracleTypes.INTEGER); 
-            cs.registerOutParameter(10, OracleTypes.INTEGER); 
-            cs.registerOutParameter(11, OracleTypes.VARCHAR); 
-            cs.registerOutParameter(12, OracleTypes.VARCHAR); 
-            cs.registerOutParameter(13, OracleTypes.INTEGER); 
-            cs.registerOutParameter(14, OracleTypes.VARCHAR); 
-            cs.registerOutParameter(15, OracleTypes.INTEGER); 
-            cs.registerOutParameter(16, OracleTypes.INTEGER); 
-            cs.registerOutParameter(17, OracleTypes.INTEGER); 
-            cs.registerOutParameter(18, OracleTypes.VARCHAR); 
-            cs.registerOutParameter(19, OracleTypes.INTEGER); 
-           cs.execute();
-           BigDecimal id = cs.getBigDecimal(2);
-           String doc = cs.getString(3);
-           String no = cs.getString(4);
-           String pa = cs.getString(5);
-           String sa = cs.getString(6);
-           String cat=cs.getString(7);
-           String ca = cs.getString(8);
-           BigDecimal nu = cs.getBigDecimal(9);
-           BigDecimal pi = cs.getBigDecimal(10);
-           String ma = cs.getString(11); 
-           String ci = cs.getString(12);
-           BigDecimal cd = cs.getBigDecimal(13);
-           String pro = cs.getString(14);
-           BigDecimal mve = cs.getBigDecimal(15);
-           BigDecimal mvp = cs.getBigDecimal(16);
-           BigDecimal sal = cs.getBigDecimal(17);
-           String fe = cs.getString(18);
-           BigDecimal idc = cs.getBigDecimal(19);
-           cs.close();
-           
-           if(cat.equalsIgnoreCase("administracion")){
-             trabajador =  new Administracion(id, dni, no, pa, sa, cat, ca, nu, pi, ma, ci, cd, pro, mve, mvp, sal, fe, idc);  
-           }else{
-            trabajador =  new Logistica (id, dni, no, pa, sa, cat, ca, nu, pi, ma, ci, cd, pro, mve, mvp, sal, fe, idc);   
-           }
-             
+
+            cs.setString(1, dni);
+            cs.registerOutParameter(2, OracleTypes.INTEGER);
+            cs.registerOutParameter(3, OracleTypes.VARCHAR);
+            cs.registerOutParameter(4, OracleTypes.VARCHAR);
+            cs.registerOutParameter(5, OracleTypes.VARCHAR);
+            cs.registerOutParameter(6, OracleTypes.VARCHAR);
+            cs.registerOutParameter(7, OracleTypes.VARCHAR);
+            cs.registerOutParameter(8, OracleTypes.VARCHAR);
+            cs.registerOutParameter(9, OracleTypes.INTEGER);
+            cs.registerOutParameter(10, OracleTypes.INTEGER);
+            cs.registerOutParameter(11, OracleTypes.VARCHAR);
+            cs.registerOutParameter(12, OracleTypes.VARCHAR);
+            cs.registerOutParameter(13, OracleTypes.INTEGER);
+            cs.registerOutParameter(14, OracleTypes.VARCHAR);
+            cs.registerOutParameter(15, OracleTypes.INTEGER);
+            cs.registerOutParameter(16, OracleTypes.INTEGER);
+            cs.registerOutParameter(17, OracleTypes.INTEGER);
+            cs.registerOutParameter(18, OracleTypes.VARCHAR);
+            cs.registerOutParameter(19, OracleTypes.INTEGER);
+            cs.execute();
+            BigDecimal id = cs.getBigDecimal(2);
+            String doc = cs.getString(3);
+            String no = cs.getString(4);
+            String pa = cs.getString(5);
+            String sa = cs.getString(6);
+            String cat = cs.getString(7);
+            String ca = cs.getString(8);
+            BigDecimal nu = cs.getBigDecimal(9);
+            BigDecimal pi = cs.getBigDecimal(10);
+            String ma = cs.getString(11);
+            String ci = cs.getString(12);
+            BigDecimal cd = cs.getBigDecimal(13);
+            String pro = cs.getString(14);
+            BigDecimal mve = cs.getBigDecimal(15);
+            BigDecimal mvp = cs.getBigDecimal(16);
+            BigDecimal sal = cs.getBigDecimal(17);
+            String fe = cs.getString(18);
+            BigDecimal idc = cs.getBigDecimal(19);
+            cs.close();
+
+            if (cat.equalsIgnoreCase("administracion")) {
+                trabajador = new Administracion(id, dni, no, pa, sa, cat, ca, nu, pi, ma, ci, cd, pro, mve, mvp, sal, fe, idc);
+            } else {
+                trabajador = new Logistica(id, dni, no, pa, sa, cat, ca, nu, pi, ma, ci, cd, pro, mve, mvp, sal, fe, idc);
+            }
+
             cs.close();
             Conexion.desconectar();
             return trabajador;
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "No se ha encontrado ningun trabajador con ese DNI.\nVerifique el DNI de"
-                    + "busqueda.\n"+ex.getMessage()); 
+                    + "busqueda.\n" + ex.getMessage());
         }
         return null;
     }
-     
-        public  static  Trabajador filtrarTrabajador2(BigDecimal idt){
-        Trabajador trabajador=new Trabajador();
+
+    /**
+     *
+     * Metodo que se ocupa de devolverno un objeto de la clase trabajador,
+     * utilizando la variable id.
+     */
+    public static Trabajador filtrarTrabajador2(BigDecimal idt) {
+        Trabajador trabajador = new Trabajador();
         Conexion.conectar();
         try {
             CallableStatement cs = Conexion.getConexion().prepareCall("{call ptrabajadores.ifTrabajadorid(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
-           
-            cs.setBigDecimal(1, idt); 
-            cs.registerOutParameter(2, OracleTypes.INTEGER); 
-            cs.registerOutParameter(3, OracleTypes.VARCHAR); 
-            cs.registerOutParameter(4, OracleTypes.VARCHAR); 
-            cs.registerOutParameter(5, OracleTypes.VARCHAR); 
-            cs.registerOutParameter(6, OracleTypes.VARCHAR); 
-            cs.registerOutParameter(7, OracleTypes.VARCHAR); 
-            cs.registerOutParameter(8, OracleTypes.VARCHAR); 
-            cs.registerOutParameter(9, OracleTypes.INTEGER); 
-            cs.registerOutParameter(10, OracleTypes.INTEGER); 
-            cs.registerOutParameter(11, OracleTypes.VARCHAR); 
-            cs.registerOutParameter(12, OracleTypes.VARCHAR); 
-            cs.registerOutParameter(13, OracleTypes.INTEGER); 
-            cs.registerOutParameter(14, OracleTypes.VARCHAR); 
-            cs.registerOutParameter(15, OracleTypes.INTEGER); 
-            cs.registerOutParameter(16, OracleTypes.INTEGER); 
-            cs.registerOutParameter(17, OracleTypes.INTEGER); 
-            cs.registerOutParameter(18, OracleTypes.VARCHAR); 
-            cs.registerOutParameter(19, OracleTypes.INTEGER); 
-           cs.execute();
-           BigDecimal id = cs.getBigDecimal(2);
-           String doc = cs.getString(3);
-           String no = cs.getString(4);
-           String pa = cs.getString(5);
-           String sa = cs.getString(6);
-           String cat=cs.getString(7);
-           String ca = cs.getString(8);
-           BigDecimal nu = cs.getBigDecimal(9);
-           BigDecimal pi = cs.getBigDecimal(10);
-           String ma = cs.getString(11); 
-           String ci = cs.getString(12);
-           BigDecimal cd = cs.getBigDecimal(13);
-           String pro = cs.getString(14);
-           BigDecimal mve = cs.getBigDecimal(15);
-           BigDecimal mvp = cs.getBigDecimal(16);
-           BigDecimal sal = cs.getBigDecimal(17);
-           String fe = cs.getString(18);
-           BigDecimal idc = cs.getBigDecimal(19);
-           cs.close();
-           
-           if(cat.equalsIgnoreCase("administracion")){
-             trabajador =  new Administracion(idt, doc, no, pa, sa, cat, ca, nu, pi, ma, ci, cd, pro, mve, mvp, sal, fe, idc);
-           }else{
-            trabajador =  new Logistica (idt, doc, no, pa, sa, cat, ca, nu, pi, ma, ci, cd, pro, mve, mvp, sal, fe, idc);   
-           }
-          
-            
+
+            cs.setBigDecimal(1, idt);
+            cs.registerOutParameter(2, OracleTypes.INTEGER);
+            cs.registerOutParameter(3, OracleTypes.VARCHAR);
+            cs.registerOutParameter(4, OracleTypes.VARCHAR);
+            cs.registerOutParameter(5, OracleTypes.VARCHAR);
+            cs.registerOutParameter(6, OracleTypes.VARCHAR);
+            cs.registerOutParameter(7, OracleTypes.VARCHAR);
+            cs.registerOutParameter(8, OracleTypes.VARCHAR);
+            cs.registerOutParameter(9, OracleTypes.INTEGER);
+            cs.registerOutParameter(10, OracleTypes.INTEGER);
+            cs.registerOutParameter(11, OracleTypes.VARCHAR);
+            cs.registerOutParameter(12, OracleTypes.VARCHAR);
+            cs.registerOutParameter(13, OracleTypes.INTEGER);
+            cs.registerOutParameter(14, OracleTypes.VARCHAR);
+            cs.registerOutParameter(15, OracleTypes.INTEGER);
+            cs.registerOutParameter(16, OracleTypes.INTEGER);
+            cs.registerOutParameter(17, OracleTypes.INTEGER);
+            cs.registerOutParameter(18, OracleTypes.VARCHAR);
+            cs.registerOutParameter(19, OracleTypes.INTEGER);
+            cs.execute();
+            BigDecimal id = cs.getBigDecimal(2);
+            String doc = cs.getString(3);
+            String no = cs.getString(4);
+            String pa = cs.getString(5);
+            String sa = cs.getString(6);
+            String cat = cs.getString(7);
+            String ca = cs.getString(8);
+            BigDecimal nu = cs.getBigDecimal(9);
+            BigDecimal pi = cs.getBigDecimal(10);
+            String ma = cs.getString(11);
+            String ci = cs.getString(12);
+            BigDecimal cd = cs.getBigDecimal(13);
+            String pro = cs.getString(14);
+            BigDecimal mve = cs.getBigDecimal(15);
+            BigDecimal mvp = cs.getBigDecimal(16);
+            BigDecimal sal = cs.getBigDecimal(17);
+            String fe = cs.getString(18);
+            BigDecimal idc = cs.getBigDecimal(19);
+            cs.close();
+
+            if (cat.equalsIgnoreCase("administracion")) {
+                trabajador = new Administracion(idt, doc, no, pa, sa, cat, ca, nu, pi, ma, ci, cd, pro, mve, mvp, sal, fe, idc);
+            } else {
+                trabajador = new Logistica(idt, doc, no, pa, sa, cat, ca, nu, pi, ma, ci, cd, pro, mve, mvp, sal, fe, idc);
+            }
+
             Conexion.desconectar();
-              return trabajador;
+            return trabajador;
         } catch (SQLException ex) {
             Logger.getLogger(Trabajador.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
-    
-    public boolean altaTrabajador12c(){
+
+    /**
+     * Metodo que se ocupa de insertar un trabajador en base de datos.
+     */
+    public boolean altaTrabajador12c() {
         Conexion.conectar();
-       
+
         try {
-            
+
             String sql = ("insert into trabajadores (dni, nombre, primerApellido, segundoApellido, categoria, calle, numero, piso, mano, ciudad, codigoPostal, provincia, movilEmpresa, movilPersonal, salario, fechaNacimiento, CENTROS_ID)"
                     + "values(?,?,?,?,?,"
                     + "?,?,?,?,?,?,?,"
                     + "?,?,?,?,?)");
-            //String sql = ("insert into trabajadores (dni,nombre,primerApellido, segundoApellido, categoria, calle, numero, ciudad, codigoPostal, provincia, movilEmpresa, movilPersonal"
-                  // + "fechaNacimiento, CENTROS_ID values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+
             PreparedStatement smt = Conexion.getConexion().prepareStatement(sql);
-           // smt.setBigDecimal(1, id);
+
             smt.setString(1, dni);
             smt.setString(2, nombre);
             smt.setString(3, primerApellido);
             smt.setString(4, segundoApellido);
             smt.setString(5, categoria);
-            
+
             smt.setString(6, calle);
             smt.setBigDecimal(7, numero);
             smt.setBigDecimal(8, piso);
@@ -437,13 +450,13 @@ public class Trabajador {
             smt.setString(10, ciudad);
             smt.setBigDecimal(11, codigoPostal);
             smt.setString(12, provincia);
-            
+
             smt.setBigDecimal(13, movilEmpresa);
             smt.setBigDecimal(14, movilPersonal);
             smt.setBigDecimal(15, salario);
             smt.setString(16, fechaNacimiento);
             smt.setBigDecimal(17, idCent);
-           
+
             smt.executeUpdate();
             smt.close();
             Conexion.desconectar();
@@ -451,19 +464,19 @@ public class Trabajador {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "No se puede efectuar la conexión, hable con el administrador del sistema" + ex.getMessage());
             return false;
-        }     
+        }
     }
-    
-    public boolean altaTrabajador11g(){
+
+    public boolean altaTrabajador11g() {
         Conexion.conectar();
         try {
-            
+
             String sql = ("insert into trabajadores (id, dni, nombre, primerApellido, segundoApellido, categoria, calle, numero, piso, mano, ciudad, codigoPostal, provincia, movilEmpresa, movilPersonal, salario, fechaNacimiento, CENTROS_ID)"
                     + "values(?,?,?,?,?,?,"
                     + "?,?,?,?,?,?,?,"
                     + "?,?,?,?,?)");
             //String sql = ("insert into trabajadores (dni,nombre,primerApellido, segundoApellido, categoria, calle, numero, ciudad, codigoPostal, provincia, movilEmpresa, movilPersonal"
-                  // + "fechaNacimiento, CENTROS_ID values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            // + "fechaNacimiento, CENTROS_ID values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             PreparedStatement smt = Conexion.getConexion().prepareStatement(sql);
             smt.setBigDecimal(1, id);
             smt.setString(2, dni);
@@ -471,7 +484,7 @@ public class Trabajador {
             smt.setString(4, primerApellido);
             smt.setString(5, segundoApellido);
             smt.setString(6, categoria);
-            
+
             smt.setString(7, calle);
             smt.setBigDecimal(8, numero);
             smt.setBigDecimal(9, piso);
@@ -479,13 +492,13 @@ public class Trabajador {
             smt.setString(11, ciudad);
             smt.setBigDecimal(12, codigoPostal);
             smt.setString(13, provincia);
-            
+
             smt.setBigDecimal(14, movilEmpresa);
             smt.setBigDecimal(15, movilPersonal);
             smt.setBigDecimal(16, salario);
             smt.setString(17, fechaNacimiento);
             smt.setBigDecimal(18, idCent);
-            
+
             smt.executeUpdate();
             smt.close();
             Conexion.desconectar();
@@ -493,12 +506,12 @@ public class Trabajador {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "No se puede efectuar la conexión, hable con el administrador del sistema" + ex.getMessage());
             return false;
-        }      
+        }
     }
-    
+
     //auto incrementado para 11g
     public static BigDecimal autoincremente() {
-        BigDecimal id= new BigDecimal(0);
+        BigDecimal id = new BigDecimal(0);
         try {
             Conexion.conectar();
             CallableStatement cs = Conexion.getConexion().prepareCall("{call incrementTrabajadores(?)}");
@@ -514,13 +527,19 @@ public class Trabajador {
         }
         return id;
     }
-    
-    public boolean modificarTrabajador(BigDecimal id){
+
+    /**
+     *
+     * Metodo que recibe la variable id que ha sido recogida en la ventana
+     * trabajadoresUd y se procede a la modificacion en la base de datos, si
+     * esta ha sido correcta o incorrecta devolvemos True o False.
+     */
+    public boolean modificarTrabajador(BigDecimal id) {
         Conexion.conectar();
-        String sql= "UPDATE TRABAJADORES SET dni=?, nombre=?, primerApellido=?, segundoApellido=?, categoria=?, calle=?, numero=?,"
+        String sql = "UPDATE TRABAJADORES SET dni=?, nombre=?, primerApellido=?, segundoApellido=?, categoria=?, calle=?, numero=?,"
                 + "piso=?, mano=?, ciudad=?, codigoPostal=?, provincia=?, movilEmpresa=?, movilPersonal=?, salario=?,"
                 + "fechaNacimiento=?, CENTROS_ID=? where ID=?";
-        
+
         try {
             PreparedStatement ps = Conexion.getConexion().prepareStatement(sql);
             ps.setString(1, dni);
@@ -537,11 +556,11 @@ public class Trabajador {
             ps.setString(12, provincia);
             ps.setBigDecimal(13, movilEmpresa);
             ps.setBigDecimal(14, movilPersonal);
-            ps.setBigDecimal(15,salario);
+            ps.setBigDecimal(15, salario);
             ps.setString(16, fechaNacimiento);
             ps.setBigDecimal(17, idCent);
             ps.setBigDecimal(18, id);
-            
+
             ps.executeUpdate();
             ps.close();
             Conexion.desconectar();
@@ -549,25 +568,29 @@ public class Trabajador {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "No se puede efectuar la conexión, hable con el administrador del sistema \n" + ex.getMessage());
             return false;
-        }  
+        }
     }
-    
-    public static boolean borrartrabajador(BigDecimal idT){
+
+    /**
+     * Metodo que recibe la id del trabajador que es la que se va utilizar para
+     * dar de baja el trabajador en la base de datos.
+     */
+    public static boolean borrartrabajador(BigDecimal idT) {
         Conexion.conectar();
-        String sql = "delte from trabajadores where id=?";
-        
+        String sql = "delete from trabajadores where id=?";
+
         try {
             PreparedStatement ps = Conexion.getConexion().prepareStatement(sql);
             ps.setBigDecimal(1, idT);
             ps.execute();
             ps.close();
-            
+
             Conexion.desconectar();
             return true;
         } catch (SQLException ex) {
             Logger.getLogger(Trabajador.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return false;
     }
 
@@ -591,9 +614,9 @@ public class Trabajador {
     }
 
     public Centro getCentro() {
-      if (centro ==null){
-         centro = Centro.centro(idCent);
-       }
+        if (centro == null) {
+            centro = Centro.centro(idCent);
+        }
         return centro;
     }
 

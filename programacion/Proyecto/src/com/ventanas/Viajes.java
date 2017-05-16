@@ -24,15 +24,43 @@ import javax.swing.table.DefaultTableModel;
  * @author BE
  */
 public class Viajes extends javax.swing.JFrame {
+
+    /**
+     * Obejeto tipo vFinJornada.
+     */
     private vFinJornada finJornada;
+    /**
+     * Objeto tipo JSpinner
+     */
     private Object JSpinner3;
+    /**
+     * Objeto SpinnerModel que da formato a horaInicio.
+     */
     private SpinnerDateModel sm;
+    /**
+     * Objeto SpinnerModel que da formato a horaFinal.
+     */
     private SpinnerDateModel sm3;
-     
+    /**
+     * Modelado de la tabla viajes.
+     */
     private DefaultTableModel tViajes;
+    /**
+     * Array que va a contener los viajes de ese trabajador en esa fecha.
+     */
     private List<Viaje> viaje;
+
+    /**
+     * Variable que va almacenar la id del trabajador.
+     */
     private final BigDecimal idT = Login.idt;
+
+    /**
+     * Variable que va almacenar la variable la posicion de la tupla
+     * seleccionada.
+     */
     private int index;
+
     /**
      * Creates new form Viajes
      */
@@ -52,6 +80,10 @@ public class Viajes extends javax.swing.JFrame {
 
     }
 
+    /**
+     * Metodo que se encarga de volcar la informacion del array de viaje en la
+     * tabla.
+     */
     private void listarViajes() {
         Date date = new Date();
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
@@ -60,10 +92,10 @@ public class Viajes extends javax.swing.JFrame {
         tViajes = (DefaultTableModel) viajes.getModel();
         viaje = Viaje.logisticaViajes(idT, fecha);
 
-        for (Viaje v : viaje) {
+        viaje.forEach((v) -> {
             tViajes.insertRow(tViajes.getRowCount(), new Object[]{v.getAlabaran(), v.getHoraInicio(), v.getHoraFin()
             });
-        }
+        });
     }
 
     @SuppressWarnings("unchecked")
@@ -244,17 +276,24 @@ public class Viajes extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Evento que recoge los datos de los diferentes campos del formulario, con
+     * los cuales se crea un objeto de la clase viaje que utilizaremos para
+     * llamar al metodo añadir viaje y su respectiva asociacion con el parte
+     * existente.
+     */
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         DateFormat dateFormat = new SimpleDateFormat("HH:mm");
-        
+
         if (uAlbaran.getText().equalsIgnoreCase("")) {
             JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos para insertar el viaje", "Atención", JOptionPane.INFORMATION_MESSAGE);
         } else {
             Parte p = Parte.parte(idT);
-        Viaje v = new Viaje(idT, p.getFecha(), Integer.parseInt(uAlbaran.getText()), dateFormat.format(sm.getDate()), dateFormat.format(sm3.getDate()));
-        p.añadirViaje(v);
-        v.setParte(p);
+            Viaje v = new Viaje(idT, p.getFecha(), Integer.parseInt(uAlbaran.getText()), dateFormat.format(sm.getDate()), dateFormat.format(sm3.getDate()));
+            p.añadirViaje(v);
+            v.setParte(p);
             Viaje i = new Viaje();
             i.setHoraInicio(dateFormat.format(sm.getDate()));
             i.setHoraFin(dateFormat.format(sm3.getDate()));
@@ -266,15 +305,19 @@ public class Viajes extends javax.swing.JFrame {
             listarViajes();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+    /**
+     * Vuelca el numero de albaran de la fila seleccionada.
+     */
 
     private void viajesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viajesMouseClicked
         index = viajes.getSelectedRow();
-
         uAlbaran.setText(Integer.toString(viaje.get(index).getAlabaran()));
-
-
     }//GEN-LAST:event_viajesMouseClicked
 
+    /**
+     * Recoge los datos de los campos para crear un objeto de la clase viaje que
+     * se utilizara para llamar al metodo modificarviaje.
+     */
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
         DateFormat dateFormat = new SimpleDateFormat("HH:mm");
         Date fech = new Date();
@@ -291,7 +334,9 @@ public class Viajes extends javax.swing.JFrame {
             listarViajes();
         }
     }//GEN-LAST:event_modificarActionPerformed
-
+    /**
+     * Evento que permite borrar un registro seleccionado en la tabla.
+     */
     private void borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarActionPerformed
 
         int albaranb = viaje.get(index).getAlabaran();
@@ -304,11 +349,11 @@ public class Viajes extends javax.swing.JFrame {
                 tViajes.setRowCount(0);
             }
             listarViajes();
-        } 
+        }
     }//GEN-LAST:event_borrarActionPerformed
 
     private void finActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finActionPerformed
-        // TODO add your handling code here: 
+    
         finJornada = new vFinJornada();
         finJornada.setVisible(true);
         this.setVisible(false);

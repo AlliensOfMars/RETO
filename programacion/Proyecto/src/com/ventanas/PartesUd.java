@@ -11,9 +11,7 @@ import com.clases.Aviso;
 import com.clases.Conducen;
 import com.clases.Viaje;
 import java.math.BigDecimal;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
@@ -26,25 +24,58 @@ import javax.swing.table.DefaultTableModel;
  */
 public class PartesUd extends javax.swing.JFrame {
 
+    /**
+     * Modelado de la tabla partes.
+     */
     private DefaultTableModel tPartesModel;
+    /**
+     * Array que va almacenar el listado obtenido de la base datos, para
+     * posteriormente poder volvar los datos en la tabla partes.
+     */
     private List<Parte> partes;
+    /**
+     * Modelado de la tabla viajes.
+     */
     private DefaultTableModel tViajes;
+    /**
+     * Array que va almacenar el listado obtenido de la base datos, para
+     * posteriormente poder volvar los datos en la tabla viajes.
+     */
     private List<Viaje> viaje;
+    /**
+     * Variable que va a contener la posicion de la tupla seleccionada en la
+     * tabla.
+     */
     private int index;
+    /**
+     * Variable que va a contener la id del trabajador.
+     */
     private BigDecimal idt;
+    /**
+     * Varible que va contener la fecha.
+     */
     private String fecha;
+
+    /**
+     * Objeto ventana administracion.
+     */
     private com.ventanas.Administracion administracion;
 
     public PartesUd() {
         initComponents();
-        /* coloco aqui el listar partes para cuando la ventana se abra directamente saque el listado de todos
-        /los partes*/
+        /**
+         * coloco aqui el listar partes para cuando la ventana se abra
+         * directamente saque el listado de todos los partes.
+         */
         listarPartes();
     }
 
-    /*listado de todos los partes, aqui llamamos al metodo listarPartes que esta dentro de la calse partes 
-  el cual recibe la informacion que le devuelve un cursor de la base de datos y vuelca dicha información, en 
-  un Array List*/
+    /**
+     * Listado de todos los partes, aqui llamamos al metodo listarPartes que
+     * esta dentro de la calse partes el cual recibe la informacion que le
+     * devuelve un cursor de la base de datos y vuelca dicha información,en un
+     * ArrayList.
+     */
     private void listarPartes() {
         tPartesModel = (DefaultTableModel) tPartes.getModel();
         partes = Parte.listarPartes();
@@ -59,6 +90,11 @@ public class PartesUd extends javax.swing.JFrame {
         });
     }
 
+    /**
+     * Listado de partes de un trabajador en un determinado rango de fechas,
+     * este metodo recibe los parametros idt, fechaini, fechafin, que se recogen
+     * de del cuadro de texto id y de los dos calendarios.
+     */
     private void partesTFI(BigDecimal idT, String fechaIni, String fechaFin) {
         tPartesModel.setRowCount(0);
         tPartesModel = (DefaultTableModel) tPartes.getModel();
@@ -75,6 +111,11 @@ public class PartesUd extends javax.swing.JFrame {
 
     }
 
+    /**
+     * Listado de partes de un trabajador en un determinado rango de fechas,
+     * este metodo recibe los parametros fechaini, fechafin, que se recogen de
+     * los dos calendarios.
+     */
     private void partesTFF(String fechaIni, String fechaFin) {
         tPartesModel.setRowCount(0);
         tPartesModel = (DefaultTableModel) tPartes.getModel();
@@ -90,6 +131,9 @@ public class PartesUd extends javax.swing.JFrame {
         });
     }
 
+    /**
+     * Listado de todos los partes abiertos hasta ese momento.
+     */
     private void partesTFA() {
         tPartesModel.setRowCount(0);
         tPartesModel = (DefaultTableModel) tPartes.getModel();
@@ -105,6 +149,9 @@ public class PartesUd extends javax.swing.JFrame {
         });
     }
 
+    /**
+     * Listado de todos los partes cerrados hasta ese momento.
+     */
     private void partesTFC() {
         tPartesModel.setRowCount(0);
         tPartesModel = (DefaultTableModel) tPartes.getModel();
@@ -120,27 +167,32 @@ public class PartesUd extends javax.swing.JFrame {
         });
     }
 
+    /**
+     * Listado de los viajes pertenecentes a un parte seleccionado en la tabla.
+     */
     private void listarViajes() {
-          
+
         tViajes = (DefaultTableModel) viajes.getModel();
         viaje = Viaje.logisticaViajes(idt, fecha);
-       
+        viaje.forEach((v) -> {
+            tViajes.insertRow(viajes.getRowCount(), new Object[]{v.getAlabaran(), v.getHoraInicio(), v.getHoraFin()
+            });
+        });
+    }
+
+    /**
+     * se ocupa de refrescar los datos de la tabla viajes caso seleecionen otra
+     * tupla de la tabla.
+     */
+    private void listarViajes2() {
+        tViajes.setRowCount(0);
+        tViajes = (DefaultTableModel) viajes.getModel();
+        viaje = Viaje.logisticaViajes(idt, fecha);
         for (Viaje v : viaje) {
             tViajes.insertRow(viajes.getRowCount(), new Object[]{v.getAlabaran(), v.getHoraInicio(), v.getHoraFin()
             });
         }
     }
-        private void listarViajes2() {
-          tViajes.setRowCount(0);
-        tViajes = (DefaultTableModel) viajes.getModel();
-        viaje = Viaje.logisticaViajes(idt, fecha);
-       
-        for (Viaje v : viaje) {
-            tViajes.insertRow(viajes.getRowCount(), new Object[]{v.getAlabaran(), v.getHoraInicio(), v.getHoraFin()
-            });
-        }
-    }
-    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -218,7 +270,91 @@ public class PartesUd extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tPartes);
 
         jButton1.setText("Lista Partes Abiertos");
+<<<<<<< Updated upstream
         jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+=======
+<<<<<<< HEAD
+>>>>>>> Stashed changes
+
+        jButton2.setText("Lista Partes Cerrados");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+<<<<<<< Updated upstream
+        listarPartes.setText("Ver todos los partes");
+        listarPartes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listarPartesActionPerformed(evt);
+            }
+        });
+
+        bBuscarPartes.setText("Buscar Partes");
+        bBuscarPartes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bBuscarPartesActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("Id Trabajador: ");
+
+        uIdTrab.setPreferredSize(new java.awt.Dimension(6, 30));
+
+        jLabel9.setText("Fecha 1 : *");
+
+        jLabel10.setText("Fecha 2: * ");
+
+        jLabel11.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel11.setText("* Campos obligatorios");
+
+        jLabel12.setText("DATOS DEL PARTE:");
+
+        uPeaje.setEditable(false);
+
+        uDietas.setEditable(false);
+
+        uCombustible.setEditable(false);
+
+        uOtros.setEditable(false);
+
+        uIncidencias.setEditable(false);
+        uIncidencias.setColumns(20);
+        uIncidencias.setRows(5);
+        jScrollPane2.setViewportView(uIncidencias);
+
+        jLabel13.setText("GASTOS:");
+
+        jLabel14.setText("PEAJE");
+
+        jLabel15.setText("DIETAS");
+
+        jLabel16.setText("COMBUSTIBLE");
+
+        jLabel17.setText("OTROS");
+
+        jLabel18.setText("INCIDENCIAS");
+
+        uNotasAdministrativas.setColumns(20);
+        uNotasAdministrativas.setRows(5);
+        jScrollPane3.setViewportView(uNotasAdministrativas);
+
+        jLabel19.setText("NOTAS ADMINISTRATIVAS");
+
+        validar.setText("VALIDAR");
+        validar.addActionListener(new java.awt.event.ActionListener() {
+=======
+        jLabel4.setText("Fecha:");
+
+        uFecha1.addActionListener(new java.awt.event.ActionListener() {
+=======
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+>>>>>>> master
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
@@ -240,11 +376,30 @@ public class PartesUd extends javax.swing.JFrame {
 
         bBuscarPartes.setText("Buscar Partes");
         bBuscarPartes.addActionListener(new java.awt.event.ActionListener() {
+>>>>>>> Stashed changes
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bBuscarPartesActionPerformed(evt);
+                validarActionPerformed(evt);
             }
         });
 
+<<<<<<< Updated upstream
+        avisar.setText("AVISAR");
+        avisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                avisarActionPerformed(evt);
+            }
+        });
+
+        volver.setText("VOLVER");
+        volver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volverActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("TRABAJADOR:");
+
+=======
         jLabel8.setText("Id Trabajador: ");
 
         uIdTrab.setPreferredSize(new java.awt.Dimension(6, 30));
@@ -312,6 +467,7 @@ public class PartesUd extends javax.swing.JFrame {
 
         jLabel3.setText("TRABAJADOR:");
 
+>>>>>>> Stashed changes
         jLabel4.setText("MATRICULA VEHICULO:");
 
         uTrabajador.setEditable(false);
@@ -319,10 +475,17 @@ public class PartesUd extends javax.swing.JFrame {
         uMatricula.setEditable(false);
 
         jLabel5.setText("jLabel5");
+<<<<<<< Updated upstream
 
         viajes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
+=======
+
+        viajes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+>>>>>>> Stashed changes
             },
             new String [] {
                 "Albaran", "Hora Inicio", "Hora fin"
@@ -516,7 +679,14 @@ public class PartesUd extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+     *
+     * Evento que se ocupa de desencadenar la busqueda de los partes, esta
+     * compuesto de dos partes, la primera realiza la busqueda en un rango de
+     * fechas y la segunda en rango de fechas mas la id del trabajador, el
+     * simple dataFormat se usa para dar el formato correcto a la fecha
+     * seleccionada en el calendario.
+     */
     private void bBuscarPartesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBuscarPartesActionPerformed
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
@@ -529,25 +699,43 @@ public class PartesUd extends javax.swing.JFrame {
         }
         limpiarFormulario();
     }//GEN-LAST:event_bBuscarPartesActionPerformed
-
+    /**
+     *
+     * evento que se ocupa de volver a listar todos los partes.
+     */
     private void listarPartesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarPartesActionPerformed
-        // TODO add your handling code here:
+
         listarPartes();
         limpiarFormulario();
     }//GEN-LAST:event_listarPartesActionPerformed
 
+    /**
+     *
+     * evento que se ocupa de volver a listar todos los partes abiertos.
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+
         partesTFA();
         limpiarFormulario();
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    /**
+     *
+     * evento que se ocupa de volver a listar todos los partes cerrados.
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+<<<<<<< Updated upstream
+=======
+
         partesTFC();
         limpiarFormulario();
     }//GEN-LAST:event_jButton2ActionPerformed
-
+    /**
+     *
+     * Evento que se ocupa de la validacion del parte por parte de la
+     * administracion, antes de ser validado se le pregunta al usuario si
+     * realmente quiere hacer dicha validación y en caso de ser positiva se
+     * envia el objeto creado al metodo gestionParte.
+     */
     private void validarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_validarActionPerformed
         // TODO add your handling code here:
         Parte p = new Parte(partes.get(index).getFecha(), partes.get(index).getIdTrabajador(), procesarCampo(uNotasAdministrativas));
@@ -563,9 +751,12 @@ public class PartesUd extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_validarActionPerformed
-
+    /**
+     *
+     * Evento se ocupa de rellenar los campos del formulario con los datos de la
+     * tupla seleccionada.
+     */
     private void tPartesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tPartesMouseClicked
-        // TODO add your handling code here:
 
         index = tPartes.getSelectedRow();
         uPeaje.setText(partes.get(index).getGastoPeaje().toString());
@@ -579,13 +770,18 @@ public class PartesUd extends javax.swing.JFrame {
         uMatricula.setText(Conducen.listar(idt, fecha).getMatricula());
 
         listarViajes();
-        
-        if(viaje.size()>0){
+
+        if (viaje.size() > 0) {
             listarViajes2();
         }
 
     }//GEN-LAST:event_tPartesMouseClicked
-
+    /**
+     *
+     * Evento que se ocupa de mostrar un cuadro de texto para que el
+     * administrativo, pueda escribir un aviso al trabajador de logistica cuando
+     * este no ha cerrado un parte.
+     */
     private void avisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avisarActionPerformed
         String resultado = JOptionPane.showInputDialog(null, "Aviso", "Generar aviso", JOptionPane.YES_OPTION);
         if (resultado != null) {
@@ -598,14 +794,109 @@ public class PartesUd extends javax.swing.JFrame {
     }//GEN-LAST:event_avisarActionPerformed
 
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
-        // TODO add your handling code here:
+
         administracion = new com.ventanas.Administracion();
         administracion.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_volverActionPerformed
 
+    public void limpiarFormulario() {
+        uPeaje.setText("");
+        uDietas.setText("");
+        uCombustible.setText("");
+        uOtros.setText("");
+        uIncidencias.setText("");
+        uTrabajador.setText("");
+        uMatricula.setText("");
+    }
 
-    
+    public String procesarCampo(JTextArea t) {
+
+        String cadena = "";
+
+        if (t.getText().equalsIgnoreCase("")) {
+            cadena = "No Procede";
+        } else {
+            cadena = t.getText();
+        }
+        return cadena;
+    }
+>>>>>>> Stashed changes
+
+        partesTFC();
+        limpiarFormulario();
+    }//GEN-LAST:event_jButton2ActionPerformed
+    /**
+     *
+     * Evento que se ocupa de la validacion del parte por parte de la
+     * administracion, antes de ser validado se le pregunta al usuario si
+     * realmente quiere hacer dicha validación y en caso de ser positiva se
+     * envia el objeto creado al metodo gestionParte.
+     */
+    private void validarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_validarActionPerformed
+        // TODO add your handling code here:
+        Parte p = new Parte(partes.get(index).getFecha(), partes.get(index).getIdTrabajador(), procesarCampo(uNotasAdministrativas));
+        if (!partes.get(index).getValidado().equalsIgnoreCase("si")) {
+            if (Administracion.gestionParte(p) == true) {
+                JOptionPane.showMessageDialog(null, "Parte validado correctamente.", "Validado", JOptionPane.INFORMATION_MESSAGE);
+                listarPartes();
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Este parte ya ha sido validado.", "Validado", JOptionPane.INFORMATION_MESSAGE);
+            listarPartes();
+            limpiarFormulario();
+        }
+
+    }//GEN-LAST:event_validarActionPerformed
+    /**
+     *
+     * Evento se ocupa de rellenar los campos del formulario con los datos de la
+     * tupla seleccionada.
+     */
+    private void tPartesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tPartesMouseClicked
+
+        index = tPartes.getSelectedRow();
+        uPeaje.setText(partes.get(index).getGastoPeaje().toString());
+        uDietas.setText(partes.get(index).getGastoDietas().toString());
+        uCombustible.setText(partes.get(index).getGastoCombustible().toString());
+        uOtros.setText(partes.get(index).getGastoVarios().toString());
+        uIncidencias.setText(partes.get(index).getIncidencias());
+        fecha = partes.get(index).getFecha();
+        idt = partes.get(index).getIdTrabajador();
+        uTrabajador.setText(Conducen.listar(idt, fecha).getNombret());
+        uMatricula.setText(Conducen.listar(idt, fecha).getMatricula());
+
+        listarViajes();
+
+        if (viaje.size() > 0) {
+            listarViajes2();
+        }
+
+    }//GEN-LAST:event_tPartesMouseClicked
+    /**
+     *
+     * Evento que se ocupa de mostrar un cuadro de texto para que el
+     * administrativo, pueda escribir un aviso al trabajador de logistica cuando
+     * este no ha cerrado un parte.
+     */
+    private void avisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avisarActionPerformed
+        String resultado = JOptionPane.showInputDialog(null, "Aviso", "Generar aviso", JOptionPane.YES_OPTION);
+        if (resultado != null) {
+            Aviso a = new Aviso(resultado, partes.get(index).getIdTrabajador(), partes.get(index).getFecha());
+            if (Administracion.gestionarAviso(a) == true) {
+                JOptionPane.showMessageDialog(null, "Aviso enviado correctamente.", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+            }
+            limpiarFormulario();
+        }
+    }//GEN-LAST:event_avisarActionPerformed
+
+    private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
+
+        administracion = new com.ventanas.Administracion();
+        administracion.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_volverActionPerformed
+
     public void limpiarFormulario() {
         uPeaje.setText("");
         uDietas.setText("");

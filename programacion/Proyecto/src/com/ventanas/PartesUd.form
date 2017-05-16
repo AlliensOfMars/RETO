@@ -335,7 +335,15 @@
         <Property name="text" type="java.lang.String" value="Ver todos los partes"/>
       </Properties>
       <Events>
+<<<<<<< Updated upstream
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="listarPartesActionPerformed"/>
+=======
+<<<<<<< HEAD
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+=======
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="listarPartesActionPerformed"/>
+>>>>>>> master
+>>>>>>> Stashed changes
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="bBuscarPartes">

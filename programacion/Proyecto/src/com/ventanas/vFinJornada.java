@@ -12,38 +12,46 @@ import com.clases.Trabajador;
 import java.math.BigDecimal;
 import javax.swing.JOptionPane;
 
-
-
 /**
  *
  * @author BE
  */
 public class vFinJornada extends javax.swing.JFrame {
-private static BigDecimal idT = Login.idt;
-private static String fecha;
-private static BigDecimal id;
-private Viajes v;
 
-/**
-     * Creates new form vFinJornada
+    /**
+     * Variable que almacena la id del trabajador.
+     */
+    private BigDecimal idT = Login.idt;
+    private BigDecimal id;
+    /**
+     * variable que almacena la fecha
+     */
+    private String fecha;
+    /**
+     * Obejeto viajes ventana
+     */
+    private Viajes v;
+    /**
+     * Objeto Login ventana.
+     */
+    private Login log;
+
+    /**
+     * Metodo que carga directamente todo los datos del parte en los diferentes
+     * campos del formulario.
      */
     public vFinJornada() {
         initComponents();
-      
-        
-        Logistica l = (Logistica) Trabajador.filtrarTrabajador2(idT);
 
-        // Logistica l = new Logistica(t);
-        //traigo el parte abierto del trabajador
+        Logistica l = (Logistica) Trabajador.filtrarTrabajador2(idT);
         Parte p = Parte.parte(idT);
         l.agregarParte(p);
         p.setLogistica(l);
-        jLabel2.setText(p.getFecha()); 
-        fecha=p.getFecha();
-        id=p.getIdTrabajador();
+        jLabel2.setText(p.getFecha());
+        fecha = p.getFecha();
+        id = p.getIdTrabajador();
         kmI.setText(p.getKmInicial().toString());
         kmF.setText(p.getKmFinal().toString());
-        
         peaje.setText(p.getGastoPeaje().toString());
         dietas.setText(p.getGastoDietas().toString());
         combustible.setText(p.getGastoCombustible().toString());
@@ -243,24 +251,31 @@ private Viajes v;
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+     * Evento que recoge todos los datos de los campos del formulario y los usa
+     * para crear un objeto del tipo parte que se utilizara para llamar al
+     * metodo cerrarParte.
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       Parte p = new Parte(id,new BigDecimal(kmI.getText()),new BigDecimal(kmF.getText().replace(",", ".")), 
-               new BigDecimal(peaje.getText().replace(",", ".")), new BigDecimal(dietas.getText().replace(",", ".")), 
-               new BigDecimal(combustible.getText().replace(",", ".")),new BigDecimal(otros.getText().replace(",", ".")), incidencias.getText());
-       
-       boolean cerrarParte=Logistica.cerrarParte(p);
-       
-        if (cerrarParte==true) {
-           JOptionPane.showMessageDialog(null, "Parte cerrado correctamente.", "Fin Jornada", JOptionPane.INFORMATION_MESSAGE);
-        }else{
-          JOptionPane.showMessageDialog(null, "No se ha podido realizar el cierre de jornada\n"
-                  + "por favor hable con Administración.", "Fin Jornada", JOptionPane.INFORMATION_MESSAGE);
+        Parte p = new Parte(id, new BigDecimal(kmI.getText()), new BigDecimal(kmF.getText().replace(",", ".")),
+                new BigDecimal(peaje.getText().replace(",", ".")), new BigDecimal(dietas.getText().replace(",", ".")),
+                new BigDecimal(combustible.getText().replace(",", ".")), new BigDecimal(otros.getText().replace(",", ".")), incidencias.getText());
+
+        boolean cerrarParte = Logistica.cerrarParte(p);
+
+        if (cerrarParte == true) {
+            JOptionPane.showMessageDialog(null, "Parte cerrado correctamente.", "Fin Jornada", JOptionPane.INFORMATION_MESSAGE);
+            log = new Login();
+            log.setVisible(true);
+            this.setVisible(false);
+        } else {
+            JOptionPane.showMessageDialog(null, "No se ha podido realizar el cierre de jornada\n"
+                    + "por favor hable con Administración.", "Fin Jornada", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+
         v = new Viajes();
         v.setVisible(true);
         this.setVisible(false);

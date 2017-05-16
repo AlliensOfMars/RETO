@@ -27,21 +27,17 @@ public class Vehiculo {
     private String matricula;
     private String marca;
     private String modelo;
-    
-    //asociacion con parte
-    private Parte parte;
-    //asociacion con administracion
-    //private Administracion administracion; 
 
     public Vehiculo() {
     }
-public Vehiculo( BigDecimal idVehiculo,String matricula, String marca, String modelo) {
-       
-        this.idVehiculo=idVehiculo;
+
+    public Vehiculo(BigDecimal idVehiculo, String matricula, String marca, String modelo) {
+
+        this.idVehiculo = idVehiculo;
         this.marca = marca;
         this.modelo = modelo;
         this.matricula = matricula;
-        
+
     }
 
     public Vehiculo(String matricula, String marca, String modelo) {
@@ -50,7 +46,10 @@ public Vehiculo( BigDecimal idVehiculo,String matricula, String marca, String mo
         this.modelo = modelo;
     }
 
-    
+    /**
+     * 
+     * Metodo que se ocupa de la insercion de los datos en la base de datos.
+     */
     public boolean gestionVehiculos() {
         Conexion.conectar();
 
@@ -71,6 +70,7 @@ public Vehiculo( BigDecimal idVehiculo,String matricula, String marca, String mo
         }
 
     }
+
     public BigDecimal getIdVehiculo() {
         return idVehiculo;
     }
@@ -103,7 +103,11 @@ public Vehiculo( BigDecimal idVehiculo,String matricula, String marca, String mo
         this.modelo = modelo;
     }
 
-    //26/04 Miriam FUNCIONA!!!!
+    /**
+     *
+     * Metodo que devuelve un arraylist con todos los vehiculos de nuestra base
+     * de datos.
+     */
     public static List<Vehiculo> listarVehiculos() {
         List<Vehiculo> vehiculos = new ArrayList<>();
         Conexion.conectar();
@@ -136,7 +140,11 @@ public Vehiculo( BigDecimal idVehiculo,String matricula, String marca, String mo
         return vehiculos;
     }
 
-
+    /**
+     * Metodo que nos devuelve un obejeto del tipo vehiculo, para generar dicho
+     * objeto si ha pasado la variable matricula la cual recogemos de la ventana
+     * seleccionarVehiculo.
+     */
     public static Vehiculo filtrarVehiculo(String matricula) {
         Vehiculo v;
 
@@ -151,21 +159,27 @@ public Vehiculo( BigDecimal idVehiculo,String matricula, String marca, String mo
             cs.registerOutParameter(4, OracleTypes.VARCHAR);
             cs.registerOutParameter(5, OracleTypes.VARCHAR);
             cs.execute();
-            v = new Vehiculo (cs.getBigDecimal(2),cs.getString(3),cs.getString(4),cs.getString(5));
-            
+            v = new Vehiculo(cs.getBigDecimal(2), cs.getString(3), cs.getString(4), cs.getString(5));
+
             cs.close();
             Conexion.desconectar();
             return v;
         } catch (SQLException ex) {
-           JOptionPane.showMessageDialog(null, "No se encuentra ningun vehiculo con esa matricula\n" + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "No se encuentra ningun vehiculo con esa matricula\n" + ex.getMessage());
             return null;
         }
 
     }
-    
-    public static boolean bajaVehiculo(BigDecimal idV){
-     
-      try {
+
+    /**
+     * Metodo que recibe la id del vehiculo recogida en la ventana Vehiculos ud,
+     * y nos devuelve un respuesta de verdadero o falso, este metodo se encarga
+     * de dar de baja el vehiculo con la id correspondente.
+     *
+     */
+    public static boolean bajaVehiculo(BigDecimal idV) {
+
+        try {
             Conexion.conectar();
             PreparedStatement ps = Conexion.getConexion().prepareStatement("delete from vehiculos where ID=?");
             ps.setBigDecimal(1, idV);
@@ -177,21 +191,26 @@ public Vehiculo( BigDecimal idVehiculo,String matricula, String marca, String mo
             JOptionPane.showMessageDialog(null, "No se puede efectuar la conexión, hable con el administrador del sistema \n" + ex.getMessage());
             return false;
         }
-   
-     }
-    
-      public boolean modificarVehiculo(BigDecimal idV) {
+
+    }
+
+    /**
+     * Metodo que recibe la id del vehiculo recogida en la ventana Vehiculos ud,
+     * y nos devuelve un respuesta de verdadero o falso, este metodo se encarga
+     * de modificar el vehiculo con la id correspondente.
+     *
+     */
+    public boolean modificarVehiculo(BigDecimal idV) {
 
         Conexion.conectar();
 
         try {
             PreparedStatement ps = Conexion.getConexion().prepareStatement("UPDATE VEHICULOS SET matricula=?,marca=?,"
-                    +"modelo=? WHERE ID=?");
+                    + "modelo=? WHERE ID=?");
             ps.setString(1, matricula);
             ps.setString(2, marca);
             ps.setString(3, modelo);
             ps.setBigDecimal(4, idV);
-       
 
             ps.executeUpdate();
             ps.close();
@@ -201,7 +220,7 @@ public Vehiculo( BigDecimal idVehiculo,String matricula, String marca, String mo
             JOptionPane.showMessageDialog(null, "No se puede efectuar la conexión, hable con el administrador del sistema \n" + ex.getMessage());
             return false;
         }
-        
+
     }
-    
+
 }

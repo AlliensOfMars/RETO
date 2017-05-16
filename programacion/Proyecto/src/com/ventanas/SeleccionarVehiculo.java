@@ -19,20 +19,43 @@ import javax.swing.table.DefaultTableModel;
 
 public class SeleccionarVehiculo extends javax.swing.JFrame {
 
+    /**
+     * Variable que almacena la id del trabajador, el valor es obtenido desde
+     * login.
+     */
     private BigDecimal idT = Login.idt;
+    /**
+     * Moelado de la tabla vehiculos.
+     */
     private DefaultTableModel vehiculos;
+    /**
+     * Array que va a contener la informacion de los vehiculos recuperados de la
+     * base datos.
+     */
     private List<Vehiculo> vehiculo;
+    /**
+     * Obejeto de la clase vehiculo que va a contener los datos del vehiculo un
+     * vez aplicado el filtro.
+     */
     private Vehiculo v;
+    /**
+     * Obejeto tipo Viajes(ventana).
+     */
     private Viajes viaje;
-    //para filtrar
-    private static String docI;
+    /**
+     * Variable que va almacenar la matricula del vehiculo.
+     */
+    private String docI;
 
     public SeleccionarVehiculo() {
         initComponents();
         listarVehiculos();
     }
-//relleno la tabla vehiculos
 
+    /**
+     * Metodo que recibe un array list que es el encargado de volcar los
+     * diferentes resultados en la tabla de la ventana.
+     */
     private void listarVehiculos() {
         vehiculos = (DefaultTableModel) jTable1.getModel();
         vehiculo = Vehiculo.listarVehiculos();
@@ -42,6 +65,11 @@ public class SeleccionarVehiculo extends javax.swing.JFrame {
         });
     }
 
+    /**
+     * Metodo que recibe un objeto de la clase vehiculo que es que se va enseñar
+     * en la tabla una vez aplicado el filtro, el filtrado se realiza utilzando
+     * la variable docI
+     */
     private void filtrarVehiculo() {
         vehiculos.setRowCount(0);
         vehiculos = (DefaultTableModel) jTable1.getModel();
@@ -153,23 +181,34 @@ public class SeleccionarVehiculo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Envento de seleccion de vehiculos, con el cual selecciono la posicion del
+     * vehiculo y extraigo los datos que necesita bien para su busqueda, como
+     * para la insecion de los datos en la tabla conducen.
+     */
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        // envento de seleccion de vehiculos, con el cual selecciono la posicion del vehiculo y extraigo
-        //los datos que necesita bien para su busqueda, como para la insecion de los datos en la tabla conducen  
+
         int index = jTable1.getSelectedRow();
         uIdV.setText(vehiculo.get(index).getIdVehiculo().toString());
 
     }//GEN-LAST:event_jTable1MouseClicked
-
+    /**
+     *
+     * Evento que recoge el valor de uIdV y lo almacena en doCI.
+     */
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
-        // envento para buscar un vehiculo concreto
 
         docI = uIdV.getText();
         filtrarVehiculo();
     }//GEN-LAST:event_buscarActionPerformed
+    /**
+     *
+     * Evento que se ocupa de insertar en la tabla conducen el vehiculo, fecha,
+     * id trabajador en la tabla conducen de la base datos.
+     */
 
     private void seleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seleccionarActionPerformed
-        // selecciono vehiculo y hago insert en la tabla conducen utilizando la fecha
+
         SimpleDateFormat cfecha = new SimpleDateFormat("dd/MM/yyyy");
         Date ccfecha = new Date();
         String fechacc = cfecha.format(ccfecha);

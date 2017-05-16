@@ -17,44 +17,65 @@ import javax.swing.table.DefaultTableModel;
  */
 public class TrabajadoresUd extends javax.swing.JFrame {
 
+    /**
+     * Modelado de la tabla tTrabajadores.
+     */
     private DefaultTableModel trabajadores;
+    /**
+     * Array que va almacenar los datos recuperados de la base datos.
+     */
     private List<Trabajador> trabajador;
+    /**
+     * Objeto del tipo trabajador que devuelve la informacion de un trabajador
+     * en concreto.
+     */
     private Trabajador trabajador1;
-    private static String docI;
-    private static BigDecimal id;
+    /**
+     * Variable que va almacenar el dni del trabajador para poder filtrar los
+     * datos de la lista.
+     */
+    private String docI;
+    /**
+     * Variable que va a contener la id del trabajador.
+     */
+    private BigDecimal id;
 
-    //listar trabajadores
+    /**
+     * Metodo que se encarga de volcar la informacion del array trabajadores, en
+     * la tabla.
+     */
     private void listarTrabajadores() {
         trabajadores = (DefaultTableModel) tTrabajadores.getModel();
         trabajador = Trabajador.listarTrabajadores();
 
-           trabajador.forEach((t) -> {
-            trabajadores.insertRow(trabajadores.getRowCount(), new Object[]{t.getId(),t.getDni(),t.getNombre(), t.getPrimerApellido(),
-            t.getSegundoApellido(),t.getCategoria(),t.getCalle(),t.getNumero(),t.getPiso(),t.getCentro(),t.getMano(),
-            t.getCiudad(),t.getCodigoPostal(),t.getProvincia(),t.getMovilEmpresa(),t.getMovilPersonal(),t.getSalario(),t.getFechaNacimiento(),
-            t.getCentro()
+        trabajador.forEach((t) -> {
+            trabajadores.insertRow(trabajadores.getRowCount(), new Object[]{t.getId(), t.getDni(), t.getNombre(), t.getPrimerApellido(),
+                t.getSegundoApellido(), t.getCategoria(), t.getCalle(), t.getNumero(), t.getPiso(), t.getCentro(), t.getMano(),
+                t.getCiudad(), t.getCodigoPostal(), t.getProvincia(), t.getMovilEmpresa(), t.getMovilPersonal(), t.getSalario(), t.getFechaNacimiento(),
+                t.getCentro()
             });
         });
     }
 
-    
-
+    /**
+     * Metodo que se encarga de devolvernos un trabjador en concreto usando su
+     * dni.
+     */
     private void filtrarTrabajador1() {
 
         trabajadores.setRowCount(0);
         trabajadores = (DefaultTableModel) tTrabajadores.getModel();
         trabajador1 = Trabajador.filtrarTrabajador1(docI);
-       
-        if (trabajador1==null){
-        listarTrabajadores();
-       }else{
-                   trabajadores.insertRow(trabajadores.getRowCount(), new Object[]{trabajador1.getId(), trabajador1.getNombre(),
-            trabajador1.getPrimerApellido(), trabajador1.getDni(), trabajador1.getCategoria(),
-            trabajador1.getMovilEmpresa(),
-            trabajador1.getIdCent()});
+
+        if (trabajador1 == null) {
+            listarTrabajadores();
+        } else {
+            trabajadores.insertRow(trabajadores.getRowCount(), new Object[]{trabajador1.getId(), trabajador1.getNombre(),
+                trabajador1.getPrimerApellido(), trabajador1.getDni(), trabajador1.getCategoria(),
+                trabajador1.getMovilEmpresa(),
+                trabajador1.getIdCent()});
         }
-        
-     
+
     }
 
     public TrabajadoresUd() {
@@ -512,20 +533,30 @@ public class TrabajadoresUd extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     *
+     * Evento que se ocupa de filtrar los trabajadores por el parametro que ha
+     * sido recogido en el campo uFiltro.
+     */
     private void bFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bFiltrarActionPerformed
         docI = uFiltro.getText();
         filtrarTrabajador1();
-
         limpiarFormulario();
     }//GEN-LAST:event_bFiltrarActionPerformed
-
+    /**
+     * Evento que vuelve a recargar todos los resultados recuperados de la base
+     * datos.
+     */
     private void listadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listadoActionPerformed
-        // TODO add your handling code here:
+
         trabajadores.setRowCount(0);
         listarTrabajadores();
     }//GEN-LAST:event_listadoActionPerformed
-
+    /**
+     * Evento de modificacion de trabajador, donde se recoge los datos de los
+     * diferentes campos, creando un obejeto de la clase trabajador que se
+     * utilizara para llamar al metodo modificarTrabajador.
+     */
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
         Trabajador trabajadorM = new Trabajador(uDni.getText(), uNombre.getText(), uPrimerApellido.getText(),
                 uSegundoApellido.getText(), uCategoria.getText(), uCalle.getText(), new BigDecimal(uNumero.getText()),
@@ -550,23 +581,26 @@ public class TrabajadoresUd extends javax.swing.JFrame {
     }//GEN-LAST:event_modificarActionPerformed
 
     private void bAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAltaActionPerformed
-       //Se abre alta de trabajadores
-       AltaTrabajador abrir = new AltaTrabajador();
-       abrir.setVisible(true);
-       this.setVisible(false);
+
+        AltaTrabajador abrir = new AltaTrabajador();
+        abrir.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_bAltaActionPerformed
 
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
-       //Se vuelve a administracion
-       Administracion abrir = new Administracion();
-       abrir.setVisible(true);
-       this.setVisible(false);
-       
-       
-    }//GEN-LAST:event_bVolverActionPerformed
 
+        Administracion abrir = new Administracion();
+        abrir.setVisible(true);
+        this.setVisible(false);
+
+
+    }//GEN-LAST:event_bVolverActionPerformed
+    /**
+     * Evento que rellena los campos del formulario con los valores de la tupla
+     * seleccionada.
+     */
     private void tTrabajadoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tTrabajadoresMouseClicked
-    trabajadores= (DefaultTableModel) tTrabajadores.getModel();
+        trabajadores = (DefaultTableModel) tTrabajadores.getModel();
         int index = tTrabajadores.getSelectedRow();
         uDni.setText(trabajador.get(index).getDni());
         uNombre.setText(trabajador.get(index).getNombre());
@@ -586,20 +620,23 @@ public class TrabajadoresUd extends javax.swing.JFrame {
         uCategoria.setText(trabajador.get(index).getCategoria());
         uFechaNacimiento.setText(trabajador.get(index).getFechaNacimiento());
     }//GEN-LAST:event_tTrabajadoresMouseClicked
-
+    /**
+     * Evento que recoge la id del trabajador y llama al metodo borrar
+     * trabajador.
+     *
+     */
     private void borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarActionPerformed
-      
-         if (JOptionPane.showConfirmDialog(null, "Este trabajador va ser eliminado. \n¿Esta seguro?", "Atención",
+
+        if (JOptionPane.showConfirmDialog(null, "Este trabajador va ser eliminado. \n¿Esta seguro?", "Atención",
                 JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-         Trabajador.borrartrabajador(id);
+            Trabajador.borrartrabajador(id);
             if (trabajador.size() > 0) {
                 trabajadores.setRowCount(0);
             }
             listarTrabajadores();
-        } 
+        }
     }//GEN-LAST:event_borrarActionPerformed
-    
-    
+
     public void limpiarFormulario() {
         uDni.setText("");
         uNombre.setText("");

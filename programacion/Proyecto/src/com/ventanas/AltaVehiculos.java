@@ -5,7 +5,6 @@
  */
 package com.ventanas;
 
-
 import com.clases.Vehiculo;
 import javax.swing.JOptionPane;
 
@@ -13,15 +12,15 @@ import javax.swing.JOptionPane;
 
         05/05 Miriam
 
-*/
+ */
 public class AltaVehiculos extends javax.swing.JFrame {
 
-    public void limpiarFormulario(){
-        
-        uMarca.setText("");  
+    public void limpiarFormulario() {
+
+        uMarca.setText("");
         uModelo.setText("");
         uMatricula.setText("");
-       
+
     }
 
     public AltaVehiculos() {
@@ -139,33 +138,34 @@ public class AltaVehiculos extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+     /*
+      *Evento que reccoge los diferentes datos introducidos por el usuario, 
+      *con este datos creamos un obejeto de la clase vehiculo, el cual 
+      *utilizaremos, para llamar al metodo gestionVehiculos que efectuar la 
+      *insercion de los datos en nuestra base de datos.
+     */
     private void bAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAltaActionPerformed
-  
-        Vehiculo v = new Vehiculo (uMarca.getText(),uModelo.getText(),uMatricula.getText());
-        
+
+        Vehiculo v = new Vehiculo(uMarca.getText(), uModelo.getText(), uMatricula.getText());
+
         boolean guardado = v.gestionVehiculos();
 
         if (guardado) {
-           
+
             JOptionPane.showMessageDialog(null, "vehiculo dado de alta correctamente", "Alta", JOptionPane.INFORMATION_MESSAGE);
         }
 
-      
-        
         limpiarFormulario();
-        
-        //cierro la ventana de alta y abro la de gestión
+
         this.setVisible(false);
-        
+
         VehiculosUd abrir = new VehiculosUd();
         abrir.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_bAltaActionPerformed
 
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
-        // Vuelve a la ventana de gestión de vehículos
-        
+
         VehiculosUd abrir = new VehiculosUd();
         abrir.setVisible(true);
         this.setVisible(false);

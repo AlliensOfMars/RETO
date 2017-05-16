@@ -14,19 +14,19 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
-clase que controla la gestion de parte de logistica. 
+ * clase que controla la gestion de parte de logistica.
  */
 public class Logistica extends Trabajador {
 
     //asociacion con parte
     private List<Parte> parte = new ArrayList<>();
 
-    private List<Conducen> conducen =new ArrayList<>();
-    
+    private List<Conducen> conducen = new ArrayList<>();
+
     public Logistica() {
     }
-    
-    public Logistica (BigDecimal id){
+
+    public Logistica(BigDecimal id) {
         super(id);
     }
 
@@ -38,28 +38,29 @@ public class Logistica extends Trabajador {
         super(id, dni, nombre, primerApellido, segundoApellido, categoria, calle, numero, piso, mano, ciudad, codigoPostal, provincia, movilEmpresa, movilPersonal, salario, fechaNacimiento, idCent);
     }
 
-    /*
-    Metodo que actualiza la informacion del parte del trabajador de logistica, dicho metodo se ejecuta una vez que 
-    el trabajador decide finalizar su jornada.
-    */
-    
+    /**
+     *
+     * Metodo que actualiza la informacion del parte del trabajador de
+     * logistica, dicho metodo se ejecuta una vez que el trabajador decide
+     * finalizar su jornada y devuelve si el cierre ha sido correcto o no.
+     */
     public static boolean cerrarParte(Parte parte) {
         Parte p = parte;
-        BigDecimal idT =p.getIdTrabajador();
-        
-         Conexion.conectar();
-        
+        BigDecimal idT = p.getIdTrabajador();
+
+        Conexion.conectar();
+
         BigDecimal kmi = p.getKmInicial();
         BigDecimal kmf = p.getKmFinal();
-        
+
         String sql = "update partes set kmInicial=?, kmFinal=?, gastosPeaje=?, "
                 + "gastosDietas=?, gastosCombustible=?,otrosGastos=?, incidencias=?, "
                 + "estado=?"
                 + "where TRABAJADORES_ID=? AND estado='ABIERTO'";
-        
+
         try {
             PreparedStatement ps = Conexion.getConexion().prepareStatement(sql);
-            
+
             ps.setBigDecimal(1, kmi);
             ps.setBigDecimal(2, kmf);
             ps.setBigDecimal(3, p.getGastoPeaje());
@@ -69,31 +70,32 @@ public class Logistica extends Trabajador {
             ps.setString(7, p.getIncidencias());
             ps.setString(8, "CERRADO");
             ps.setBigDecimal(9, idT);
-           // ps.setString(10, fecha);
-            
+            // ps.setString(10, fecha);
+
             ps.executeUpdate();
             ps.close();
             Conexion.desconectar();
-            
+
             return true;
         } catch (SQLException ex) {
-          JOptionPane.showMessageDialog(null, "No se puede efectuar la conexión, hable con el administrador del sistema \n" + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "No se puede efectuar la conexión, hable con el administrador del sistema \n" + ex.getMessage());
         }
-        
+
         return false;
     }
 
     public Logistica(Trabajador t) {
-       
+
     }
-    public void agregarParte(Parte p){
-        parte.add(p);    
+
+    public void agregarParte(Parte p) {
+        parte.add(p);
     }
-    
-    public void añadirVehiculo(Conducen c){
+
+    public void añadirVehiculo(Conducen c) {
         conducen.add(c);
     }
-    
+
     public List<Parte> getParte() {
         return parte;
     }
@@ -109,6 +111,5 @@ public class Logistica extends Trabajador {
     public void setConducen(List<Conducen> conducen) {
         this.conducen = conducen;
     }
-    
 
 }

@@ -14,7 +14,7 @@ import com.clases.Trabajador;
 public class Administracion extends javax.swing.JFrame {
 
     /**
-     * Creates new form Administracion
+     *Control de panel de administración
      */
     public Administracion() {
         initComponents();
@@ -129,6 +129,9 @@ public class Administracion extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /*Control de evento de los diferentes botones para que nos enseñe las diferentes ventanas
+     con sus diferentes opciones.
+    */
     private void bCentros1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCentros1ActionPerformed
         
         CentrosUd abrir = new CentrosUd();

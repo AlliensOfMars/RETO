@@ -11,8 +11,6 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import oracle.jdbc.OracleTypes;
 
@@ -92,9 +90,10 @@ public class Conducen {
         this.nombret = nombret;
     }
 
-    /*
-    Metodo para la insecion de los datos en la tabla conducen, este metodo se ejecuta un vez que hayan seleccionado 
-    el vehiculo para realizar la jornada laboral 
+    /**
+     * Metodo para la insecion de los datos en la tabla conducen, este metodo se
+     * ejecuta un vez que hayan seleccionado el vehiculo para realizar la
+     * jornada laboral.
      */
     public boolean insertarConducen() {
 
@@ -119,15 +118,12 @@ public class Conducen {
 
         return false;
     }
-    
-    /*
-    
-    con este metodo los administrativos pueden conocer a la hora de validar el partes que vehiculo ha utilizado
-    el trabajador de logistica.
-    
-    */
-    
 
+    /**
+     *
+     * Con este metodo los administrativos pueden conocer a la hora de validar
+     * el partes que vehiculo ha utilizado el trabajador de logistica.
+     */
     public static Conducen listar(BigDecimal idt, String fecha) {
         try {
             Conexion.conectar();
