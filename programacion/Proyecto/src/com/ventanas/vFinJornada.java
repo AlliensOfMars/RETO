@@ -123,7 +123,7 @@ private Viajes v;
 
         jLabel9.setText("INCIDENCIAS");
 
-        jButton1.setText("VALIDAR");
+        jButton1.setText("Cerrar Parte");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);

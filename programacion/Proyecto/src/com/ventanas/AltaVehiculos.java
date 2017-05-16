@@ -9,11 +9,7 @@ package com.ventanas;
 import com.clases.Vehiculo;
 import javax.swing.JOptionPane;
 
-/*
 
-        05/05 Miriam
-
-*/
 public class AltaVehiculos extends javax.swing.JFrame {
 
     public void limpiarFormulario(){
@@ -155,11 +151,7 @@ public class AltaVehiculos extends javax.swing.JFrame {
         limpiarFormulario();
         
         //cierro la ventana de alta y abro la de gestión
-        this.setVisible(false);
-        
-        VehiculosUd abrir = new VehiculosUd();
-        abrir.setVisible(true);
-        this.setVisible(false);
+       
     }//GEN-LAST:event_bAltaActionPerformed
 
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed

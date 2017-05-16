@@ -146,11 +146,12 @@ public class AltaCentros extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-//ESTO FUNCIONA
+
     private void altaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altaActionPerformed
 
        
-       
+       /*Primero se crean las variables que guardarán lo que se escribe en cada textField
+        y se cambia por el formato que necesite el cosntructor, en nuestro caso un BigDecimal*/
         String name = nombre.getText();
         String street = calle.getText();
         BigDecimal number = new BigDecimal(numero.getText());
@@ -158,15 +159,18 @@ public class AltaCentros extends javax.swing.JFrame {
         BigDecimal postalCode=new BigDecimal(codigoPostal.getText());
         String province = provincia.getText();
         BigDecimal phone = new BigDecimal(telefono.getText());
+        /*El ID lo genera directamente la base de datos, por ese motivo no tenemos el Id en este constructor.*/
         Centro c = new Centro (name, street, number, city, postalCode, province, phone);
        
+        //La variable guardado controla si el centro que acabamos de crear se ha añadido correctamente. Si lo ha hecho guarda un true y si no, un false.
         boolean guardado = c.gestionCentros();
 
+        /*Si, se ha guardado correctamente, salta el mensaje.*/
         if (guardado) {
-            //todo intentar poner este mensaje mas guapo
+            
             JOptionPane.showMessageDialog(null, "Centro dado de alta correctamente", "Alta", JOptionPane.INFORMATION_MESSAGE);
         }
-
+        //Automáticamente los campos vuelven a estar vacíos, por si se quieren dar de alta más centros.
         limpiarFormulario();
     }//GEN-LAST:event_altaActionPerformed
 
@@ -175,7 +179,7 @@ public class AltaCentros extends javax.swing.JFrame {
     }//GEN-LAST:event_limpiarActionPerformed
 
     private void nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_nombreActionPerformed
 
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed

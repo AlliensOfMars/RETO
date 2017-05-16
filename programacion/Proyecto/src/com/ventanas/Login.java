@@ -170,21 +170,27 @@ public class Login extends javax.swing.JFrame {
             Parte p = Parte.parte(idt);
             String fechaParte= p.getFecha();
             
+            //Se comprueba si existe un aviso para ese trabajador y se muestra la descripción.
             if (a != null) {
                 String avis = Aviso.aviso(u.getIdt()).getDescripcion();
                 a = Aviso.aviso(u.getIdt());
                 JOptionPane.showMessageDialog(null, "Aviso: \n " + avis, "Aviso", JOptionPane.INFORMATION_MESSAGE);
                 a.confirmarAviso(Aviso.aviso(u.getIdt()).getIdAviso());
-             
+             //Si hay una viso significa que está el parte sin cerrar.
                 finJornada = new vFinJornada();
                 finJornada.setVisible(true);
                 this.setVisible(false);
-            }else if(p.getIdTrabajador() != null && !fechaParte.equalsIgnoreCase(fecha)){
-                finJornada = new vFinJornada();
-                finJornada.setVisible(true);
-                this.setVisible(false);
-            }else if (p.getIdTrabajador() != null && fechaParte.equalsIgnoreCase(fecha)) { //parte distinto a null y la fechas == abro viajes
                 
+                //Si el trabajador tiene parte y la fecha del parte es diferente de la de hoy
+            }else if(p.getIdTrabajador() != null && !fechaParte.equalsIgnoreCase(fecha)){
+                //Se abre el formulario de fin de jornada
+                finJornada = new vFinJornada();
+                finJornada.setVisible(true);
+                this.setVisible(false);
+                
+                //Si el trabajador tiene parte y la fechas del parte y la de hoy son iguales.
+            }else if (p.getIdTrabajador() != null && fechaParte.equalsIgnoreCase(fecha)) { 
+                //Se abren los formularios para rellenar los viajes.
                 viajes=new Viajes();
                 viajes.setVisible(true);
                 this.setVisible(false);

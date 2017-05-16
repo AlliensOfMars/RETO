@@ -31,11 +31,17 @@ public class SeleccionarVehiculo extends javax.swing.JFrame {
         initComponents();
         listarVehiculos();
     }
-//relleno la tabla vehiculos
 
+    
+    //Rellenar la tabla con la lista:
     private void listarVehiculos() {
+        //Se asigna a la tabla vehiculos el formato jTable1 que hemos puesto en el diseño
         vehiculos = (DefaultTableModel) jTable1.getModel();
+        //A la lista de vehiculos le asignamos la lista de todos los vehiculos que hay en la clase.
         vehiculo = Vehiculo.listarVehiculos();
+        /*Recorrer y mostrar en la tabla vehiculos:
+        Se inserta una fila en la tabla vehiculos por cada fila que la lista tenga, la fila se rellena 
+        con un nuevoo objeto que se obtiene del vehiculo que se esté recorriendo.*/
         vehiculo.forEach((v) -> {
             vehiculos.insertRow(vehiculos.getRowCount(), new Object[]{v.getIdVehiculo(), v.getMarca(),
                 v.getModelo(), v.getMatricula()});
@@ -43,10 +49,12 @@ public class SeleccionarVehiculo extends javax.swing.JFrame {
     }
     
     private void filtrarVehiculo() {
+        //Primero reseteamos la tabla modelo a 0 filas.
         vehiculos.setRowCount(0);
         vehiculos = (DefaultTableModel) jTable1.getModel();
+        //Se selecciona el vehiculo que queremos que aparezca en la tabla a través del Id del vehículo.
         v = Vehiculo.filtrarVehiculo(docI);
-        
+        //En la tabla se inserta una linea, que se rellena con los datos del vehículo que hemos obtenido.
         vehiculos.insertRow(vehiculos.getRowCount(), new Object[]{v.getIdVehiculo(),
             v.getMarca(), v.getModelo(), v.getMatricula()});
         
@@ -174,8 +182,11 @@ public class SeleccionarVehiculo extends javax.swing.JFrame {
         String fechacc= cfecha.format(ccfecha);
         Conducen conducen = new Conducen(new BigDecimal(uIdV.getText()), fechacc, idT);
         Logistica t = (Logistica) Trabajador.filtrarTrabajador2(idT);
+        //Conexión entre Trabajador y vehículo a través de la clase Conducen.
         conducen.añadirLogistica(t);
-        t.añadirVehiculo(conducen);    
+        t.añadirVehiculo(conducen);   
+        
+        //Si se han añadido los datos, se añade la fecha de ese día y se crea un parte para el trabajador en concreto.
         if (conducen.insertarConducen() == true) {
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             Date fecha = new Date();

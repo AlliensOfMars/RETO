@@ -334,6 +334,7 @@ public class Trabajador {
         try {
             CallableStatement cs = Conexion.getConexion().prepareCall("{call ifTrabajador(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
            
+            
             cs.setString(1, dni); 
             cs.registerOutParameter(2, OracleTypes.INTEGER); 
             cs.registerOutParameter(3, OracleTypes.VARCHAR); 
@@ -354,6 +355,8 @@ public class Trabajador {
             cs.registerOutParameter(18, OracleTypes.VARCHAR); 
             cs.registerOutParameter(19, OracleTypes.INTEGER); 
            cs.execute();
+           
+           
            BigDecimal id = cs.getBigDecimal(2);
            String doc = cs.getString(3);
            String no = cs.getString(4);
@@ -414,6 +417,7 @@ public class Trabajador {
             cs.registerOutParameter(18, OracleTypes.VARCHAR); 
             cs.registerOutParameter(19, OracleTypes.INTEGER); 
            cs.execute();
+           
            BigDecimal id = cs.getBigDecimal(2);
            String doc = cs.getString(3);
            String no = cs.getString(4);

@@ -44,7 +44,15 @@ public class AltaTrabajador extends javax.swing.JFrame {
         initComponents();
     }
      
-     //proceso para comprobar si el campo está vacío y cambiarlo por un null
+     /*Proceso para comprobar si el campo está vacío y cambiarlo por un null:
+    
+    Este proceso lo necesitamos porque tuvimos problemas con los campos numéricos
+    en la base de datos. Por esa razón utilizamos la clase BigDecimal, pero los BigDecimal
+    al dejar los TextField vacíos no guardaban el nulo en la base de datos, si no que saltaba
+    una excepción por estar vacío.
+    
+    De ese modo, esta función procesa el contenido de un campo, si está vacío rellena el campo con un null
+    y si tiene contenido, entonces deja el contenido que está.*/
     public BigDecimal procesarCampo(JTextField t){
     BigDecimal num=null;
         
@@ -378,39 +386,50 @@ public class AltaTrabajador extends javax.swing.JFrame {
     }//GEN-LAST:event_uIdCentActionPerformed
 
     private void altaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altaActionPerformed
-   String user;
-         String password;
+   /*En esta parte damos de alta al trabajador y a al vez le asignamos un usuario y una contraseña para
+        que pueda acceder a la aplicación.*/
+        
+        //Estos son las variables que se necesitan para el resto.
+        String user;
+        String password;
+        
+        //Como el campo de la categoría es un comboBox, primero necesitamos comprobar lo que ha escogido.
         String ad = uCategoria.getSelectedItem().toString();
         if (ad.equalsIgnoreCase("Administración")) {
             ad = "administracion";
         } else {
             ad = "logistica";
         }
-
+        //Se crea el formato de fecha y se le asigna al cuadro del calendario.
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         String fecha = dateFormat.format(jDateChooser1.getDate());
         
-        //BigDecimal id = Trabajador.autoincremente();
-        // todo esto tiene que funcionar en las dos versiones el unico cambio que hay que hacer es en los dos constructores
-        //quitar el id de trabajador 
+        //Si es un administrador, se usa el constructor de la clase Administrador, procesando los campos que pueden ser nulos.
         if (ad.equalsIgnoreCase("administracion")) {
             Trabajador t = new com.clases.Administracion(uDni.getText(), uNombre.getText(), uPrimerApellido.getText(), uSegundoApellido.getText(), ad,
                     uCalle.getText(), new BigDecimal(uNumero.getText()), procesarCampo(uPiso),
                     uMano.getText(), uCiudad.getText(), procesarCampo(uCodigoPostal), uProvincia.getText(),
                     new BigDecimal(uMovilEmpresa.getText()), procesarCampo(uMovilPersonal), procesarCampo(uSalario),
                     fecha, new BigDecimal(uIdCent.getText()));
-
+            
+            //Se crea el usuario nuevo y se genera la contraseña aleatoria.
             user = Usuario.user(uNombre.getText(), uPrimerApellido.getText());
             password = Usuario.password();
             Usuario usuario = new Usuario(user, password);
+            //Se le asigna al trabajador que se acaba de crear, su nuevo usuario y su contraseña.
             t.setUsuario(usuario);
             usuario.setTrabajador(t);
+            
             String lolo=usuario.getPassword();
             System.out.println(lolo);
+            //Esta parte es para comprobar si se han añadido correctamente los datos en la base de datos.
             boolean guardado = t.altaTrabajador12c();
             boolean guardad = usuario.altaUsuario(uDni.getText(), user, password);
+            
+            
             if (guardad == guardado) {
-                //todo intentar poner este mensaje mas guapo             
+                
+                
                 JOptionPane.showMessageDialog(null, "Trabajador dado de alta correctamente", "Alta", JOptionPane.INFORMATION_MESSAGE);
                 JOptionPane.showMessageDialog(null, "Usuario dado de alta correctamente\nUsuario: "+user+"\nContraseña: "+password, "Alta", JOptionPane.INFORMATION_MESSAGE);
             }
