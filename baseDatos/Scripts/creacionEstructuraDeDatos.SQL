@@ -148,6 +148,14 @@ CREATE
     TRABAJADORES_ID  NUMBER (7) NOT NULL,
 	FECHA_ID varchar2(10)
   ) ;
+  
+  create or replace view detalle
+as
+select b.matricula, c.nombre, a.fecha, c.id
+from conducen a, vehiculos b, trabajadores c 
+where a.vehiculos_id=b.id and a.trabajadores_id=c.id;
+
+
 ALTER TABLE VIAJES ADD CONSTRAINT VIAJES_PK PRIMARY KEY ( ID, HORAINICIAL) ;
 
 ALTER TABLE AVISOS ADD CONSTRAINT AVISOS_PARTES_FK FOREIGN KEY ( TRABAJADORES_ID,FECHA_ID ) REFERENCES PARTES ( TRABAJADORES_ID,FECHA ) ;
