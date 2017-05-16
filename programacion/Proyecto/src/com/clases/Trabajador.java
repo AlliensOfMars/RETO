@@ -577,7 +577,7 @@ public class Trabajador {
      */
     public static boolean borrartrabajador(BigDecimal idT) {
         Conexion.conectar();
-        String sql = "delte from trabajadores where id=?";
+        String sql = "delete from trabajadores where id=?";
 
         try {
             PreparedStatement ps = Conexion.getConexion().prepareStatement(sql);

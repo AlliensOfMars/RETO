@@ -113,7 +113,7 @@ public class Usuario {
      * Metodo de dada de alta de usuario en nuestra base de datos.
      */
     public boolean altaUsuario(String dni, String user, String password) {
-        String ido = "call idTrabajador(?,?)";
+        String ido = "call ptrabajadores.idTrabajador(?,?)";
         String insert = "insert into usuarios (usuario, password, TRABAJADORES_ID) values(?,?,?)";
 
         try {

@@ -303,33 +303,6 @@ end partesTFC;
 
 end ppartes;
 
---procedimento de login
-create or replace PROCEDURE LOGIN
-(USER IN USUARIOS.USUARIO%TYPE, PASS IN USUARIOS.PASSWORD%TYPE, idu out usuarios.usuario%type, idt out usuarios.TRABAJADORES_ID%type)
-AS
-NO_DATA_FOUND EXCEPTION;
-BEGIN
-SELECT usuario, TRABAJADORES_ID into idu, idt
-FROM usuarios
-WHERE usuario=user and PASSWORD=pass;
-EXCEPTION 
-WHEN NO_DATA_FOUND THEN
-   RAISE_APPLICATION_ERROR(-20002,'NO SE ENCUENTRAN REGISTROS.'); 
-END LOGIN;
-
---procidimento conducen 
-create or replace procedure cDetalle
-(fechao in CONDUCEN.FECHA%type, idt in CONDUCEN.TRABAJADORES_ID%type, 
-f out CONDUCEN.FECHA%type,
-m out VEHICULOS.MATRICULA%TYPE,
-n out trabajadores.nombre%type,
-idtt out trabajadores.id%type)
-as
-begin
-select  matricula, nombre into m, n
-from detalle where id=idt and fecha=fechao;
-end cDetalle;
-
 --paquete de vehiculos
 create or replace package pvehiculos
 as
@@ -369,6 +342,93 @@ WHEN TOO_MANY_ROWS THEN
 RAISE_APPLICATION_ERROR(-20002,'Se ha encontrado más de un registro por favor hable con el Administrador'); 
 end filtrarVehiculo;
 end pvehiculos;
+
+--procedimento de login
+create or replace PROCEDURE LOGIN
+(USER IN USUARIOS.USUARIO%TYPE, PASS IN USUARIOS.PASSWORD%TYPE, idu out usuarios.usuario%type, idt out usuarios.TRABAJADORES_ID%type)
+AS
+NO_DATA_FOUND EXCEPTION;
+BEGIN
+SELECT usuario, TRABAJADORES_ID into idu, idt
+FROM usuarios
+WHERE usuario=user and PASSWORD=pass;
+EXCEPTION 
+WHEN NO_DATA_FOUND THEN
+   RAISE_APPLICATION_ERROR(-20002,'NO SE ENCUENTRAN REGISTROS.'); 
+END LOGIN;
+
+--procidimento conducen 
+create or replace procedure cDetalle
+(fechao in CONDUCEN.FECHA%type, idt in CONDUCEN.TRABAJADORES_ID%type, 
+f out CONDUCEN.FECHA%type,
+m out VEHICULOS.MATRICULA%TYPE,
+n out trabajadores.nombre%type,
+idtt out trabajadores.id%type)
+as
+begin
+select  matricula, nombre into m, n
+from detalle where id=idt and fecha=fechao;
+end cDetalle;
+
+--procedimento notificacion.
+create or replace procedure notificacion
+(idc in USUARIOS.TRABAJADORES_ID%type, ida out avisos.id%type, av out AVISOS.AVISO%type, fe out AVISOS.FECHA_ID%type)
+as
+to_many_rows EXCEPTION;
+begin
+select id, aviso, FECHA_ID into ida, av, fe
+from avisos
+where trabajadores_id=idc and leido='NO';
+
+exception 
+when NO_DATA_FOUND then
+RAISE_APPLICATION_ERROR(-20001,'No se han encontrado registros');
+when to_many_rows then
+RAISE_APPLICATION_ERROR(-20002,'hay más de un registro por favor hable con Administración');
+end notificacion;
+
+--procedimento quien conduce que
+create or replace procedure cDetalle
+(fechao in CONDUCEN.FECHA%type, idt in CONDUCEN.TRABAJADORES_ID%type, 
+m out VEHICULOS.MATRICULA%TYPE,
+n out trabajadores.nombre%type)
+as
+begin
+select  matricula, nombre into m, n
+from detalle where id=idt and fecha=fechao;
+end cDetalle;
+
+--procedimento recuperar partes
+create or replace procedure recuperarParte
+(idt in TRABAJADORES.ID%type, 
+fe out PARTES.FECHA%type,
+kmi out PARTES.KMINICIAL%type,
+kmf out PARTES.KMFINAL%type,
+gp out PARTES.GASTOSPEAJE%type,
+gd out PARTES.GASTOSDIETAS%type,
+gc out PARTES.GASTOSCOMBUSTIBLE%type,
+og out PARTES.OTROSGASTOS%type,
+inc out PARTES.INCIDENCIAS%type,
+es out PARTES.ESTADO%type,
+va out PARTES.VALIDADO%type,
+hor out PARTES.HORASEXTRAS%type,
+idto  out PARTES.TRABAJADORES_ID%type,
+nota out PARTES.NOTASADMINISTRATIVAS%type
+)
+as
+begin
+
+select fecha, kminicial, kmfinal, nvl(gastospeaje,0), nvl(gastosdietas,0), nvl(gastoscombustible,0), nvl(otrosgastos,0), nvl(incidencias,''),estado, validado, nvl(horasextras,0), trabajadores_id,nvl(notasadministrativas,'No')
+into fe,kmi,kmf,gp,gd,gc,og,inc,es,va,hor,idto,nota
+from partes
+where TRABAJADORES_ID=idt and estado='ABIERTO';
+
+EXCEPTION WHEN
+NO_DATA_FOUND THEN NULL;
+
+end recuperarParte;
+
+
 
 
 
