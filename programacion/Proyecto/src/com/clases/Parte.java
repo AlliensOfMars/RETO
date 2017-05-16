@@ -98,6 +98,7 @@ public class Parte {
     public static Parte parte(BigDecimal idt) {
         Parte p = new Parte();
         Conexion.conectar();
+<<<<<<< Updated upstream
 
         try {
             CallableStatement cs = Conexion.getConexion().prepareCall("call recuperarParte(?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
@@ -150,6 +151,55 @@ public class Parte {
      */
     public static List<Parte> listarPartes() {
         List<Parte> partes = new ArrayList<>();
+=======
+<<<<<<< HEAD
+        
+            try {
+                CallableStatement cs = Conexion.getConexion().prepareCall("call recuperarParte(?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                
+                cs.setBigDecimal(1, idt);
+                
+                cs.registerOutParameter(2, OracleTypes.VARCHAR);
+                cs.registerOutParameter(3, OracleTypes.INTEGER);
+                cs.registerOutParameter(4, OracleTypes.INTEGER);
+                cs.registerOutParameter(5, OracleTypes.INTEGER);
+                cs.registerOutParameter(6, OracleTypes.INTEGER);
+                cs.registerOutParameter(7, OracleTypes.INTEGER);
+                cs.registerOutParameter(8, OracleTypes.INTEGER);
+                cs.registerOutParameter(9, OracleTypes.VARCHAR);
+                cs.registerOutParameter(10, OracleTypes.VARCHAR);
+                cs.registerOutParameter(11, OracleTypes.VARCHAR);
+                cs.registerOutParameter(12, OracleTypes.INTEGER);
+                cs.registerOutParameter(13, OracleTypes.INTEGER);
+                cs.registerOutParameter(14, OracleTypes.VARCHAR);
+                cs.execute();
+                
+                String fecha = cs.getString(2);
+                BigDecimal kmi = cs.getBigDecimal(3);
+                BigDecimal kmf = cs.getBigDecimal(4);
+                BigDecimal gp = cs.getBigDecimal(5);
+                BigDecimal gd = cs.getBigDecimal(6);
+                BigDecimal gc = cs.getBigDecimal(7);
+                BigDecimal og = cs.getBigDecimal(8);
+                String in=cs.getString(9);
+                String es = cs.getString(10);
+                String va = cs.getString(11);
+                BigDecimal ho = cs.getBigDecimal(12);
+                BigDecimal ift = cs.getBigDecimal(13);
+                String no = cs.getString(14);
+               p = new Parte(fecha, kmi, kmf, gp, gd, gc, og, in, es, va, ho, ift, no);    
+              cs.close();
+               Conexion.desconectar();
+                 return p;
+            } catch (SQLException ex) {
+                    
+            }    
+      return null;
+    }
+    
+    public static List<Parte> listarPartes(){
+        List <Parte> partes;
+>>>>>>> Stashed changes
         Conexion.conectar();
         String sql = "call ppartes.partesList (?)";
 
@@ -159,6 +209,174 @@ public class Parte {
             cs.execute();
 
             ResultSet rs = (ResultSet) cs.getObject(1);
+            while (rs.next()) {
+                Parte p = new Parte();
+                p.setFecha(rs.getString("fecha"));
+                p.setKmInicial(rs.getBigDecimal("kmInicial"));
+                p.setKmFinal(rs.getBigDecimal("kmFinal"));
+                p.setGastoPeaje(rs.getBigDecimal("gastosPeaje"));
+                p.setGastoDietas(rs.getBigDecimal("gastosDietas"));
+                p.setGastoCombustible(rs.getBigDecimal("gastosCombustible"));
+                p.setGastoVarios(rs.getBigDecimal("otrosGastos"));
+                p.setIncidencias(rs.getString("incidencias"));
+                p.setEstado(rs.getString("estado"));
+                p.setValidado(rs.getString("validado"));
+                p.setHorasExtras(rs.getBigDecimal("horasExtras"));
+                p.setIdTrabajador(rs.getBigDecimal("TRABAJADORES_ID"));
+                p.setNotasAdministrativas(rs.getString("notasAdministrativas"));
+                partes.add(p);
+            }
+<<<<<<< Updated upstream
+
+            rs.close();
+            cs.close();
+            Conexion.desconectar();
+            return partes;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "No se puede efectuar la conexión, hable con el administrador del sistema" + ex.getMessage());
+=======
+       
+        
+        
+        return partes;
+    }
+    
+    public boolean iniciarParte(){
+=======
+
+        try {
+            CallableStatement cs = Conexion.getConexion().prepareCall("call recuperarParte(?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+
+            cs.setBigDecimal(1, idt);
+
+            cs.registerOutParameter(2, OracleTypes.VARCHAR);
+            cs.registerOutParameter(3, OracleTypes.INTEGER);
+            cs.registerOutParameter(4, OracleTypes.INTEGER);
+            cs.registerOutParameter(5, OracleTypes.INTEGER);
+            cs.registerOutParameter(6, OracleTypes.INTEGER);
+            cs.registerOutParameter(7, OracleTypes.INTEGER);
+            cs.registerOutParameter(8, OracleTypes.INTEGER);
+            cs.registerOutParameter(9, OracleTypes.VARCHAR);
+            cs.registerOutParameter(10, OracleTypes.VARCHAR);
+            cs.registerOutParameter(11, OracleTypes.VARCHAR);
+            cs.registerOutParameter(12, OracleTypes.INTEGER);
+            cs.registerOutParameter(13, OracleTypes.INTEGER);
+            cs.registerOutParameter(14, OracleTypes.VARCHAR);
+            cs.execute();
+
+            String fecha = cs.getString(2);
+            BigDecimal kmi = cs.getBigDecimal(3);
+            BigDecimal kmf = cs.getBigDecimal(4);
+            BigDecimal gp = cs.getBigDecimal(5);
+            BigDecimal gd = cs.getBigDecimal(6);
+            BigDecimal gc = cs.getBigDecimal(7);
+            BigDecimal og = cs.getBigDecimal(8);
+            String in = cs.getString(9);
+            String es = cs.getString(10);
+            String va = cs.getString(11);
+            BigDecimal ho = cs.getBigDecimal(12);
+            BigDecimal ift = cs.getBigDecimal(13);
+            String no = cs.getString(14);
+            p = new Parte(fecha, kmi, kmf, gp, gd, gc, og, in, es, va, ho, ift, no);
+            cs.close();
+            Conexion.desconectar();
+            return p;
+        } catch (SQLException ex) {
+
+>>>>>>> Stashed changes
+        }
+        return null;
+    }
+
+    /**
+<<<<<<< Updated upstream
+     *
+     * Metodo para el listado de partes de un trabajador en un determinado rango
+     * de fechas, dicha información es recuperada por un cursor (desde la base
+     * datos), este metodo aparte recibe los parametros de busqueda que se van a
+     * utilizar en el procidimento de la base datos.
+     */
+    public static List<Parte> partesTFI(BigDecimal idT, String fechaIni, String fechaFin) {
+        List<Parte> partes = new ArrayList<>();
+        Conexion.conectar();
+        String sql = "call ppartes.partesTFI (?,?,?,?)";
+
+        try {
+            CallableStatement cs = Conexion.getConexion().prepareCall(sql);
+            cs.setBigDecimal(1, idT);
+            cs.setString(2, fechaIni);
+            cs.setString(3, fechaFin);
+            cs.registerOutParameter(4, OracleTypes.CURSOR);
+            cs.execute();
+
+            ResultSet rs = (ResultSet) cs.getObject(4);
+            while (rs.next()) {
+                Parte p = new Parte();
+                p.setFecha(rs.getString("fecha"));
+                p.setKmInicial(rs.getBigDecimal("kmInicial"));
+                p.setKmFinal(rs.getBigDecimal("kmFinal"));
+                p.setGastoPeaje(rs.getBigDecimal("gastosPeaje"));
+                p.setGastoDietas(rs.getBigDecimal("gastosDietas"));
+                p.setGastoCombustible(rs.getBigDecimal("gastosCombustible"));
+                p.setGastoVarios(rs.getBigDecimal("otrosGastos"));
+                p.setIncidencias(rs.getString("incidencias"));
+                p.setEstado(rs.getString("estado"));
+                p.setValidado(rs.getString("validado"));
+                p.setHorasExtras(rs.getBigDecimal("horasExtras"));
+                p.setIdTrabajador(rs.getBigDecimal("TRABAJADORES_ID"));
+                p.setNotasAdministrativas(rs.getString("notasAdministrativas"));
+                partes.add(p);
+            }
+
+            rs.close();
+            cs.close();
+            Conexion.desconectar();
+            return partes;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "No se puede efectuar la conexión, hable con el administrador del sistema" + ex.getMessage());
+        }
+        return null;
+    }
+
+    /**
+     * Metodo para el listado de partes en un determinado rango de fechas, dicha
+     * información es recuperada por un cursor (desde la base datos), este
+     * metodo aparte recibe los parametros de busqueda que se van a utilizar en
+     * el procidimento de la base datos.
+     */
+    public static List<Parte> partesTFF(String fechaIni, String fechaFin) {
+        List<Parte> partes = new ArrayList<>();
+        Conexion.conectar();
+        String sql = "call ppartes.partesTFF (?,?,?)";
+
+        try {
+            CallableStatement cs = Conexion.getConexion().prepareCall(sql);
+
+            cs.setString(1, fechaIni);
+            cs.setString(2, fechaFin);
+            cs.registerOutParameter(3, OracleTypes.CURSOR);
+            cs.execute();
+
+            ResultSet rs = (ResultSet) cs.getObject(3);
+=======
+     * Metodo utilizado para listar todos los partes existentes en nuestra base
+     * datos, dicho metodo recibe un cursor de partes (de la base de datos) y va
+     * almacenando esa información en un array que el cual se usa posteriormente
+     * para visualizar la información recuperada.
+     */
+    public static List<Parte> listarPartes() {
+        List<Parte> partes = new ArrayList<>();
+>>>>>>> master
+        Conexion.conectar();
+        String sql = "call ppartes.partesList (?)";
+
+        try {
+            CallableStatement cs = Conexion.getConexion().prepareCall(sql);
+            cs.registerOutParameter(1, OracleTypes.CURSOR);
+            cs.execute();
+
+            ResultSet rs = (ResultSet) cs.getObject(1);
+>>>>>>> Stashed changes
             while (rs.next()) {
                 Parte p = new Parte();
                 p.setFecha(rs.getString("fecha"));
@@ -189,6 +407,8 @@ public class Parte {
 
     /**
      *
+<<<<<<< Updated upstream
+=======
      * Metodo para el listado de partes de un trabajador en un determinado rango
      * de fechas, dicha información es recuperada por un cursor (desde la base
      * datos), este metodo aparte recibe los parametros de busqueda que se van a
@@ -286,6 +506,7 @@ public class Parte {
 
     /**
      *
+>>>>>>> Stashed changes
      * Metodo para el listado de partes cuyo su estado sea abierto, dicha
      * información es recuperada por un cursor (desde la base datos) y la
      * alamacena en un array que es lo que devolvemos al usuario.

@@ -270,7 +270,91 @@ public class PartesUd extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tPartes);
 
         jButton1.setText("Lista Partes Abiertos");
+<<<<<<< Updated upstream
         jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+=======
+<<<<<<< HEAD
+>>>>>>> Stashed changes
+
+        jButton2.setText("Lista Partes Cerrados");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+<<<<<<< Updated upstream
+        listarPartes.setText("Ver todos los partes");
+        listarPartes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listarPartesActionPerformed(evt);
+            }
+        });
+
+        bBuscarPartes.setText("Buscar Partes");
+        bBuscarPartes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bBuscarPartesActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("Id Trabajador: ");
+
+        uIdTrab.setPreferredSize(new java.awt.Dimension(6, 30));
+
+        jLabel9.setText("Fecha 1 : *");
+
+        jLabel10.setText("Fecha 2: * ");
+
+        jLabel11.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel11.setText("* Campos obligatorios");
+
+        jLabel12.setText("DATOS DEL PARTE:");
+
+        uPeaje.setEditable(false);
+
+        uDietas.setEditable(false);
+
+        uCombustible.setEditable(false);
+
+        uOtros.setEditable(false);
+
+        uIncidencias.setEditable(false);
+        uIncidencias.setColumns(20);
+        uIncidencias.setRows(5);
+        jScrollPane2.setViewportView(uIncidencias);
+
+        jLabel13.setText("GASTOS:");
+
+        jLabel14.setText("PEAJE");
+
+        jLabel15.setText("DIETAS");
+
+        jLabel16.setText("COMBUSTIBLE");
+
+        jLabel17.setText("OTROS");
+
+        jLabel18.setText("INCIDENCIAS");
+
+        uNotasAdministrativas.setColumns(20);
+        uNotasAdministrativas.setRows(5);
+        jScrollPane3.setViewportView(uNotasAdministrativas);
+
+        jLabel19.setText("NOTAS ADMINISTRATIVAS");
+
+        validar.setText("VALIDAR");
+        validar.addActionListener(new java.awt.event.ActionListener() {
+=======
+        jLabel4.setText("Fecha:");
+
+        uFecha1.addActionListener(new java.awt.event.ActionListener() {
+=======
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+>>>>>>> master
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
@@ -292,11 +376,30 @@ public class PartesUd extends javax.swing.JFrame {
 
         bBuscarPartes.setText("Buscar Partes");
         bBuscarPartes.addActionListener(new java.awt.event.ActionListener() {
+>>>>>>> Stashed changes
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bBuscarPartesActionPerformed(evt);
+                validarActionPerformed(evt);
             }
         });
 
+<<<<<<< Updated upstream
+        avisar.setText("AVISAR");
+        avisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                avisarActionPerformed(evt);
+            }
+        });
+
+        volver.setText("VOLVER");
+        volver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volverActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("TRABAJADOR:");
+
+=======
         jLabel8.setText("Id Trabajador: ");
 
         uIdTrab.setPreferredSize(new java.awt.Dimension(6, 30));
@@ -364,6 +467,7 @@ public class PartesUd extends javax.swing.JFrame {
 
         jLabel3.setText("TRABAJADOR:");
 
+>>>>>>> Stashed changes
         jLabel4.setText("MATRICULA VEHICULO:");
 
         uTrabajador.setEditable(false);
@@ -371,10 +475,17 @@ public class PartesUd extends javax.swing.JFrame {
         uMatricula.setEditable(false);
 
         jLabel5.setText("jLabel5");
+<<<<<<< Updated upstream
 
         viajes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
+=======
+
+        viajes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+>>>>>>> Stashed changes
             },
             new String [] {
                 "Albaran", "Hora Inicio", "Hora fin"
@@ -612,6 +723,105 @@ public class PartesUd extends javax.swing.JFrame {
      * evento que se ocupa de volver a listar todos los partes cerrados.
      */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+<<<<<<< Updated upstream
+=======
+
+        partesTFC();
+        limpiarFormulario();
+    }//GEN-LAST:event_jButton2ActionPerformed
+    /**
+     *
+     * Evento que se ocupa de la validacion del parte por parte de la
+     * administracion, antes de ser validado se le pregunta al usuario si
+     * realmente quiere hacer dicha validación y en caso de ser positiva se
+     * envia el objeto creado al metodo gestionParte.
+     */
+    private void validarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_validarActionPerformed
+        // TODO add your handling code here:
+        Parte p = new Parte(partes.get(index).getFecha(), partes.get(index).getIdTrabajador(), procesarCampo(uNotasAdministrativas));
+        if (!partes.get(index).getValidado().equalsIgnoreCase("si")) {
+            if (Administracion.gestionParte(p) == true) {
+                JOptionPane.showMessageDialog(null, "Parte validado correctamente.", "Validado", JOptionPane.INFORMATION_MESSAGE);
+                listarPartes();
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Este parte ya ha sido validado.", "Validado", JOptionPane.INFORMATION_MESSAGE);
+            listarPartes();
+            limpiarFormulario();
+        }
+
+    }//GEN-LAST:event_validarActionPerformed
+    /**
+     *
+     * Evento se ocupa de rellenar los campos del formulario con los datos de la
+     * tupla seleccionada.
+     */
+    private void tPartesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tPartesMouseClicked
+
+        index = tPartes.getSelectedRow();
+        uPeaje.setText(partes.get(index).getGastoPeaje().toString());
+        uDietas.setText(partes.get(index).getGastoDietas().toString());
+        uCombustible.setText(partes.get(index).getGastoCombustible().toString());
+        uOtros.setText(partes.get(index).getGastoVarios().toString());
+        uIncidencias.setText(partes.get(index).getIncidencias());
+        fecha = partes.get(index).getFecha();
+        idt = partes.get(index).getIdTrabajador();
+        uTrabajador.setText(Conducen.listar(idt, fecha).getNombret());
+        uMatricula.setText(Conducen.listar(idt, fecha).getMatricula());
+
+        listarViajes();
+
+        if (viaje.size() > 0) {
+            listarViajes2();
+        }
+
+    }//GEN-LAST:event_tPartesMouseClicked
+    /**
+     *
+     * Evento que se ocupa de mostrar un cuadro de texto para que el
+     * administrativo, pueda escribir un aviso al trabajador de logistica cuando
+     * este no ha cerrado un parte.
+     */
+    private void avisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avisarActionPerformed
+        String resultado = JOptionPane.showInputDialog(null, "Aviso", "Generar aviso", JOptionPane.YES_OPTION);
+        if (resultado != null) {
+            Aviso a = new Aviso(resultado, partes.get(index).getIdTrabajador(), partes.get(index).getFecha());
+            if (Administracion.gestionarAviso(a) == true) {
+                JOptionPane.showMessageDialog(null, "Aviso enviado correctamente.", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+            }
+            limpiarFormulario();
+        }
+    }//GEN-LAST:event_avisarActionPerformed
+
+    private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
+
+        administracion = new com.ventanas.Administracion();
+        administracion.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_volverActionPerformed
+
+    public void limpiarFormulario() {
+        uPeaje.setText("");
+        uDietas.setText("");
+        uCombustible.setText("");
+        uOtros.setText("");
+        uIncidencias.setText("");
+        uTrabajador.setText("");
+        uMatricula.setText("");
+    }
+
+    public String procesarCampo(JTextArea t) {
+
+        String cadena = "";
+
+        if (t.getText().equalsIgnoreCase("")) {
+            cadena = "No Procede";
+        } else {
+            cadena = t.getText();
+        }
+        return cadena;
+    }
+>>>>>>> Stashed changes
 
         partesTFC();
         limpiarFormulario();
