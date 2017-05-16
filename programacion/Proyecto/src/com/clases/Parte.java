@@ -151,9 +151,7 @@ public class Parte {
      */
     public static List<Parte> listarPartes() {
         List<Parte> partes = new ArrayList<>();
-=======
-<<<<<<< HEAD
-        
+
             try {
                 CallableStatement cs = Conexion.getConexion().prepareCall("call recuperarParte(?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
                 
