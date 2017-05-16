@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 public class AltaCentros extends javax.swing.JFrame {
 
     /**
-     * Creates new form AltaCentros
+     *Ventana de control de alta centro
      */
     public AltaCentros() {
         initComponents();
@@ -146,7 +146,14 @@ public class AltaCentros extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-//ESTO FUNCIONA
+
+    /*
+    En el evento del boton alta recojo los diferentes datos que han sido 
+    aprotados por el usuario. Creamos un objeto de tipo Centro, y llamamos al 
+    metodo gestionCentros (que esta en la clase Centros), le pasamos como
+    parametro el Centro que acabamos de generar, para su posterior inserción
+    en la base de datos.
+    */
     private void altaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altaActionPerformed
 
        

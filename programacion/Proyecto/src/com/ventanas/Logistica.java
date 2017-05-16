@@ -5,29 +5,33 @@
  */
 package com.ventanas;
 
-
 import com.clases.Trabajador;
 import java.math.BigDecimal;
 
-
-
 /**
  *
- * @author BE
+ * Panel de control de logistica.
  */
 public class Logistica extends javax.swing.JFrame {
-//para cargar ventana viajes
+
+    /**
+     * para cargar ventana seleccionarVehiculo.
+     */
     private SeleccionarVehiculo vehiculo;
-    
-private static BigDecimal idT = Login.idt;
-    
+    /**
+     *Variable que va almacenar la id del trabajador que obtenemos de la ventana
+     *login y que lo se utiliza para dar valor a las etiquetas nombre y apellido
+     *de la ventana.
+     */
+    private BigDecimal idT = Login.idt;
+
     public Logistica() {
         initComponents();
         Trabajador t = Trabajador.filtrarTrabajador2(idT);
         String nombre = t.getNombre();
         String apellido = t.getPrimerApellido();
         String etiqueta = nombre.toUpperCase().concat(" ").concat(apellido.toUpperCase());
-        jLabel2.setText(etiqueta);   
+        jLabel2.setText(etiqueta);
     }
 
     /**
@@ -86,10 +90,14 @@ private static BigDecimal idT = Login.idt;
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     *
+     * Evento que se encarga de abrir la ventana seleccionarVwhiculo.
+     */
     private void uInicioJornadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uInicioJornadaActionPerformed
 
-       vehiculo=new SeleccionarVehiculo();
-       vehiculo.setVisible(true);
+        vehiculo = new SeleccionarVehiculo();
+        vehiculo.setVisible(true);
     }//GEN-LAST:event_uInicioJornadaActionPerformed
 
     /**

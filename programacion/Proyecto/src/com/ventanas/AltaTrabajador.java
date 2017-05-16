@@ -42,7 +42,10 @@ public class AltaTrabajador extends javax.swing.JFrame {
         initComponents();
     }
 
-    //proceso para comprobar si el campo está vacío y cambiarlo por un null
+   /*
+    *Con este metodo obligamos que ha una insercion nula caso deje el campo 
+    *que tiene que ser pasado como BIGDECIMAL.
+    */
     public BigDecimal procesarCampo(JTextField t) {
         BigDecimal num = null;
 
@@ -378,7 +381,11 @@ public class AltaTrabajador extends javax.swing.JFrame {
     private void altaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altaActionPerformed
         String user;
         String password;
-
+        /*
+        Metodo para establecer la categoria del Trabajador que estamos dando de
+        alta
+        */
+        
         String ad = uCategoria.getSelectedItem().toString();
         if (ad.equalsIgnoreCase("Administración")) {
             ad = "administracion";
@@ -389,9 +396,14 @@ public class AltaTrabajador extends javax.swing.JFrame {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         String fecha = dateFormat.format(jDateChooser1.getDate());
 
-        //BigDecimal id = Trabajador.autoincremente();
-        // todo esto tiene que funcionar en las dos versiones el unico cambio que hay que hacer es en los dos constructores
-        //quitar el id de trabajador 
+        
+        /*
+        *Metodo que nos contruye un obejeto de la clase trabajador y lo inserta
+        *en sus diferentes clases (Administracion, Logistica), una vez creado el
+        *objeto se ejecuta la llamada al metodo altaTrabajador12, que nos 
+        *realizara la insercion de ese trabajador en la base de datos.
+        */
+        
         if (ad.equalsIgnoreCase("administracion")) {
             Trabajador t = new com.clases.Administracion(uDni.getText(), uNombre.getText(), uPrimerApellido.getText(), uSegundoApellido.getText(), ad,
                     uCalle.getText(), new BigDecimal(uNumero.getText()), procesarCampo(uPiso),

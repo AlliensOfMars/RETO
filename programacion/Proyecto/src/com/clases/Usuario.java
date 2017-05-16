@@ -8,7 +8,6 @@ package com.clases;
 import java.math.BigDecimal;
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
-
 import java.sql.SQLException;
 import java.util.Random;
 import java.util.logging.Level;
@@ -17,7 +16,8 @@ import javax.swing.JOptionPane;
 import oracle.jdbc.OracleTypes;
 
 /**
- clase para la insercion y generacion de nuevos usuarios y gestion del login
+ *
+ * clase para la insercion y generacion de nuevos usuarios y gestion del login.
  */
 public class Usuario {
 
@@ -41,14 +41,18 @@ public class Usuario {
         this.idt = idt;
     }
 
-  
-//metodo que se encarga en la gestion del login a  nuestra base datos
-   
-    public static Usuario log(String idUsuario, String password){
+    /**
+     *
+     * Metodo que se encarga en la gestion del login a nuestra base datos, el
+     * cual recibe idUsiario y password recogidos en la ventana login, estos dos
+     * parametros son utilizados para recuperar la informacion del trabajador de
+     * la base datos.
+     */
+    public static Usuario log(String idUsuario, String password) {
         Usuario usuario = new Usuario();
-        
+
         Conexion.conectar();
-        
+
         try {
             CallableStatement cs = Conexion.getConexion().prepareCall("{call LOGIN(?,?,?,?)}");
             cs.setString(1, idUsuario);
@@ -56,23 +60,28 @@ public class Usuario {
             cs.registerOutParameter(3, OracleTypes.VARCHAR);
             cs.registerOutParameter(4, OracleTypes.INTEGER);
             cs.execute();
-            
+
             cs.getString(3);
             cs.getBigDecimal(4);
-            
-            usuario = new Usuario (cs.getString(3), cs.getBigDecimal(4));
-            
+
+            usuario = new Usuario(cs.getString(3), cs.getBigDecimal(4));
+
             cs.close();
             Conexion.desconectar();
-             return usuario;
+            return usuario;
         } catch (SQLException ex) {
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return null;
     }
-    
-    //metodo que nos genera el nombre de usuario partiendo del nombre y apellido del trabajador que estamos dando de alta
+
+    /**
+     *
+     * Metodo que nos genera el nombre de usuario partiendo del nombre y
+     * apellido del trabajador que estamos dando de alta y nos devuelve una
+     * cadena de texto con el resultado obtenido.
+     */
     public static String user(String nombre, String apellido) {
 
         String name = nombre.replaceAll(" ", "");
@@ -81,7 +90,10 @@ public class Usuario {
         return user;
     }
 
-    //metodo que nos genera una contraseña para el usario que estamos dando de alta
+    /**
+     * Metodo que nos genera una contraseña para el usario que estamos dando de
+     * alta y nos devuelve la contraseña generada.
+     */
     public static String password() {
 
         String caracteres = "TRWAGMYFPDXBNJZSQVHLCKEtrwagmyfpdxbnjzsqvhlcke1234567890";
@@ -96,30 +108,32 @@ public class Usuario {
 
         return password1;
     }
-    
-    //metodo de dada de alta de usuario en nuestra base de datos
-    public boolean altaUsuario(String dni, String user, String password){
-        String ido="call idTrabajador(?,?)";
+
+    /**
+     * Metodo de dada de alta de usuario en nuestra base de datos.
+     */
+    public boolean altaUsuario(String dni, String user, String password) {
+        String ido = "call idTrabajador(?,?)";
         String insert = "insert into usuarios (usuario, password, TRABAJADORES_ID) values(?,?,?)";
-        
+
         try {
             Conexion.conectar();
             CallableStatement cs = Conexion.getConexion().prepareCall(ido);
             cs.setString(1, dni);
             cs.registerOutParameter(2, OracleTypes.INTEGER);
             cs.execute();
-            
+
             BigDecimal idu = cs.getBigDecimal(2);
-          
+
             cs.close();
             Conexion.desconectar();
-            
+
             Conexion.conectar();
             PreparedStatement smt = Conexion.getConexion().prepareStatement(insert);
             smt.setString(1, user);
             smt.setString(2, password);
             smt.setBigDecimal(3, idu);
-            
+
             smt.executeUpdate();
             smt.close();
             Conexion.desconectar();
@@ -127,7 +141,7 @@ public class Usuario {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "No se puede insertar el usuario" + ex.getMessage());
         }
-        
+
         return false;
     }
 
@@ -163,5 +177,4 @@ public class Usuario {
         this.idt = idt;
     }
 
- 
 }

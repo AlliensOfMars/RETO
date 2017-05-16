@@ -15,27 +15,28 @@ import javax.swing.JOptionPane;
  * @author bcastrof
  */
 public class Conexion {
-    
+
     private static Connection conexion;
- 
+
     public static Connection getConexion() {
         return conexion;
     }
-    
-    
+
+    /**
+     * Metodo que gestiona la conexion con la base datos.
+     */
     public static void conectar() {
-        try { 
+        try {
             //conexion curro
-          
+
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            String login="LOGISTICA";
-            String pass="deh74f5c";
-            String url="jdbc:oracle:thin:@localhost:1521:xe";
-            conexion= DriverManager.getConnection(url, login, pass);
+            String login = "LOGISTICA";
+            String pass = "deh74f5c";
+            String url = "jdbc:oracle:thin:@localhost:1521:xe";
+            conexion = DriverManager.getConnection(url, login, pass);
             conexion.setAutoCommit(true);
-            
+
             //conexion clase
-            
             /*
             Class.forName("oracle.jdbc.driver.OracleDriver");
             String login="noc03";
@@ -43,17 +44,16 @@ public class Conexion {
             String url="jdbc:oracle:thin:@SrvOracle:1521:orcl";
             conexion= DriverManager.getConnection(url, login, pass);*/
             conexion.setAutoCommit(true);
-            
-            
-        } catch (SQLException  | ClassNotFoundException ex) {
-            JOptionPane.showMessageDialog(null, "Ha ocurrido un problema \n"+ex.getMessage()); 
-           
+
+        } catch (SQLException | ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un problema \n" + ex.getMessage());
+
         }
     }
-    
-    public static void desconectar() throws SQLException{
+
+    public static void desconectar() throws SQLException {
         conexion.close();
-         
-}
-    
+
+    }
+
 }

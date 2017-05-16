@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
 import oracle.jdbc.OracleTypes;
 
 /**
+ *
  * clase creada para la gestion de centros, y listado de los mismos.
  */
 public class Centro {
@@ -35,11 +36,11 @@ public class Centro {
     //asociacion con trabajadores
     private List<Trabajador> trabajador = new ArrayList<>();
 
-    // public static DefaultTableModel model= (DefaultTableModel) gc.getjTable1().getModel();
     public Centro() {
     }
 
-    public Centro(String Nombre, String Calle, BigDecimal Numero, String Ciudad, BigDecimal CodigoPostal, String Provincia, BigDecimal Telefonos) {
+    public Centro(String Nombre, String Calle, BigDecimal Numero, String Ciudad,
+            BigDecimal CodigoPostal, String Provincia, BigDecimal Telefonos) {
         this.Nombre = Nombre;
         this.Calle = Calle;
         this.Numero = Numero;
@@ -49,7 +50,8 @@ public class Centro {
         this.Telefonos = Telefonos;
     }
 
-    public Centro(BigDecimal IDcent, String Nombre, String Calle, BigDecimal Numero, String Ciudad, BigDecimal CodigoPostal, String Provincia, BigDecimal Telefonos) {
+    public Centro(BigDecimal IDcent, String Nombre, String Calle, BigDecimal Numero, String Ciudad, BigDecimal CodigoPostal, String Provincia,
+            BigDecimal Telefonos) {
         this.IDcent = IDcent;
         this.Nombre = Nombre;
         this.Calle = Calle;
@@ -125,8 +127,10 @@ public class Centro {
     }
 
     //ESTO FUNCIONA 12C
-    /*
-    Metodo de creacion de centro y su respectica inserción en la base de datos
+    /**
+     *
+     * Metodo de creacion de centro y su respectiva inserción en la base de
+     * datos.
      */
     public boolean gestionCentros() {
         Conexion.conectar();
@@ -153,10 +157,12 @@ public class Centro {
 
     }
 
-    /*
-    metodo utilzado para le listado de centros, el cual realiza una llamada al paquete pcentros al procedimento centrosList 
-    y nos enseña todos los centros activos en ese momento 
-    */
+    /**
+     *
+     * metodo utilzado para le listado de centros, el cual realiza una llamada
+     * al paquete pcentros al procedimento centrosList y nos enseña todos los
+     * centros activos en ese momento.
+     */
     public static List<Centro> listarCentros() {
         List<Centro> centro = new ArrayList<>();
         try {
@@ -189,10 +195,13 @@ public class Centro {
         return centro;
     }
 
-  /*
-    metodo utilzado para recuperar un centro de la base datos, el cual realiza una llamada al paquete pcentros al procedimento centrosFi 
-    y nos devuelve el centro que buscamos, este filtrado se realiza por la id del centro
-    */
+    /**
+     *
+     * Metodo utilzado para recuperar un centro de la base datos, el cual
+     * realiza una llamada al paquete pcentros al procedimento centrosFi y nos
+     * devuelve el centro que buscamos, este filtrado se realiza por la id del
+     * centro.
+     */
     public static Centro centro(BigDecimal id) {
         Centro centro = new Centro();
 
@@ -230,10 +239,12 @@ public class Centro {
         return centro;
     }
 
-     /*
-    metodo utilzado para recuperar un centro de la base datos, el cual realiza una llamada al paquete pcentros al procedimento centrosFi 
-    y nos devuelve el centro que buscamos, este filtrado se realiza por el nombre del centro
-    */
+    /**
+     * Metodo utilzado para recuperar un centro de la base datos, el cual
+     * realiza una llamada al paquete pcentros al procedimento centrosFi y nos
+     * devuelve el centro que buscamos, este filtrado se realiza por el nombre
+     * del centro.
+     */
     public static Centro centroN(String name) {
         Centro centro = new Centro();
 
@@ -272,11 +283,12 @@ public class Centro {
         return null;
     }
 
-     /*
-    metodo utilzado para la modificacion un centro de la base datos, este metodo recibe la id del centro que queremos 
-    actualizar la informacion, dicha informacion es recogida en la ventana centrosUD
-    */
-    
+    /**
+     *
+     * Metodo utilzado para la modificacion un centro de la base datos, este
+     * metodo recibe la id del centro que queremos actualizar la informacion,
+     * dicha informacion es recogida en la ventana centrosUD.
+     */
     public boolean modificarCentro(BigDecimal id) {
 
         Conexion.conectar();
@@ -304,10 +316,12 @@ public class Centro {
         }
     }
 
-       /*
-    metodo utilzado para la baja de  un centro de la base datos, este metodo recibe la id del centro que queremos 
-    dar de baja, dicha informacion es recogida en la ventana centrosUD
-    */
+    /**
+     *
+     * Metodo utilzado para la baja de un centro de la base datos, este metodo
+     * recibe la id del centro que queremos dar de baja, dicha informacion es
+     * recogida en la ventana centrosUD.
+     */
     public static boolean bajaCenro(BigDecimal id) {
         try {
             Conexion.conectar();
